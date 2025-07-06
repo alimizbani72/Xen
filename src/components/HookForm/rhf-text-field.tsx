@@ -1,8 +1,7 @@
-import { IconButton, InputLabel, Stack } from '@mui/material'
+import { InputLabel, Stack } from '@mui/material'
 import type { TextFieldProps } from '@mui/material/TextField'
 import TextField from '@mui/material/TextField'
 import { Controller, useFormContext } from 'react-hook-form'
-import Icon from '../Icon'
 
 type Props = TextFieldProps & {
   name: string
@@ -48,7 +47,6 @@ export function RHFTextField({ name, id, label, helperText, type, isMoney, ignor
             error={!!error}
             helperText={ignoreErrorMessage || !error ? helperText : error?.message}
             {...other}
-            autoComplete="nope"
             slotProps={{
               input: {
                 inputComponent: 'input',
@@ -57,16 +55,6 @@ export function RHFTextField({ name, id, label, helperText, type, isMoney, ignor
                 endAdornment: (
                   <Stack direction="row" gap={1}>
                     {(other.slotProps?.input as any)?.endAdornment as any}
-                    {error && (
-                      <IconButton
-                        onClick={() => {
-                          setValue(name, '')
-                          resetField(name)
-                        }}
-                      >
-                        <Icon name="CloseIcon" />
-                      </IconButton>
-                    )}
                   </Stack>
                 ),
               },

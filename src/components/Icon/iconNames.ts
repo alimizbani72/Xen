@@ -28,5 +28,6 @@ export const iconNames = [
   'chevron-left',
   'logo',
   'menu',
+  'google',
 ] as const
 export type IconType = (typeof iconNames)[number]

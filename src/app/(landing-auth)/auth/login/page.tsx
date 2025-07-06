@@ -1,6 +1,6 @@
 'use client'
-import { Box } from '@mui/material'
+import LoginForm from '@/app/(landing-auth)/auth/login/_Section/LoginForm'
 
-export default function Home() {
-  return <Box color="red">login page</Box>
+export default function LoginPage() {
+  return <LoginForm />
 }

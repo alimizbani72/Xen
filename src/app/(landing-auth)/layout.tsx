@@ -5,6 +5,8 @@ import { MaterialProvider } from '@/provider/material/MaterialProvider'
 import { Box } from '@mui/material'
 import Header from '@/app/_components/Header'
 import FooterSection from '@/app/_components/Footer'
+import { headers } from 'next/headers'
+import { UAParser } from 'ua-parser-js'
 
 const poppins = Poppins({
   weight: '400',
@@ -17,15 +19,16 @@ export const metadata: Metadata = {
   description: 'Xen',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const headersList = await headers()
   return (
     <html lang="en" className={poppins.className}>
       <body>
-        <MaterialProvider>
+        <MaterialProvider deviceType={UAParser(headersList.get('user-agent') || '')?.device.type || 'desktop'}>
           <Box
             sx={{
               minHeight: '100dvh',
@@ -33,8 +36,18 @@ export default function RootLayout({
                 'linear-gradient(180deg, #010226 0%, #010315 100%),linear-gradient(180deg, #000946 0%, #040015 23.93%)',
             }}
           >
-            <Header />
-            {children}
+            <Box
+              position={'relative'}
+              sx={{
+                backgroundImage: 'url(/assets/svg/curve-background.svg)',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'top',
+                backgroundSize: 'cover',
+              }}
+            >
+              <Header />
+              {children}
+            </Box>
             <FooterSection />
           </Box>
         </MaterialProvider>

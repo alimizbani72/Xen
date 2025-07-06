@@ -95,7 +95,7 @@ const Header = () => {
               </ListItem>
             ))}
           </List>
-          <Button onClick={() => router?.push('/auth/signin')} sx={{ mx: 4 }}>
+          <Button onClick={() => router?.push('/auth/login')} sx={{ mx: 4 }}>
             Login
           </Button>
         </Stack>
