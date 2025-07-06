@@ -1,7 +1,8 @@
+import { Icon } from '@/components/Icon'
+import { IconType } from '@/components/Icon/iconNames'
 import { Button } from '@mui/material'
 import { ReactNode } from 'react'
-import { Icon } from '../Icon'
-import { IconType } from '../Icon/iconNames'
+
 type Props = {
   icon: IconType
   children?: ReactNode

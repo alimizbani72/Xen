@@ -16,6 +16,7 @@ const Header = () => {
   if (isTabletOrWeb)
     return (
       <Stack
+        direction="row"
         sx={{
           position: 'sticky',
           direction: 'row',
