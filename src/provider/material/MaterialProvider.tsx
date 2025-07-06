@@ -1,3 +1,4 @@
+'use client'
 import { CssBaseline } from '@mui/material'
 import { createTheme, ThemeOptions, ThemeProvider } from '@mui/material/styles'
 import { FC, PropsWithChildren, useMemo } from 'react'

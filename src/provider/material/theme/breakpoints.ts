@@ -4,8 +4,8 @@ const breakpoints: BreakpointsOptions = {
   values: {
     xs: 0,
     sm: 512,
-    md: 1128,
-    lg: 1600,
+    md: 768,
+    lg: 1280,
     xl: 1920,
   },
 }

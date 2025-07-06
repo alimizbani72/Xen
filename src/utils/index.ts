@@ -1,0 +1,1 @@
+export { getFontValue } from './getFontValue'
