@@ -1,19 +1,13 @@
 'use client'
 
 import { Icon } from '@/components/Icon'
+import { mainRoutes } from '@/constants/mainRoutes'
 import { getFontValue } from '@/utils'
-import { Box, Button, Drawer, IconButton, List, ListItem, ListItemButton, Stack, useMediaQuery } from '@mui/material'
+import { Box, Button, Drawer, List, ListItem, ListItemButton, Stack, useMediaQuery } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-
-const links = [
-  { title: 'Home', href: '/' },
-  { title: 'Pricing', href: '/pricing' },
-  { title: 'Download', href: '/download' },
-  { title: 'Referral & Resell', href: '/referral-resell' },
-]
 
 const Header = () => {
   const router = useRouter()
@@ -22,17 +16,6 @@ const Header = () => {
   if (isTabletOrWeb)
     return (
       <Stack
-        position="sticky"
-        direction="row"
-        maxWidth={1110}
-        width={'calc(100% - 32px)'}
-        border="1px solid #80839B"
-        borderRadius={50}
-        justifyContent="space-between"
-        alignItems="center"
-        top={50}
-        left="calc(50% - 555px)"
-        p={3}
         sx={{
           position: 'sticky',
           direction: 'row',
@@ -53,14 +36,14 @@ const Header = () => {
       >
         <Image src={'/assets/svg/logo.svg'} alt="Xen" width={83} height={41} />
         <Stack direction="row" spacing={7}>
-          {links?.map(link => (
+          {mainRoutes?.map(link => (
             <Box
               component={Link}
               href={link.href}
-              key={link.title}
+              key={link.label}
               sx={{ ...getFontValue(), color: '#fff', textDecoration: 'none' }}
             >
-              {link.title}
+              {link.label}
             </Box>
           ))}
         </Stack>
@@ -99,14 +82,14 @@ const Header = () => {
           justifyContent="space-between"
         >
           <List>
-            {links.map(link => (
-              <ListItem key={link.title}>
+            {mainRoutes.map(link => (
+              <ListItem key={link.label}>
                 <ListItemButton
                   LinkComponent={Link}
                   href={link.href}
                   sx={{ ...getFontValue(), color: '#fff', textDecoration: 'none' }}
                 >
-                  {link.title}
+                  {link.label}
                 </ListItemButton>
               </ListItem>
             ))}

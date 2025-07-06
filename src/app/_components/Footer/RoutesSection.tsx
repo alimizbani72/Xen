@@ -1,29 +1,32 @@
 'use client'
-import { mainRoutes } from '@/app/configs/mainRoutes'
+import { mainRoutes } from '@/constants/mainRoutes'
 import { usePathname } from 'next/navigation'
-import Link from '../Link'
+import { Box } from '@mui/material'
+import Link from 'next/link'
+import { getFontValue } from '@/utils'
 
 const RoutesSection = () => {
   const pathname = usePathname()
   return (
     <>
       {mainRoutes.map(route => (
-        <Link
+        <Box
+          component={Link}
           key={route.href}
           color={pathname === route.href ? 'white' : '#868686'}
           sx={{
-            fontWeight: 400,
+            ...getFontValue(16, 400),
             maxWidth: 100,
             overflowWrap: 'break-word',
+            textDecoration: 'none',
             '&:hover': {
               color: 'common.white',
             },
           }}
-          underline="none"
           href={route.href}
         >
           {route.label}
-        </Link>
+        </Box>
       ))}
     </>
   )

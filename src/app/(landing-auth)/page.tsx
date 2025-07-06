@@ -1,5 +1,4 @@
 'use client'
-import FooterSection from '@/components/Footer'
 import { Box } from '@mui/material'
 
 export default function Home() {
