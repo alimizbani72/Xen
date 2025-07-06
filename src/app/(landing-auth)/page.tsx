@@ -1,4 +1,5 @@
 'use client'
+import HomeSection from '@/home/_section'
 import { Box } from '@mui/material'
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <Box color="#fff">Go Fast. Stay Safe. Stay Xen.</Box>
       </Box>
       <Box color="#fff">Go Fast. Stay Safe. Stay Xen.</Box> */}
+      <HomeSection />
     </Box>
   )
 }
