@@ -4,6 +4,7 @@ import '../../../public/assets/global.css'
 import { MaterialProvider } from '@/provider/material/MaterialProvider'
 import { Box } from '@mui/material'
 import Header from '@/app/_components/Header'
+import FooterSection from '@/components/Footer'
 
 const poppins = Poppins({
   weight: '400',
@@ -34,6 +35,7 @@ export default function RootLayout({
           >
             <Header />
             {children}
+            <FooterSection />
           </Box>
         </MaterialProvider>
       </body>
