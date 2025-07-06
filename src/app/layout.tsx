@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import ClientLayout from '@/app/ClientLayout'
+import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import '../../public/global.css'
 
