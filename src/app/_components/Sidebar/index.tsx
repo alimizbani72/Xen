@@ -17,17 +17,19 @@ import {
 } from '@mui/material'
 import { signOut } from 'next-auth/react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const menus = [
-  { label: 'Home', icon: 'home' },
-  { label: 'Wallet', icon: 'wallet' },
-  { label: 'But Subscription', icon: 'subscription' },
-  { label: 'Referral & Resell', icon: 'refferal' },
-  { label: 'Settings', icon: 'setting' },
+  { label: 'Home', icon: 'home', href: '/dashboard' },
+  { label: 'Wallet', icon: 'wallet', href: '/wallet' },
+  { label: 'Buy Subscription', icon: 'subscription', href: '/subscription' },
+  { label: 'Referral & Resell', icon: 'refferal', href: '/referral' },
+  { label: 'Settings', icon: 'setting', href: '/settings' },
 ]
 
 const Sidebar = () => {
+  const pathname = usePathname()
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('lg'))
   const [openDrawer, setOpenDrawer] = useState(true)
   const open = isMobile ? false : openDrawer
@@ -54,9 +56,19 @@ const Sidebar = () => {
         <Divider sx={{ bgcolor: '#232246' }} />
         <Stack p={6} spacing={6}>
           {menus?.map(menu => (
-            <Stack key={menu.label} direction="row" spacing={4} justifyContent={open ? 'flex-start' : 'center'}>
-              <Icon name={menu.icon as IconType} color="#fff" />
-              {open && <Box sx={{ ...getFontValue(19, 500), color: '#fff' }}>{menu.label}</Box>}
+            <Stack
+              key={menu.label}
+              direction="row"
+              spacing={4}
+              justifyContent={open ? 'flex-start' : 'center'}
+              sx={{ cursor: 'pointer' }}
+            >
+              <Icon name={menu.icon as IconType} color={pathname === menu.href ? '#6B72FF' : 'white'} />
+              {open && (
+                <Box sx={{ ...getFontValue(19, 500) }} color={pathname === menu.href ? '#6B72FF' : 'white'}>
+                  {menu.label}
+                </Box>
+              )}
             </Stack>
           ))}
         </Stack>

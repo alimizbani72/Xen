@@ -16,7 +16,6 @@ const CustomButton = ({ icon, children, onClick }: Props) => {
       color="info"
       size="small"
       sx={{
-        width: '100%',
         bgcolor: '#000946',
         borderColor: '#9398FF',
         fontWeight: '400',

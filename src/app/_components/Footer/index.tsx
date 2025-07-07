@@ -1,10 +1,10 @@
 'use client'
+import { Icon } from '@/components/Icon'
+import { IconType } from '@/components/Icon/iconNames'
 import { socialIcons } from '@/constants/SocialIcons'
 import { IconButton, Stack, Typography } from '@mui/material'
 import CustomButton from './CustomButton'
 import RoutesSection from './RoutesSection'
-import { Icon } from '@/components/Icon'
-import { IconType } from '@/components/Icon/iconNames'
 
 const FooterSection = () => {
   return (

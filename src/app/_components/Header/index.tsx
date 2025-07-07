@@ -7,12 +7,13 @@ import { Box, Button, Drawer, List, ListItem, ListItemButton, Stack, useMediaQue
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 const Header = () => {
   const router = useRouter()
   const session = useSession()
+  const pathname = usePathname()
   const [openDrawer, setOpenDrawer] = useState(false)
   const isTabletOrWeb = useMediaQuery(theme => theme.breakpoints.up('md'))
   if (isTabletOrWeb)
@@ -44,7 +45,7 @@ const Header = () => {
               component={Link}
               href={link.href}
               key={link.label}
-              sx={{ ...getFontValue(), color: '#fff', textDecoration: 'none' }}
+              sx={{ ...getFontValue(), color: pathname === link.href ? 'white' : '#626585', textDecoration: 'none' }}
             >
               {link.label}
             </Box>

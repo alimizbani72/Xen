@@ -1,8 +1,9 @@
+'use client'
 import { Box, SxProps, Theme } from '@mui/material'
 import IcoMoon from 'react-icomoon'
 
-import iconSet from './selection.json'
 import { IconType } from '@/components/Icon/iconNames'
+import iconSet from './selection.json'
 
 type IconPropsType = {
   size?: number
