@@ -1,3 +1,4 @@
+'use client'
 import { GoogleSignin } from '@/app/(landing-auth)/auth/_components/GoogleSignin'
 import { OrDivider } from '@/app/(landing-auth)/auth/_components/OrDivider'
 import { RHFTextField } from '@/components/HookForm'
@@ -5,8 +6,11 @@ import FormProvider from '@/components/HookForm/form-provider'
 import { useYupValidationResolver } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack } from '@mui/material'
+import { signIn } from 'next-auth/react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
 
 let userSchema = yup.object({
@@ -15,13 +19,30 @@ let userSchema = yup.object({
 })
 
 const LoginForm = () => {
+  const router = useRouter()
   const resolver = useYupValidationResolver(userSchema)
   const methods = useForm({
     resolver,
     mode: 'onSubmit',
   })
-  const { handleSubmit } = methods
-  const onSubmit = handleSubmit(async data => {})
+
+  const {
+    handleSubmit,
+    formState: { isSubmitting },
+  } = methods
+  const onSubmit = handleSubmit(async data => {
+    const response = await signIn('SIGN_IN', {
+      email: data?.email,
+      password: data?.password,
+      redirect: false,
+    })
+
+    if (response?.ok) {
+      router.push('/dashboard')
+    } else {
+      toast.error('The Email or Password is incorrect.')
+    }
+  })
 
   return (
     <Stack maxWidth={468} width={'100%'}>
@@ -33,7 +54,7 @@ const LoginForm = () => {
           <RHFTextField name="email" label="Email" placeholder="Enter Your Mail" />
 
           <RHFTextField name="password" label="Password" placeholder="Enter Your Password" type="password" />
-          <Button color="secondary" type="submit" sx={{ my: 2 }}>
+          <Button color="secondary" type="submit" sx={{ my: 2 }} loading={isSubmitting}>
             Login
           </Button>
           <Box sx={{ ...getFontValue(16, 400), color: '#8F8F8F', textAlign: 'center' }}>

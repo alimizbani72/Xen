@@ -2,7 +2,7 @@ import { GoogleSignin } from '@/app/(landing-auth)/auth/_components/GoogleSignin
 import { RHFTextField } from '@/components/HookForm'
 import FormProvider from '@/components/HookForm/form-provider'
 import { Icon } from '@/components/Icon'
-import { useYupValidationResolver } from '@/hooks'
+import { useApiMutation, useYupValidationResolver } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack } from '@mui/material'
 import Link from 'next/link'
@@ -26,8 +26,22 @@ const RegisterForm = () => {
     resolver,
     mode: 'onSubmit',
   })
+
+  const { isPending, mutateAsync } = useApiMutation()
+
   const { handleSubmit } = methods
-  const onSubmit = handleSubmit(async data => {})
+  const onSubmit = handleSubmit(async data => {
+    mutateAsync({
+      url: 'http://185.207.106.81/auth/register',
+      method: 'POST',
+      data: {
+        username: data.username,
+        email: data.email,
+        password: data.password,
+        referal_code: data.referralCode,
+      },
+    })
+  })
 
   return (
     <Stack maxWidth={468} width={'100%'}>

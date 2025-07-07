@@ -4,6 +4,7 @@ import { Icon } from '@/components/Icon'
 import { mainRoutes } from '@/constants/mainRoutes'
 import { getFontValue } from '@/utils'
 import { Box, Button, Drawer, List, ListItem, ListItemButton, Stack, useMediaQuery } from '@mui/material'
+import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -11,6 +12,7 @@ import { useState } from 'react'
 
 const Header = () => {
   const router = useRouter()
+  const session = useSession()
   const [openDrawer, setOpenDrawer] = useState(false)
   const isTabletOrWeb = useMediaQuery(theme => theme.breakpoints.up('md'))
   if (isTabletOrWeb)
@@ -48,8 +50,12 @@ const Header = () => {
             </Box>
           ))}
         </Stack>
-        <Button size="small" sx={{ py: 3 }} onClick={() => router?.push('/auth/login')}>
-          Login
+        <Button
+          size="small"
+          sx={{ py: 3 }}
+          onClick={() => router?.push(session?.data?.token ? '/dashboard' : '/auth/login')}
+        >
+          {session?.data?.token ? 'Dashboard' : 'Login'}
         </Button>
       </Stack>
     )
@@ -95,8 +101,9 @@ const Header = () => {
               </ListItem>
             ))}
           </List>
-          <Button onClick={() => router?.push('/auth/login')} sx={{ mx: 4 }}>
-            Login
+
+          <Button sx={{ mx: 4 }} onClick={() => router?.push(session?.data?.token ? '/dashboard' : '/auth/login')}>
+            {session?.data?.token ? 'Dashboard' : 'Login'}
           </Button>
         </Stack>
       </Drawer>

@@ -1,6 +1,9 @@
 'use client'
-import { Box } from '@mui/material'
+import { Box, Stack } from '@mui/material'
+import { useSession } from 'next-auth/react'
 
 export default function Home() {
-  return <Box>Dashboard</Box>
+  const session = useSession()
+
+  return <Box sx={{ color: '#fff', p: 4 }}>Username: {session.data?.user?.username}</Box>
 }

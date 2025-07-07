@@ -1,44 +1,14 @@
-import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
-import '../../../public/assets/global.css'
-import { MaterialProvider } from '@/provider/material/MaterialProvider'
-import { Box } from '@mui/material'
-import Header from '@/app/_components/Header'
-import FooterSection from '@/app/_components/Footer'
+import Sidebar from '@/app/_components/Sidebar'
+import { Stack } from '@mui/material'
+import { PropsWithChildren } from 'react'
 
-const poppins = Poppins({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
-
-export const metadata: Metadata = {
-  title: 'Xen',
-  description: 'Xen',
-}
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default async function DashboardLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={poppins.className}>
-      <body>
-        <MaterialProvider>
-          <Box
-            sx={{
-              minHeight: '100dvh',
-              background:
-                'linear-gradient(180deg, #010226 0%, #010315 100%),linear-gradient(180deg, #000946 0%, #040015 23.93%)',
-            }}
-          >
-            <Header />
-            {children}
-            <FooterSection />
-          </Box>
-        </MaterialProvider>
-      </body>
-    </html>
+    <Stack direction="row" spacing={7} p={10}>
+      <Sidebar />
+      <Stack flex="1 1 auto" minWidth={0} border="1px solid #80839B" borderRadius={5}>
+        {children}
+      </Stack>
+    </Stack>
   )
 }

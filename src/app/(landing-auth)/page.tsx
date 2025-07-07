@@ -12,6 +12,7 @@ export default function Home() {
         <Box color="#fff">Go Fast. Stay Safe. Stay Xen.</Box>
       </Box>
       <Box color="#fff">Go Fast. Stay Safe. Stay Xen.</Box> */}
+
       <HomeSection />
     </Box>
   )
