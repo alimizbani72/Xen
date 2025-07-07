@@ -26,3 +26,25 @@ export const faqList = [
     answer: 'Absolutely! You can cancel your subscription at any time through your dashboard.',
   },
 ]
+export const plans = [
+  {
+    title: 'Best Value Plan',
+    duration: '6 Month',
+    price: '1.5 USDT',
+    total: '6 USDT Total',
+  },
+  {
+    title: 'Most Popular Plan',
+    duration: '3 Month',
+    price: '2.5 USDT',
+    total: '7.5 USDT Total',
+
+    isHighlighted: true,
+  },
+  {
+    title: 'Affordable Plan',
+    duration: '1 Month',
+    price: '3.5 USDT',
+    total: '3.5 USDT Total',
+  },
+]

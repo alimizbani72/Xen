@@ -10,7 +10,6 @@ const Moon = () => {
       width={'100%'}
       sx={{
         backgroundImage: 'url("/assets/png/123.png")',
-
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top',
       }}
