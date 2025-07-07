@@ -4,7 +4,7 @@ type MuiTextFieldType = Components['MuiTextField']
 
 const textField: MuiTextFieldType = {
   defaultProps: {
-    autoComplete: 'email',
+    autoComplete: 'off',
   },
   styleOverrides: {
     root: {

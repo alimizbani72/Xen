@@ -7,15 +7,25 @@ const TemplateAuthPage = ({
 }>) => {
   return (
     <Box
+      position={'relative'}
       sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        py: 37.5,
-        px: { xs: 5, sm: 0 },
+        backgroundImage: 'url(/assets/svg/curve-background.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
       }}
     >
-      {children}
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          py: 37.5,
+          px: { xs: 5, sm: 0 },
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   )
 }

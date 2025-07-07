@@ -36,18 +36,8 @@ export default async function RootLayout({
                 'linear-gradient(180deg, #010226 0%, #010315 100%),linear-gradient(180deg, #000946 0%, #040015 23.93%)',
             }}
           >
-            <Box
-              position={'relative'}
-              sx={{
-                backgroundImage: 'url(/assets/svg/curve-background.svg)',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'top',
-                backgroundSize: 'cover',
-              }}
-            >
-              <Header />
-              {children}
-            </Box>
+            <Header />
+            {children}
             <FooterSection />
           </Box>
         </MaterialProvider>
