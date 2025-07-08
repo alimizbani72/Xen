@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ReferralSection from './_section'
 
 export const metadata: Metadata = {
-  title: 'REferral & Resell',
+  title: 'Referral & Resell',
 }
 
 const ReferralPage = () => {
