@@ -3,11 +3,11 @@ import GridBackgroundAbsolute from '@/components/GridBackground'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 const Moon = () => {
-  const isTabletOrWeb = useMediaQuery(theme => theme.breakpoints.up('md'))
-  if (!isTabletOrWeb) {
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
+  if (isMobile) {
     return (
       <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
-        <Box component={'img'} src={'/assets/png/123.png'} width={'450px'} />
+        <Box component={'img'} src={'/assets/png/123.png'} width={'100%'} />
         <Box
           sx={{
             position: 'absolute',

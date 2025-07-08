@@ -17,18 +17,12 @@ const HomeSection = () => {
         alt="beyond"
         sx={{
           alignSelf: 'center',
-          width: { xs: '380px', sm: '500px', md: '900px', lg: 'unset' },
+          width: { xs: '100%', lg: 'unset' },
         }}
       />
       <Features />
       <Locations />
-      <Stack
-        mt={30}
-        sx={{
-          height: '700px',
-        }}
-        px={{ xs: 4, md: 'unset' }}
-      >
+      <Stack mt={30} px={{ xs: 4, md: 'unset' }}>
         <FaqSection />
       </Stack>
       <PhoneSection />
