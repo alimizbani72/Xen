@@ -57,37 +57,6 @@ const Features = () => {
               </Box>
             </Stack>
           ))}
-          {/* <Stack
-            sx={{
-              border: '2px solid rgba(24, 24, 92, 1)',
-              borderRadius: '30px',
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
-            <Box component="img" src="/assets/png/gaming-one.png" alt="gaming-one" />
-            <Box
-              sx={{
-                position: 'absolute',
-                top: '50%',
-                left: 0,
-                right: 0,
-                bottom: 0,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                textAlign: 'center',
-                px: 2,
-              }}
-              gap={2}
-            >
-              <Typography sx={{ ...getFontValue(24, 700), color: 'white' }}>Advanced Security</Typography>
-              <Typography sx={{ ...getFontValue(12, 400), color: '#9E9E9E', maxWidth: '190px' }}>
-                Protect your data with AES-256 encryption and a strict no-logs policy.
-              </Typography>
-            </Box>
-          </Stack> */}
         </Stack>
       </Stack>
     </Stack>

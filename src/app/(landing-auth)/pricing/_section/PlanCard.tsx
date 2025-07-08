@@ -1,5 +1,5 @@
 import { getFontValue } from '@/utils'
-import { Button, Divider, Stack, Typography } from '@mui/material'
+import { Box, Button, Divider, Stack, Typography } from '@mui/material'
 import FeatureLineItem from './FeatureLineItem'
 
 type Props = {
@@ -14,35 +14,47 @@ type Props = {
 const PlanCard = ({ title, duration, price, total, isHighlighted = false }: Props) => {
   return (
     <Stack
+      position={'relative'}
       sx={{
-        // position: 'relative',
         background: isHighlighted
-          ? 'linear-gradient(180deg, rgb(145, 56, 228) 0%, #06001D 22.22%, #06001D 80.37%,rgb(140, 47, 228) 100%)'
+          ? '#06001D'
           : 'linear-gradient(180deg, #0B0037 0%, #040015 33.22%, #040015 73.37%, #2E1A80 100%)',
         width: isHighlighted ? '378px' : '328px',
         height: isHighlighted ? '425px' : '369px',
         border: '2px solid #18185C',
         borderRadius: isHighlighted ? '35px' : '30px',
-        // overflow: 'hidden',
+        overflow: 'hidden',
       }}
     >
-      {/* {isHighlighted && (
-        <Box
-          component="img"
-          src="/assets/png/highlight.png"
-          alt="highlight"
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            width: '100%',
-            height: 'auto',
-            objectFit: 'contain',
-            pointerEvents: 'none',
-          }}
-        />
-      )} */}
+      {isHighlighted && (
+        <>
+          <Box
+            sx={{
+              background: 'radial-gradient(ellipse at center, #A054FC 0%, transparent 70%)',
+              width: { xs: '550px', md: '600px' },
+              height: '240px',
+              position: 'absolute',
+              left: '-144px',
+              top: '-144px',
+              filter: 'blur(10px)',
+              borderRadius: '240px',
+            }}
+          />
+          <Box
+            sx={{
+              background: 'radial-gradient(ellipse at center, #A054FC 0%, transparent 70%)',
+              width: { xs: '550px', md: '600px' },
+              height: '220px',
+              position: 'absolute',
+              left: '-144px',
+              borderRadius: '240px',
+              bottom: '-144px',
+              filter: 'blur(10px)',
+              zIndex: 0,
+            }}
+          />
+        </>
+      )}
       <Stack py={4} textAlign={'center'}>
         <Typography sx={{ ...getFontValue(14, 400), color: '#8F8F8F' }}>{title}</Typography>
         <Typography sx={{ ...getFontValue(isHighlighted ? 54 : 47.4, 700), color: 'white' }}>{duration}</Typography>

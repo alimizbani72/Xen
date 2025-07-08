@@ -3,6 +3,7 @@ import { Icon } from '@/components/Icon'
 import { IconType } from '@/components/Icon/iconNames'
 import { socialIcons } from '@/constants/SocialIcons'
 import { IconButton, Stack, Typography } from '@mui/material'
+import Image from 'next/image'
 import CustomButton from './CustomButton'
 import RoutesSection from './RoutesSection'
 
@@ -26,9 +27,7 @@ const FooterSection = () => {
         >
           {/* logo  */}
           <Stack spacing={8}>
-            <Stack alignItems={{ xs: 'center', md: 'unset' }}>
-              <Icon name="logo" size={60} color="white" />
-            </Stack>
+            <Image src={'/assets/svg/logo.svg'} alt="Xen" width={109} height={54} />
             <Stack spacing={4}>
               <CustomButton icon="googlePlay">Download From AppStore</CustomButton>
               <CustomButton icon="appStore">Download From Googleplay</CustomButton>

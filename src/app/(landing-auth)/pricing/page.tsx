@@ -1,4 +1,4 @@
-import PricingSection from './_components'
+import PricingSection from './_section'
 
 const PricingPage = () => {
   return <PricingSection />

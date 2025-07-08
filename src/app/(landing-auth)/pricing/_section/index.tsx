@@ -9,7 +9,7 @@ import PlanCard from './PlanCard'
 
 const PricingSection = () => {
   return (
-    <Box position={'relative'} pb={{ xs: 10, md: 40 }}>
+    <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2}>
       <DustBackground numParticles={60} />
       <GridBackgroundAbsolute />
       <Stack
@@ -35,12 +35,7 @@ const PricingSection = () => {
             Select Your Plan To Go
           </Typography>
         </Stack>
-        <Stack
-          direction={{ xs: 'column', md: 'row' }}
-          height={{ xs: 'unset', md: '425px' }}
-          alignItems={'center'}
-          spacing={7}
-        >
+        <Stack direction={{ xs: 'column', lg: 'row' }} alignItems={'center'} spacing={7}>
           {plans.map((plan, idx) => (
             <PlanCard key={idx} {...plan} />
           ))}
