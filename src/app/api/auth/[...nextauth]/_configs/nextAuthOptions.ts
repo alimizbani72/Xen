@@ -43,7 +43,14 @@ const nextAuthDefaultOptions = (): NextAuthOptions => {
           return session
         }
       },
+      async redirect({ url, baseUrl }) {
+        if (url.startsWith('/api/auth/error')) {
+          return baseUrl
+        }
+        return url
+      },
     },
+    pages: { error: '' },
     debug: false,
   }
   return defaultOptions
