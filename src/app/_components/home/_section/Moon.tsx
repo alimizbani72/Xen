@@ -93,7 +93,7 @@ const Moon = () => {
       <>
         <Box
           component="img"
-          src="/assets/png/fast.png"
+          src="/assets/png/Fast.png"
           alt="fast"
           sx={{
             position: 'absolute',
@@ -105,7 +105,7 @@ const Moon = () => {
 
         <Box
           component="img"
-          src="/assets/png/safe.png"
+          src="/assets/png/Safe.png"
           alt="safe"
           sx={{
             position: 'absolute',
