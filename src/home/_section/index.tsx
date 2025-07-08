@@ -8,7 +8,7 @@ import PhoneSection from './PhoneSection'
 const HomeSection = () => {
   return (
     <Stack>
-      <Stack pt={13} pb={10} sx={{ height: '700px' }}>
+      <Stack pt={13} pb={10} sx={{ height: { xs: 'unset', md: '700px' } }}>
         <Moon />
       </Stack>
       <Box

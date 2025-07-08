@@ -1,4 +1,9 @@
 export const iconNames = [
+  'xapp',
+  'arrow-down',
+  'user',
+  'dwonload',
+  'headphone',
   'chart',
   'home',
   'refferal',

@@ -41,7 +41,7 @@ const PricingSection = () => {
           ))}
         </Stack>
         <Stack direction={'row'} spacing={2}>
-          <Icon name="google" size={25} color="#8F8F8F" />
+          <Icon name="headphone" size={25} color="#8F8F8F" />
           <Typography sx={{ ...getFontValue(16, 400), color: '#8F8F8F' }}>Any Problem?</Typography>
 
           <Typography sx={{ ...getFontValue(16, 400), color: 'white', textDecoration: 'underline' }}>

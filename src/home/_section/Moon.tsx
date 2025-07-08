@@ -1,8 +1,69 @@
 'use client'
 import GridBackgroundAbsolute from '@/components/GridBackground'
+import { getFontValue } from '@/utils'
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 const Moon = () => {
   const isTabletOrWeb = useMediaQuery(theme => theme.breakpoints.up('md'))
+  if (!isTabletOrWeb) {
+    return (
+      <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
+        <Box component={'img'} src={'/assets/png/123.png'} width={'450px'} />
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '30%',
+            left: 0,
+            right: 0,
+            textAlign: 'center',
+            px: 2,
+          }}
+          gap={2}
+        >
+          <Stack spacing={2} alignItems="center">
+            <Typography
+              sx={{
+                ...getFontValue(24, 400),
+                textAlign: 'center',
+                color: 'white',
+              }}
+            >
+              XEN
+            </Typography>
+            <Stack spacing={3}>
+              <Typography
+                variant="body1"
+                color="white"
+                sx={{
+                  ...getFontValue(14, 300),
+                  textAlign: 'center',
+                }}
+              >
+                Go Fast. Stay Safe. Stay Xen.
+              </Typography>
+              <Button
+                size="small"
+                sx={{
+                  alignSelf: 'center',
+                }}
+              >
+                Get Started
+              </Button>
+              <Box
+                component="img"
+                src="/assets/png/mouse.png"
+                alt="mouse"
+                width={34}
+                height={34}
+                sx={{
+                  alignSelf: 'center',
+                }}
+              />
+            </Stack>
+          </Stack>
+        </Box>
+      </Stack>
+    )
+  }
   return (
     <Box
       position="relative"
@@ -28,35 +89,33 @@ const Moon = () => {
         }}
       /> */}
       <GridBackgroundAbsolute />
-      {isTabletOrWeb && (
-        <>
-          <Box
-            component="img"
-            src="/assets/png/fast.png"
-            alt="fast"
-            sx={{
-              position: 'absolute',
-              left: '30px',
-              top: 0,
-              height: 'auto',
-            }}
-          />
 
-          <Box
-            component="img"
-            src="/assets/png/safe.png"
-            alt="safe"
-            sx={{
-              position: 'absolute',
+      <>
+        <Box
+          component="img"
+          src="/assets/png/fast.png"
+          alt="fast"
+          sx={{
+            position: 'absolute',
+            left: '30px',
+            top: 0,
+            height: 'auto',
+          }}
+        />
 
-              right: '30px',
-              top: 0,
-              height: 'auto',
-            }}
-          />
-        </>
-      )}
+        <Box
+          component="img"
+          src="/assets/png/safe.png"
+          alt="safe"
+          sx={{
+            position: 'absolute',
 
+            right: '30px',
+            top: 0,
+            height: 'auto',
+          }}
+        />
+      </>
       <Box position="absolute" top={{ xs: '50%', md: '70%' }} left="50%" sx={{ transform: 'translate(-50%, -50%)' }}>
         <Stack spacing={2} alignItems="center">
           <Typography

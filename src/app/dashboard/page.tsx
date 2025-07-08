@@ -1,7 +1,10 @@
 'use client'
-import { Box, Stack } from '@mui/material'
+import { Box } from '@mui/material'
+import { Metadata } from 'next'
 import { useSession } from 'next-auth/react'
-
+export const metadata: Metadata = {
+  title: 'Dashboard',
+}
 export default function Home() {
   const session = useSession()
 

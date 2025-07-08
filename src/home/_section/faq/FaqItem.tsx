@@ -18,7 +18,7 @@ const FaqItem = ({ question, answer }: Props) => {
       }}
     >
       <AccordionSummary
-        expandIcon={<Icon name="arrow-right" color="white" size={16} />}
+        expandIcon={<Icon name="arrow-down" color="white" size={16} />}
         sx={{
           height: 72,
           '& .MuiAccordionSummary-content': {

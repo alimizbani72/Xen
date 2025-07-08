@@ -6,7 +6,7 @@ const Locations = () => {
   return (
     <Stack
       justifyContent={'flex-end'}
-      direction={{ xs: 'column', md: 'row' }}
+      direction={{ xs: 'column', lg: 'row' }}
       alignItems={'center'}
       maxWidth={'1262px'}
       m={'auto'}
@@ -16,9 +16,9 @@ const Locations = () => {
       <Stack
         spacing={5}
         maxWidth={'417px'}
-        pt={{ xs: 10, md: 'unset' }}
-        justifyContent={{ xs: 'center', md: 'unset' }}
-        alignItems={{ xs: 'center', md: 'unset' }}
+        pt={{ xs: 10, lg: 'unset' }}
+        justifyContent={{ xs: 'center', lg: 'unset' }}
+        alignItems={{ xs: 'center', lg: 'unset' }}
       >
         <Badge>Locations</Badge>
         <Typography sx={{ ...getFontValue(48, 300), color: 'white', textAlign: { xs: 'center', md: 'unset' } }}>

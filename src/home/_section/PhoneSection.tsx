@@ -9,7 +9,7 @@ const PhoneSection = () => {
       width={'100%'}
       maxWidth={'1262px'}
       m={'auto'}
-      direction={{ xs: 'column', md: 'row' }}
+      direction={{ xs: 'column', lg: 'row' }}
       justifyContent={'flex-end'}
       px={{ xs: 4, md: 'unset' }}
       alignItems={'center'}

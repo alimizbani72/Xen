@@ -27,7 +27,9 @@ const FooterSection = () => {
         >
           {/* logo  */}
           <Stack spacing={8}>
-            <Image src={'/assets/svg/logo.svg'} alt="Xen" width={109} height={54} />
+            <Stack alignItems={{ xs: 'center', md: 'unset' }}>
+              <Image src={'/assets/svg/logo.svg'} alt="Xen" width={109} height={54} />
+            </Stack>
             <Stack spacing={4}>
               <CustomButton icon="googlePlay">Download From AppStore</CustomButton>
               <CustomButton icon="appStore">Download From Googleplay</CustomButton>

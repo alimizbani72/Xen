@@ -61,10 +61,10 @@ const PlanCard = ({ title, duration, price, total, isHighlighted = false }: Prop
       </Stack>
       <Stack px={7} spacing={isHighlighted ? 5 : 2}>
         <Stack spacing={2}>
-          <FeatureLineItem icon="calculator" label="Unlimited User" />
-          <FeatureLineItem icon="export" label="Unlimited Traffic" />
+          <FeatureLineItem icon="user" label="Unlimited User" />
+          <FeatureLineItem icon="dwonload" label="Unlimited Traffic" />
         </Stack>
-        <Divider sx={{ border: '1px solid grey' }} orientation="horizontal" />
+        <Divider sx={{ bgcolor: '#232246' }} orientation="horizontal" />
         <Stack>
           <Typography sx={{ ...getFontValue(12, 400), color: '#8F8F8F', textAlign: 'center' }}>Price</Typography>
           <Stack direction={'row'} alignItems={'center'}>

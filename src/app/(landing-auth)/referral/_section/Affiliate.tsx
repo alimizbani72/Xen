@@ -1,7 +1,72 @@
+'use client'
 import GridBackgroundAbsolute from '@/components/GridBackground'
-import { Box, Button, Stack, Typography } from '@mui/material'
+import { getFontValue } from '@/utils'
+import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 
 const Affiliate = () => {
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
+  if (isMobile) {
+    return (
+      <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
+        <Box component={'img'} src={'/assets/png/affiliate.png'} width={'380px'} />
+        <Box
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: 0,
+            right: 0,
+            textAlign: 'center',
+            px: 2,
+          }}
+          gap={2}
+        >
+          <Stack spacing={2} alignItems="center">
+            <Typography
+              sx={{
+                ...getFontValue(20, 600),
+                textAlign: 'center',
+                color: 'white',
+              }}
+            >
+              Invite & Earn
+            </Typography>
+            <Stack spacing={2}>
+              <Typography
+                color="white"
+                sx={{
+                  ...getFontValue(12, 400),
+                  textAlign: 'center',
+                }}
+              >
+                Share the Freedom!
+              </Typography>
+              <Stack spacing={2}>
+                <Button
+                  size="small"
+                  color="secondary"
+                  sx={{
+                    alignSelf: 'center',
+                  }}
+                >
+                  Get Started
+                </Button>
+                <Box
+                  component="img"
+                  src="/assets/png/mouse.png"
+                  alt="mouse"
+                  width={34}
+                  height={34}
+                  sx={{
+                    alignSelf: 'center',
+                  }}
+                />
+              </Stack>
+            </Stack>
+          </Stack>
+        </Box>
+      </Stack>
+    )
+  }
   return (
     <Box
       position="relative"
