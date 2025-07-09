@@ -14,7 +14,14 @@ const Features = () => {
     >
       <Badge>Features</Badge>
       <Stack pt={3} spacing={10}>
-        <Typography sx={{ ...getFontValue(44, 500), color: 'white', textAlign: 'center' }}>
+        <Typography
+          sx={{
+            ...getFontValue({ xs: 20, md: 44 }, 500),
+            color: 'white',
+            textAlign: 'center',
+            fontSize: { xs: '20px', md: '44px' },
+          }}
+        >
           What Makes Xen Different?
         </Typography>
         <Stack direction={{ xs: 'column', md: 'row' }} spacing={12.5}>

@@ -3,18 +3,19 @@ import axios, { AxiosRequestConfig, Method } from 'axios'
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
+type UseQueryOptionsType = Omit<UseQueryOptions, 'queryKey'>
 // Query
 type ApiQueryOptions<T> = {
   url: string
   axiosConfig?: AxiosRequestConfig
-  queryOptions?: UseQueryOptions<T>
+  queryOptions?: Omit<UseQueryOptions<T>, 'queryKey'>
 }
 
 export function useApiQuery<T = any>({ url, axiosConfig, queryOptions }: ApiQueryOptions<T>) {
   return useQuery<T>({
-    queryKey: [baseUrl + url, axiosConfig?.params],
+    queryKey: [url, axiosConfig?.params],
     queryFn: async () => {
-      const response = await axios.get<T>(url, axiosConfig)
+      const response = await axios.get<T>(baseUrl + url, axiosConfig)
       return response.data
     },
     ...queryOptions,

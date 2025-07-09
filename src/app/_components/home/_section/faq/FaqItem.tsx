@@ -26,10 +26,10 @@ const FaqItem = ({ question, answer }: Props) => {
           },
         }}
       >
-        <Typography sx={{ ...getFontValue(20, 400), color: 'white' }}>{question}</Typography>
+        <Typography sx={{ ...getFontValue({ xs: 14, md: 20 }, 400), color: 'white' }}>{question}</Typography>
       </AccordionSummary>
       <AccordionDetails sx={{ pb: 5, px: 6 }}>
-        <Typography sx={{ ...getFontValue(20, 400), color: '#3D3D55' }}>{answer}</Typography>
+        <Typography sx={{ ...getFontValue({ xs: 14, md: 20 }, 400), color: '#3D3D55' }}>{answer}</Typography>
       </AccordionDetails>
     </Accordion>
   )

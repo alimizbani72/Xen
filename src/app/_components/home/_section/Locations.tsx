@@ -21,10 +21,14 @@ const Locations = () => {
         alignItems={{ xs: 'center', lg: 'unset' }}
       >
         <Badge>Locations</Badge>
-        <Typography sx={{ ...getFontValue(48, 300), color: 'white', textAlign: { xs: 'center', md: 'unset' } }}>
+        <Typography
+          sx={{ ...getFontValue({ xs: 20, md: 48 }, 300), color: 'white', textAlign: { xs: 'center', md: 'unset' } }}
+        >
           1 Subscription, 20 Locations!
         </Typography>
-        <Typography sx={{ ...getFontValue(20, 300), color: '#9E9E9E', textAlign: { xs: 'center', md: 'unset' } }}>
+        <Typography
+          sx={{ ...getFontValue({ xs: 14, md: 20 }, 300), color: '#9E9E9E', textAlign: { xs: 'center', md: 'unset' } }}
+        >
           Access high-speed servers in the USA, Germany, France, Japan, Canada & more!
         </Typography>
       </Stack>

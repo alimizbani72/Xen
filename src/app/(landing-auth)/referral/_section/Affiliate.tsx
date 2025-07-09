@@ -8,7 +8,7 @@ const Affiliate = () => {
   if (isMobile) {
     return (
       <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
-        <Box component={'img'} src={'/assets/png/affiliate.png'} width={'380px'} />
+        <Box component={'img'} src={'/assets/png/affiliate.png'} width={'100%'} />
         <Box
           sx={{
             position: 'absolute',

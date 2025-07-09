@@ -15,7 +15,9 @@ const PhoneSection = () => {
       alignItems={'center'}
     >
       <Stack maxWidth={'316px'} spacing={12}>
-        <Typography sx={{ ...getFontValue(64, 300), color: 'white', textAlign: { xs: 'center', md: 'unset' } }}>
+        <Typography
+          sx={{ ...getFontValue({ xs: 20, md: 64 }, 300), color: 'white', textAlign: { xs: 'center', md: 'unset' } }}
+        >
           Go Fast. Stay Safe. Stay Xen.
         </Typography>
         <Box

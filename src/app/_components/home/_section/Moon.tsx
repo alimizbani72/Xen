@@ -4,91 +4,157 @@ import { getFontValue } from '@/utils'
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 const Moon = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
-  if (isMobile) {
-    return (
-      <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
-        <Box component={'img'} src={'/assets/png/123.png'} width={'100%'} />
+  // if (isMobile) {
+  //   return (
+  //     <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
+  //       <Box component={'img'} src={'/assets/png/123.png'} width={'100%'} />
+  //       <Box
+  //         sx={{
+  //           position: 'absolute',
+  //           top: '30%',
+  //           left: 0,
+  //           right: 0,
+  //           textAlign: 'center',
+  //           px: 2,
+  //         }}
+  //         gap={2}
+  //       >
+  //         <Stack spacing={2} alignItems="center">
+  //           <Typography
+  //             sx={{
+  //               ...getFontValue(24, 400),
+  //               textAlign: 'center',
+  //               color: 'white',
+  //             }}
+  //           >
+  //             XEN
+  //           </Typography>
+  //           <Stack spacing={3}>
+  //             <Typography
+  //               variant="body1"
+  //               color="white"
+  //               sx={{
+  //                 ...getFontValue(14, 300),
+  //                 textAlign: 'center',
+  //               }}
+  //             >
+  //               Go Fast. Stay Safe. Stay Xen.
+  //             </Typography>
+  //             <Button
+  //               size="small"
+  //               sx={{
+  //                 alignSelf: 'center',
+  //               }}
+  //             >
+  //               Get Started
+  //             </Button>
+  //             <Box
+  //               component="img"
+  //               src="/assets/png/mouse.png"
+  //               alt="mouse"
+  //               width={34}
+  //               height={34}
+  //               sx={{
+  //                 alignSelf: 'center',
+  //               }}
+  //             />
+  //           </Stack>
+  //         </Stack>
+  //       </Box>
+  //     </Stack>
+  //   )
+  // }
+  return (
+    <Stack justifyContent={'center'} position="relative" maxWidth={1660} width="100%" height="100%" m="0 auto">
+      <GridBackgroundAbsolute />
+      <Box
+        sx={{
+          '::after': {
+            content: '""',
+            bgcolor: 'red',
+            height: 200,
+            width: '100%',
+          },
+        }}
+      >
         <Box
+          component={'img'}
+          src="/assets/png/123.png"
           sx={{
             position: 'absolute',
-            top: '30%',
+            top: 0,
             left: 0,
-            right: 0,
-            textAlign: 'center',
-            px: 2,
+            zIndex: -1,
+            width: '100%',
           }}
-          gap={2}
-        >
-          <Stack spacing={2} alignItems="center">
-            <Typography
-              sx={{
-                ...getFontValue(24, 400),
-                textAlign: 'center',
-                color: 'white',
-              }}
-            >
-              XEN
-            </Typography>
-            <Stack spacing={3}>
-              <Typography
-                variant="body1"
-                color="white"
-                sx={{
-                  ...getFontValue(14, 300),
-                  textAlign: 'center',
-                }}
-              >
-                Go Fast. Stay Safe. Stay Xen.
-              </Typography>
-              <Button
-                size="small"
-                sx={{
-                  alignSelf: 'center',
-                }}
-              >
-                Get Started
-              </Button>
-              <Box
-                component="img"
-                src="/assets/png/mouse.png"
-                alt="mouse"
-                width={34}
-                height={34}
-                sx={{
-                  alignSelf: 'center',
-                }}
-              />
-            </Stack>
-          </Stack>
-        </Box>
+        />
+      </Box>
+
+      <Stack spacing={2} alignItems="center" pt="12vw">
+        <Stack direction="row" justifyContent="center" gap={{ xl: '30%', md: '60%', lg: '38%', sm: '47%', xs: '64%' }}>
+          <Typography
+            sx={{
+              fontWeight: 400,
+              fontSize: { xs: '34px', sm: '62px', md: '82px', lg: '175px', xl: '258.14px' },
+              color: 'white',
+            }}
+          >
+            X
+          </Typography>
+          <Typography
+            sx={{
+              fontWeight: 400,
+              fontSize: { xs: '34px', sm: '62px', md: '82px', lg: '175px', xl: '258.14px' },
+              color: 'white',
+            }}
+          >
+            E
+          </Typography>
+          <Typography
+            sx={{
+              fontWeight: 400,
+              fontSize: { xs: '34px', sm: '62px', md: '82px', lg: '175px', xl: '258.14px' },
+              color: 'white',
+            }}
+          >
+            N
+          </Typography>
+        </Stack>
+        <Stack spacing={{ xs: 5, md: 13 }}>
+          <Typography
+            variant="body1"
+            color="white"
+            sx={{
+              fontWeight: 400,
+              fontStyle: 'regular',
+              fontSize: { xs: '9px', sm: '14px', md: '20px', lg: '33px', xl: '44px' },
+              lineHeight: 1,
+              letterSpacing: '0.03em',
+              textAlign: 'center',
+            }}
+          >
+            Go Fast. Stay Safe. Stay Xen.
+          </Typography>
+          <Button
+            size={isMobile ? 'small' : 'large'}
+            sx={{
+              alignSelf: 'center',
+            }}
+          >
+            Get Started
+          </Button>
+          <Box
+            component="img"
+            src="/assets/png/mouse.png"
+            alt="mouse"
+            width={54}
+            height={54}
+            sx={{
+              alignSelf: 'center',
+            }}
+          />
+        </Stack>
       </Stack>
-    )
-  }
-  return (
-    <Box
-      position="relative"
-      height={'100%'}
-      width={'100%'}
-      sx={{
-        backgroundImage: 'url("/assets/png/123.png")',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'top',
-      }}
-    >
-      {/* <Box
-        position="absolute"
-        bottom={0}
-        left="50%"
-        sx={{
-          transform: 'translateX(-50%)',
-          width: { xs: '90%', sm: '80%', md: '58%' }, // you can adjust these
-          height: { xs: '40%', md: '60%' },
-          background:
-            'linear-gradient(180deg, #010226 0%, #010315 100%),linear-gradient(180deg, #000946 0%, #040015 23.93%)',
-          borderRadius: '50%', // optional, for rounded edges
-        }}
-      /> */}
-      <GridBackgroundAbsolute />
 
       <>
         <Box
@@ -100,6 +166,7 @@ const Moon = () => {
             left: '30px',
             top: 0,
             height: 'auto',
+            display: { xs: 'none', lg: 'block' },
           }}
         />
 
@@ -109,64 +176,14 @@ const Moon = () => {
           alt="safe"
           sx={{
             position: 'absolute',
-
             right: '30px',
             top: 0,
             height: 'auto',
+            display: { xs: 'none', lg: 'block' },
           }}
         />
       </>
-      <Box position="absolute" top={{ xs: '50%', md: '70%' }} left="50%" sx={{ transform: 'translate(-50%, -50%)' }}>
-        <Stack spacing={2} alignItems="center">
-          <Typography
-            sx={{
-              fontWeight: 400,
-              fontSize: { xs: '64px', sm: '120px', md: '258.14px' },
-              lineHeight: 1,
-              letterSpacing: { xs: '0.05em', md: '0.24em' },
-              textAlign: 'center',
-              color: 'white',
-            }}
-          >
-            XEN
-          </Typography>
-          <Stack spacing={13}>
-            <Typography
-              variant="body1"
-              color="white"
-              sx={{
-                fontWeight: 400,
-                fontStyle: 'regular',
-                fontSize: { xs: '16px', sm: '20px', md: '28px' },
-                lineHeight: 1,
-                letterSpacing: '0.03em',
-                textAlign: 'center',
-              }}
-            >
-              Go Fast. Stay Safe. Stay Xen.
-            </Typography>
-            <Button
-              size="large"
-              sx={{
-                alignSelf: 'center',
-              }}
-            >
-              Get Started
-            </Button>
-            <Box
-              component="img"
-              src="/assets/png/mouse.png"
-              alt="mouse"
-              width={54}
-              height={54}
-              sx={{
-                alignSelf: 'center',
-              }}
-            />
-          </Stack>
-        </Stack>
-      </Box>
-    </Box>
+    </Stack>
   )
 }
 

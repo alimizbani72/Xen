@@ -26,7 +26,7 @@ const PricingSection = () => {
           <Badge>Price List</Badge>
           <Typography
             sx={{
-              ...getFontValue(48, 600),
+              ...getFontValue({ xs: 20, md: 48 }, 600),
               color: 'white',
               textAlign: { xs: 'center', md: 'unset' },
               px: { xs: 4, md: 'unset' },

@@ -10,6 +10,18 @@ import RoutesSection from './RoutesSection'
 const FooterSection = () => {
   return (
     <>
+      <Stack
+        alignItems="center"
+        sx={{
+          boxShadow: '0px 0px 100px 100px rgba(27,9,189,0.7)',
+        }}
+      >
+        <Stack
+          sx={{
+            boxShadow: '-1px -200px 400px 130px rgba(27,9,189,1)',
+          }}
+        />
+      </Stack>
       <Stack bgcolor={'#040015'} width={'100%'}>
         <Stack
           py={22.5}

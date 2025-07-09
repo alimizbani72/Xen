@@ -18,7 +18,7 @@ const FaqSection = () => {
     >
       <Stack justifyContent={'center'} alignItems={'center'} spacing={3} pb={9}>
         <Badge>FAQ</Badge>
-        <Typography sx={{ ...getFontValue(48, 600), color: 'white', textAlign: 'center' }}>
+        <Typography sx={{ ...getFontValue({ xs: 20, md: 48 }, 600), color: 'white', textAlign: 'center' }}>
           Frequently Asked Questions
         </Typography>
       </Stack>

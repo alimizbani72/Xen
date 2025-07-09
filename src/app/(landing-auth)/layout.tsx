@@ -1,7 +1,7 @@
 import FooterSection from '@/app/_components/Footer'
 import Header from '@/app/_components/Header'
 import { MaterialProvider } from '@/provider/material/MaterialProvider'
-import { Box } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import { headers } from 'next/headers'
