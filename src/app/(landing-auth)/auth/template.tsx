@@ -1,3 +1,4 @@
+import DustBackground from '@/components/DustBackground'
 import { Box } from '@mui/material'
 
 const TemplateAuthPage = ({
@@ -15,6 +16,7 @@ const TemplateAuthPage = ({
         backgroundSize: 'cover',
       }}
     >
+      <DustBackground />
       <Box
         sx={{
           display: 'flex',

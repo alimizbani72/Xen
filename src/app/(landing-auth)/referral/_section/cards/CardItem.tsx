@@ -37,12 +37,12 @@ const CardItem = ({ description, image, title }: CardItemProps) => {
           sx={{
             ...getFontValue(24, 700),
             color: 'white',
-            whiteSpace: 'pre-line',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
+            minHeight: 72,
           }}
         >
           {getTitleWithLineBreak(title, 3)}

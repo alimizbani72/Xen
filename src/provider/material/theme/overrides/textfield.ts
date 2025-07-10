@@ -16,6 +16,7 @@ const textField: MuiTextFieldType = {
       },
       '& input': {
         color: '#4750FF',
+        paddingLeft: '20px',
         '&::placeholder': {
           color: '#262C53',
         },

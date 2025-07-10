@@ -33,7 +33,6 @@ export const signINCredential = Credentials({
         email: credentials?.email,
         password: credentials?.password,
       })
-
       const userData = await axios.get(baseUrl + '/my/info', {
         headers: {
           'Content-Type': 'application/json',
@@ -46,9 +45,13 @@ export const signINCredential = Credentials({
         user: {
           email: userData?.data?.email,
           username: userData?.data?.username,
+          walletAmount: userData?.data?.wallet_amount,
+          referralCode: userData?.data?.referal_code,
+          used_referral_code: userData?.data?.used_referal_code,
         },
       }
     } catch (error) {
+      console.log('dddddd', error)
       throw Error('Error: ' + error)
     }
   },

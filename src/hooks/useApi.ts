@@ -1,9 +1,9 @@
+import { axiosInstance } from '@/utils'
 import { useQuery, UseQueryOptions, UseMutationOptions, useMutation } from '@tanstack/react-query'
-import axios, { AxiosRequestConfig, Method } from 'axios'
+import { AxiosRequestConfig, Method } from 'axios'
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-type UseQueryOptionsType = Omit<UseQueryOptions, 'queryKey'>
 // Query
 type ApiQueryOptions<T> = {
   url: string
@@ -15,7 +15,7 @@ export function useApiQuery<T = any>({ url, axiosConfig, queryOptions }: ApiQuer
   return useQuery<T>({
     queryKey: [url, axiosConfig?.params],
     queryFn: async () => {
-      const response = await axios.get<T>(baseUrl + url, axiosConfig)
+      const response = await axiosInstance.get<T>(url, axiosConfig)
       return response.data
     },
     ...queryOptions,
@@ -35,7 +35,7 @@ export function useApiMutation<TPayload = any, TResponse = any>(
 ) {
   return useMutation<TResponse, Error, MutationParams<TPayload>>({
     mutationFn: async ({ url, method = 'POST', data, config }) => {
-      const response = await axios.request<TResponse>({
+      const response = await axiosInstance.request<TResponse>({
         url: baseUrl + url,
         method,
         data,

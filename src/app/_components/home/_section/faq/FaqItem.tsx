@@ -24,6 +24,9 @@ const FaqItem = ({ question, answer }: Props) => {
           '& .MuiAccordionSummary-content': {
             pl: 5,
           },
+          '& .MuiAccordionSummary-expandIconWrapper': {
+            mr: 5,
+          },
         }}
       >
         <Typography sx={{ ...getFontValue({ xs: 14, md: 20 }, 400), color: 'white' }}>{question}</Typography>

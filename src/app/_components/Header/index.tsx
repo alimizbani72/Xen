@@ -73,17 +73,17 @@ const Header = () => {
         }}
         onClick={() => setOpenDrawer(true)}
       >
-        <Icon name="menu" size={40} />
+        <Icon name="menu" size={35} />
       </Box>
       <Drawer anchor={'left'} open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <Stack
           sx={{
             width: 250,
             height: '100%',
-            background:
-              'linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%, rgba(60, 54, 153, 0.9) 35%, rgba(0, 0, 0, 0.9) 100%)',
             pt: 4,
             pb: 8,
+            background:
+              'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(60, 54, 153, 1) 50%, rgba(0, 0, 0, 1) 100%)',
           }}
           role="presentation"
           onClick={() => setOpenDrawer(false)}
@@ -95,7 +95,7 @@ const Header = () => {
                 <ListItemButton
                   LinkComponent={Link}
                   href={link.href}
-                  sx={{ ...getFontValue(), color: '#fff', textDecoration: 'none' }}
+                  sx={{ ...getFontValue(16), color: '#fff', textDecoration: 'none' }}
                 >
                   {link.label}
                 </ListItemButton>

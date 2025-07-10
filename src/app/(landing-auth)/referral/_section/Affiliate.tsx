@@ -8,7 +8,7 @@ const Affiliate = () => {
   if (isMobile) {
     return (
       <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
-        <Box component={'img'} src={'/assets/png/affiliate.png'} width={'100%'} />
+        <Box component={'img'} src={'/assets/png/affiliate.png'} width={'100%'} sx={{ transform: 'scale(1.3)' }} />
         <Box
           sx={{
             position: 'absolute',
@@ -110,24 +110,7 @@ const Affiliate = () => {
                 size="large"
                 color="secondary"
                 sx={{
-                  position: 'relative',
                   alignSelf: 'center',
-                  zIndex: 1,
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    top: '-6px',
-                    left: '-10px',
-                    right: '-6px',
-                    bottom: '-6px',
-                    border: '1px solid transparent',
-                    borderRadius: '30px',
-                    borderImageSlice: 1,
-                    borderImageSource: 'linear-gradient(292.37deg, #8F8F8F 16.72%, rgba(143, 143, 143, 0) 63.57%)',
-                    zIndex: -1,
-                    pointerEvents: 'none',
-                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  },
                 }}
               >
                 Get Started

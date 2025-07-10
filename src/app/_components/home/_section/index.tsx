@@ -4,14 +4,17 @@ import Features from './Features'
 import Locations from './Locations'
 import Moon from './Moon'
 import PhoneSection from './PhoneSection'
+import Image from 'next/image'
 
 const HomeSection = () => {
   return (
     <Stack>
-      <Stack pt={13} pb={10}>
+      <Stack pt={13} pb={18}>
         <Moon />
       </Stack>
       <Box
+        component="a"
+        href="#download"
         sx={{
           alignSelf: 'center',
           maxWidth: 1015,
@@ -21,21 +24,17 @@ const HomeSection = () => {
           borderRadius: { xs: 3, md: 7.5 },
           borderWidth: { xs: '1px', md: '2px' },
           overflow: 'hidden',
+          width: 'calc(100% - 80px)',
+          maxHeight: 444,
+          aspectRatio: 2,
+          position: 'relative',
         }}
       >
-        <Box
-          component="img"
-          src="/assets/png/beyond.png"
-          alt="beyond"
-          sx={{
-            width: '100%',
-            alignSelf: 'center',
-          }}
-        />
+        <Image fill src="/assets/png/beyond.png" alt="beyond" />
       </Box>
       <Features />
       <Locations />
-      <Stack mt={30} px={{ xs: 4, md: 'unset' }}>
+      <Stack mt={30}>
         <FaqSection />
       </Stack>
       <PhoneSection />

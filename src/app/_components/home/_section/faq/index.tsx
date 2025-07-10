@@ -14,7 +14,10 @@ const FaqSection = () => {
         backgroundImage: 'url("/assets/png/effect.png")',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
+        backgroundSize: '100%',
+        py: 13,
       }}
+      px={{ xs: 4, md: 6, lg: 'unset' }}
     >
       <Stack justifyContent={'center'} alignItems={'center'} spacing={3} pb={9}>
         <Badge>FAQ</Badge>

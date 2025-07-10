@@ -11,6 +11,9 @@ declare module 'next-auth' {
     user: {
       username: string
       email: string
+      walletAmount: number
+      referralCode: string
+      used_referral_code: string
     }
   } & Omit<DefaultSession, 'user' | 'id'>
 
@@ -22,5 +25,8 @@ declare module 'next-auth/jwt' {
   interface JWT {
     username: string
     email: string
+    walletAmount: number
+    referralCode: string
+    used_referral_code: string
   }
 }

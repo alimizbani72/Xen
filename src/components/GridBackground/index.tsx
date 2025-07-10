@@ -1,11 +1,16 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
-export default function GridBackgroundAbsolute({ cell = 96, stroke = 1, color = 'rgba(255,255,255,0.04)' }) {
+export default function GridBackgroundAbsolute({
+  cell = 96,
+  stroke = 1,
+  color = 'rgba(255,255,255,0.04)',
+  zIndex = -1,
+}) {
   const ref = useRef<HTMLDivElement>(null)
 
-  const createBackground = () => {
+  const createBackground = useCallback(() => {
     const wrapper = ref.current
     if (!wrapper) return
     wrapper.innerHTML = ''
@@ -41,7 +46,7 @@ export default function GridBackgroundAbsolute({ cell = 96, stroke = 1, color = 
       `
       wrapper.appendChild(hLine)
     }
-  }
+  }, [cell, color, stroke])
 
   useEffect(() => {
     createBackground()
@@ -49,7 +54,7 @@ export default function GridBackgroundAbsolute({ cell = 96, stroke = 1, color = 
     if (window) window?.addEventListener('resize', createBackground)
 
     return () => window?.removeEventListener('resize', createBackground)
-  }, [cell, stroke, color])
+  }, [cell, stroke, color, createBackground])
 
   return (
     <>
@@ -60,7 +65,7 @@ export default function GridBackgroundAbsolute({ cell = 96, stroke = 1, color = 
           position: 'absolute',
           inset: 0,
           pointerEvents: 'none',
-          zIndex: -1,
+          zIndex,
         }}
       />
     </>

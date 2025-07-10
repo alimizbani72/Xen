@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Poppins, Syncopate } from 'next/font/google'
 import '../../public/assets/global.css'
 import { MaterialProvider } from '@/provider/material/MaterialProvider'
 import { Box } from '@mui/material'
@@ -7,6 +7,11 @@ import { headers } from 'next/headers'
 import { UAParser } from 'ua-parser-js'
 
 const poppins = Poppins({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+const syncopate = Syncopate({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
@@ -24,7 +29,7 @@ export default async function RootLayout({
 }>) {
   const headersList = await headers()
   return (
-    <html lang="en" className={poppins.className}>
+    <html lang="en" className={`${(poppins.className, syncopate.className)}`}>
       <body>
         <MaterialProvider deviceType={UAParser(headersList.get('user-agent') || '')?.device.type || 'desktop'}>
           <Box
