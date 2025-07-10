@@ -15,7 +15,7 @@ type IconPropsType = {
   onClick?: (event: React.MouseEvent) => void
 }
 
-const Icon = ({
+export const Icon = ({
   name,
   size = 24,
   onClick,
@@ -51,5 +51,3 @@ const Icon = ({
     </Box>
   )
 }
-
-export { Icon }
