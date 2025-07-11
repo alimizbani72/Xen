@@ -13,7 +13,7 @@ export default async function DashboardLayout({ children }: PropsWithChildren) {
         border={{ lg: '1px solid #80839B' }}
         borderRadius={5}
         height={{ lg: 'calc(100dvh - 80px)', xl: 'calc(100dvh - 184px)' }}
-        sx={{ scrollbarColor: { lg: '#262C53 #010225' }, scrollbarWidth: { lg: 'thin' } }}
+        sx={{ scrollbarWidth: 'none', '-ms-overflow-style': 'none', '&::-webkit-scrollbar': { display: 'none' } }}
         overflow="auto"
       >
         {children}
