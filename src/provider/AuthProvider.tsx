@@ -17,7 +17,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   const token = session?.data?.token
   useEffect(() => {
     if (pathname !== '/' && !publicRoutes.includes(pathname) && session?.status !== 'loading') {
-      if (!token && !pathname?.startsWith('/auth')) {
+      if (!token && pathname?.startsWith('/dashboard')) {
         redirect('/auth/login', RedirectType.replace)
       }
 

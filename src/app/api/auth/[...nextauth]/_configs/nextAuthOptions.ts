@@ -1,4 +1,4 @@
-import { createCustomerCredential, signINCredential } from '@/app/api/auth/[...nextauth]/_configs/authCredentials'
+import { signINCredential } from '@/app/api/auth/[...nextauth]/_configs/authCredentials'
 import { NextAuthOptions, Session } from 'next-auth'
 import { JWT } from 'next-auth/jwt'
 
@@ -12,7 +12,7 @@ export type AuthToken = {
 
 const nextAuthDefaultOptions = (): NextAuthOptions => {
   const defaultOptions: NextAuthOptions = {
-    providers: [signINCredential, createCustomerCredential],
+    providers: [signINCredential],
     session: {
       strategy: 'jwt',
     },

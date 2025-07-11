@@ -54,7 +54,7 @@ const LoginForm = () => {
           <RHFTextField name="email" label="Email" placeholder="Enter Your Mail" />
 
           <RHFTextField name="password" label="Password" placeholder="Enter Your Password" type="password" />
-          <Button color="secondary" type="submit" sx={{ my: 2 }} loading={isSubmitting}>
+          <Button color="secondary" type="submit" sx={{ my: 2 }} loading={isSubmitting} disabled={isSubmitting}>
             Login
           </Button>
           <Box sx={{ ...getFontValue(16, 400), color: '#8F8F8F', textAlign: 'center' }}>

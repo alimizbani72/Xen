@@ -22,7 +22,6 @@ export function RHFTextField({ name, id, label, helperText, type, isMoney, ignor
             <InputLabel
               sx={{
                 typography: 'body2-medium',
-                textTransform: 'uppercase',
                 color: 'common.white',
                 mb: 1,
               }}

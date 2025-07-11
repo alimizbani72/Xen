@@ -3,10 +3,13 @@ import { RHFTextField } from '@/components/HookForm'
 import FormProvider from '@/components/HookForm/form-provider'
 import { Icon } from '@/components/Icon'
 import { useApiMutation, useYupValidationResolver } from '@/hooks'
-import { getFontValue } from '@/utils'
+import { axiosInstance, getFontValue } from '@/utils'
 import { Box, Button, Stack } from '@mui/material'
+import axios from 'axios'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 import * as yup from 'yup'
 
 let userSchema = yup.object({
@@ -21,26 +24,39 @@ let userSchema = yup.object({
 })
 
 const RegisterForm = () => {
+  const router = useRouter()
   const resolver = useYupValidationResolver(userSchema)
   const methods = useForm({
     resolver,
     mode: 'onSubmit',
   })
 
-  const { isPending, mutateAsync } = useApiMutation()
+  const { mutateAsync } = useApiMutation()
 
-  const { handleSubmit } = methods
+  const {
+    handleSubmit,
+    formState: { isSubmitting },
+  } = methods
   const onSubmit = handleSubmit(async data => {
-    mutateAsync({
-      url: 'http://185.207.106.81/auth/register',
-      method: 'POST',
-      data: {
-        username: data.username,
-        email: data.email,
-        password: data.password,
-        referal_code: data.referralCode,
-      },
-    })
+    try {
+      const response = await mutateAsync({
+        url: '/auth/register',
+        method: 'POST',
+        data: {
+          username: data.username,
+          email: data.email,
+          password: data.password,
+          referal_code: data.referralCode,
+        },
+      })
+
+      if (!!response?.message) {
+        toast.success(response?.message)
+        router.push('/auth/login')
+      }
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message)
+    }
   })
 
   return (
@@ -101,7 +117,7 @@ const RegisterForm = () => {
             </Box>
             .
           </Box>
-          <Button color="secondary" type="submit">
+          <Button color="secondary" type="submit" loading={isSubmitting} disabled={isSubmitting}>
             Register
           </Button>
           <Box sx={{ ...getFontValue(16, 400), color: '#8F8F8F', textAlign: 'center' }}>
