@@ -3,7 +3,7 @@ import { ChartArea } from './ChartArea'
 
 export function ChartView() {
   return (
-    <Stack sx={{ border: '2px solid #262C53', m: 5, borderRadius: '20px', overflow: 'hidden' }}>
+    <Stack sx={{ border: '2px solid #262C53', borderRadius: '20px', overflow: 'hidden' }} width={'100%'}>
       <ChartArea
         chart={{
           categories: [

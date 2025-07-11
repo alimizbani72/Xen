@@ -1,5 +1,4 @@
 import Sidebar from '@/app/_components/Sidebar'
-import RiveComp from '@/components/RiveLoader'
 import { Stack } from '@mui/material'
 import { PropsWithChildren } from 'react'
 
