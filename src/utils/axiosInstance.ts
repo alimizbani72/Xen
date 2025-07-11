@@ -27,7 +27,7 @@ axiosInstance.interceptors.response.use(
   (error: AxiosError) => {
     console.log(error, typeof window !== 'undefined' && error.response?.status === 401)
     if (typeof window !== 'undefined' && error.response?.status === 401) {
-      signOut({ callbackUrl: '/auth/login' })
+      // signOut({ callbackUrl: '/auth/login' })
     }
     return Promise.reject(error)
   },
