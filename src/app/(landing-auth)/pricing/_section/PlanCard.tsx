@@ -1,17 +1,18 @@
 import { getFontValue } from '@/utils'
-import { Box, Button, Divider, Stack, Typography } from '@mui/material'
+import { Button, Divider, Stack, Typography } from '@mui/material'
 import FeatureLineItem from './FeatureLineItem'
 
 type Props = {
   title: string
   duration: string
   price: string
-
   total: string
   isHighlighted?: boolean
+  btnText?: string
+  onClick?: VoidFunction
 }
 
-const PlanCard = ({ title, duration, price, total, isHighlighted = false }: Props) => {
+const PlanCard = ({ title, duration, price, total, onClick, btnText = 'Purchase', isHighlighted = false }: Props) => {
   return (
     <Stack
       position={'relative'}
@@ -53,7 +54,9 @@ const PlanCard = ({ title, duration, price, total, isHighlighted = false }: Prop
           </Stack>
           <Typography sx={{ ...getFontValue(14, 400), color: 'white', textAlign: 'center' }}>{total}</Typography>
         </Stack>
-        <Button size="small">Purchase</Button>
+        <Button size="small" onClick={onClick}>
+          {btnText}
+        </Button>
       </Stack>
     </Stack>
   )

@@ -9,16 +9,20 @@ export default function Home() {
   return (
     <Stack
       sx={{
-        px: 4,
+        px: 8,
+        pb: 4,
       }}
-      gap={7}
     >
-      <BreadCrumbs items={breadCrumbsItems} />
-      <Stack direction={{ xs: 'column', lg: 'row' }} spacing={5} width={'100%'}>
-        <SubscriptionSection />
-        <ChartView />
+      <Stack pb={3}>
+        <BreadCrumbs items={breadCrumbsItems} />
       </Stack>
-      <Table />
+      <Stack gap={7}>
+        <Stack direction={{ xs: 'column', lg: 'row' }} spacing={5} width={'100%'}>
+          <SubscriptionSection />
+          <ChartView />
+        </Stack>
+        <Table />
+      </Stack>
     </Stack>
   )
 }

@@ -59,7 +59,7 @@ const CustomTable = ({
           'linear-gradient(0deg, #130F30, #130F30), radial-gradient(64.87% 78.7% at 90.6% -18.1%, #1D1558 0%, #130F30 100%);',
         width: width ?? '100%',
         overflow: 'hidden',
-        height: '461px',
+        height: totalCount > 5 ? '461px' : 'unset',
       }}
     >
       {hasTitle && (

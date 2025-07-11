@@ -1,18 +1,17 @@
 import Badge from '@/app/_components/Badge'
+import { RiveFooter } from '@/app/_components/RiveFooter'
 import DustBackground from '@/components/DustBackground'
-import GridBackgroundAbsolute from '@/components/GridBackground'
 import { Icon } from '@/components/Icon'
 import { plans } from '@/Mock'
 import { getFontValue } from '@/utils'
 import { Box, Stack, Typography } from '@mui/material'
 import PlanCard from './PlanCard'
-import { RiveFooter } from '@/app/_components/RiveFooter'
 
 const PricingSection = () => {
   return (
     <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2} overflow="hidden">
-      <DustBackground numParticles={60} />
-      <GridBackgroundAbsolute />
+      <DustBackground numParticles={220} />
+      {/* <GridBackgroundAbsolute /> */}
       <Stack
         pt={30}
         spacing={10}
@@ -51,7 +50,7 @@ const PricingSection = () => {
           </Typography>
         </Stack>
       </Stack>
-      <RiveFooter />
+      <RiveFooter height={300} />
     </Box>
   )
 }

@@ -1,12 +1,16 @@
 import { getFontValue } from '@/utils'
-import { Box, Typography } from '@mui/material'
+import { Box, SxProps, Typography } from '@mui/material'
 import { PropsWithChildren } from 'react'
-
-const Badge = ({ children }: PropsWithChildren) => {
+type Props = {
+  color?: string
+  sx?: SxProps
+} & PropsWithChildren
+const Badge = ({ children, color = '#9398FF', sx }: Props) => {
   return (
     <Box
       sx={{
-        border: '0.5px solid #9398FF',
+        border: '0.5px solid',
+        borderColor: color,
         px: 3.7,
         py: 1.6,
         width: 'fit-content',
@@ -15,7 +19,7 @@ const Badge = ({ children }: PropsWithChildren) => {
         background: 'linear-gradient(180deg, rgba(0, 9, 70, 0) 0%, #000946 100%); ',
       }}
     >
-      <Typography sx={{ ...getFontValue(12.5, 400), color: '#9398FF' }}>{children}</Typography>
+      <Typography sx={{ ...getFontValue(12.5, 400), color, ...(sx || {}) }}>{children}</Typography>
     </Box>
   )
 }

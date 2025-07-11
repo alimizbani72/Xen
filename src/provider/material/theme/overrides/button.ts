@@ -22,6 +22,9 @@ const button: MuiButtonType = {
       color: '#ffffff',
       borderRadius: 50,
       boxShadow: 'unset',
+      '&:hover': {
+        background: 'linear-gradient(90deg, #5C63E6 0%, #AAB5FF 100%)',
+      },
     },
     textInfo: {
       backgroundColor: 'transparent',

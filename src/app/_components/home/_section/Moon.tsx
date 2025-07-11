@@ -1,73 +1,13 @@
 'use client'
 import GridBackgroundAbsolute from '@/components/GridBackground'
-import { getFontValue } from '@/utils'
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
 import Image from 'next/image'
 const Moon = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
-  // if (isMobile) {
-  //   return (
-  //     <Stack position={'relative'} justifyContent={'center'} alignItems={'center'}>
-  //       <Box component={'img'} src={'/assets/png/123.png'} width={'100%'} />
-  //       <Box
-  //         sx={{
-  //           position: 'absolute',
-  //           top: '30%',
-  //           left: 0,
-  //           right: 0,
-  //           textAlign: 'center',
-  //           px: 2,
-  //         }}
-  //         gap={2}
-  //       >
-  //         <Stack spacing={2} alignItems="center">
-  //           <Typography
-  //             sx={{
-  //               ...getFontValue(24, 400),
-  //               textAlign: 'center',
-  //               color: 'white',
-  //             }}
-  //           >
-  //             XEN
-  //           </Typography>
-  //           <Stack spacing={3}>
-  //             <Typography
-  //               variant="body1"
-  //               color="white"
-  //               sx={{
-  //                 ...getFontValue(14, 300),
-  //                 textAlign: 'center',
-  //               }}
-  //             >
-  //               Go Fast. Stay Safe. Stay Xen.
-  //             </Typography>
-  //             <Button
-  //               size="small"
-  //               sx={{
-  //                 alignSelf: 'center',
-  //               }}
-  //             >
-  //               Get Started
-  //             </Button>
-  //             <Box
-  //               component="img"
-  //               src="/assets/png/mouse.png"
-  //               alt="mouse"
-  //               width={34}
-  //               height={34}
-  //               sx={{
-  //                 alignSelf: 'center',
-  //               }}
-  //             />
-  //           </Stack>
-  //         </Stack>
-  //       </Box>
-  //     </Stack>
-  //   )
-  // }
+
   return (
     <Stack justifyContent={'center'} position="relative" width="100%" height="100%">
-      <GridBackgroundAbsolute zIndex={0} />
+      <GridBackgroundAbsolute zIndex={-1} />
       <Box position="relative" maxWidth={1660} width="100%" height="100%" m="0 auto" zIndex={-1}>
         <Image
           src="/assets/png/123.png"

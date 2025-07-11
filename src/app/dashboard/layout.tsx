@@ -13,7 +13,12 @@ export default async function DashboardLayout({ children }: PropsWithChildren) {
         border={{ lg: '1px solid #80839B' }}
         borderRadius={5}
         height={{ lg: 'calc(100dvh - 80px)', xxl: 'calc(100dvh - 184px)' }}
-        sx={{ scrollbarWidth: 'none', '-ms-overflow-style': 'none', '&::-webkit-scrollbar': { display: 'none' } }}
+        sx={{
+          scrollbarWidth: 'none',
+          '-ms-overflow-style': 'none',
+          '&::-webkit-scrollbar': { display: 'none' },
+          background: 'linear-gradient(187.72deg, rgba(60, 54, 153, 0.2) 0%, rgba(0, 0, 0, 0.2) 88.51%);',
+        }}
         overflow="auto"
       >
         {children}

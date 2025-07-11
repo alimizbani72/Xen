@@ -7,7 +7,7 @@ import { Box } from '@mui/material'
 export default function Home() {
   return (
     <Box position={'relative'}>
-      <DustBackground numParticles={200} />
+      <DustBackground numParticles={220} />
       <HomeSection />
       <RiveFooter />
     </Box>

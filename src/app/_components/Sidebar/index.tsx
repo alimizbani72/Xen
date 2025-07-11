@@ -32,7 +32,12 @@ const Sidebar = () => {
   const renderContent = () => {
     return (
       <>
-        <Box>
+        <Box
+          sx={{
+            background: 'linear-gradient(187.72deg, rgba(60, 54, 153, 0.2) 0%, rgba(0, 0, 0, 0.2) 88.51%);',
+            borderRadius: 5,
+          }}
+        >
           <Box p={{ xs: 3, md: 6 }} onClick={() => setOpenDrawer(!openDrawer)} sx={{ cursor: 'pointer' }}>
             <Image src={'/assets/svg/logo.svg'} width={openDrawer ? 90 : 40} height={45} alt="Xen" />
           </Box>
@@ -68,7 +73,9 @@ const Sidebar = () => {
             spacing={2}
           >
             <Stack direction="row" spacing={3}>
-              <Avatar sx={{ width: 50, height: 50 }}>{data?.username?.slice(0, 1).toUpperCase()}</Avatar>
+              <Avatar sx={{ width: 50, height: 50, bgcolor: '#31315C', color: 'white' }}>
+                {data?.username?.charAt(0).toUpperCase()}
+              </Avatar>
               {openDrawer && (
                 <Stack>
                   <Box sx={{ ...getFontValue(19, 500), color: '#fff' }}>{data?.username || 'Username'} </Box>
