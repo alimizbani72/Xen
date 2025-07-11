@@ -93,6 +93,54 @@ export const resell = [
     description: 'Distribute, resell, or use for business security!',
   },
 ]
+
+export const walletHistory = [
+  {
+    id: 1,
+    date: '2025/04/01 22:30',
+    price: '9$',
+    type: 'Deposit',
+    paymentMethod: 'Crypto - TRC20',
+    status: 'success',
+    transactionCode: '1x213hy423u81283b23b84ib23b4293b',
+  },
+  {
+    id: 2,
+    date: '2025/04/01 22:30',
+    price: '9$',
+    type: 'Withdraw',
+    paymentMethod: 'Crypto - TRC20',
+    status: 'success',
+    transactionCode: '1x213hy423u81283b23b84ib23b4293b',
+  },
+  {
+    id: 3,
+    date: '2025/04/01 22:30',
+    price: '9$',
+    type: 'Direct Pay',
+    paymentMethod: 'Crypto - TRC20',
+    status: 'success',
+    transactionCode: '1x213hy423u81283b23b84ib23b4293b',
+  },
+  {
+    id: 4,
+    date: '2025/04/01 22:30',
+    price: '9$',
+    type: 'Deposit',
+    paymentMethod: 'Crypto - TRC20',
+    status: 'success',
+    transactionCode: '1x213hy423u81283b23b84ib23b4293b',
+  },
+  {
+    id: 5,
+    date: '2025/04/01 22:30',
+    price: '9$',
+    type: 'Deposit',
+    paymentMethod: 'Crypto - TRC20',
+    status: 'success',
+    transactionCode: '1x213hy423u81283b23b84ib23b4293b',
+  },
+]
 export const purchaseHistory = [
   {
     id: 1,

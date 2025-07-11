@@ -1,7 +1,7 @@
 'use client'
 import CustomTable from '@/app/_components/CustomTable'
 import { Icon } from '@/components/Icon'
-import { purchaseHistory } from '@/Mock'
+import { walletHistory } from '@/Mock'
 import { getFontValue } from '@/utils'
 import { Box, Stack, Typography, useMediaQuery } from '@mui/material'
 import { ChangeEvent, ReactNode, useState } from 'react'
@@ -20,6 +20,10 @@ const columns: Columns[] = [
     modify: (row: any) => row.price,
   },
   {
+    title: ' Type',
+    modify: (row: any) => row.type,
+  },
+  {
     title: 'paymentMethod',
     modify: (row: any) => row.paymentMethod,
   },
@@ -32,15 +36,15 @@ const columns: Columns[] = [
     modify: (row: any) => row.transactionCode,
   },
 ]
-export default function Table() {
+export default function WalletHistoryTable() {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
   const [page, setPage] = useState(1)
   const itemsPerPage = 5
-  const totalCount = purchaseHistory.length
+  const totalCount = walletHistory.length
   const handleChangePage = (_event: ChangeEvent<unknown>, newPage: number) => {
     setPage(newPage)
   }
-  const paginatedData = purchaseHistory.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+  const paginatedData = walletHistory.slice((page - 1) * itemsPerPage, page * itemsPerPage)
   return (
     <Box>
       <CustomTable
@@ -48,7 +52,7 @@ export default function Table() {
         totalCount={totalCount}
         page={page}
         columns={columns}
-        title="Purchase History"
+        title="Wallet History"
         data={paginatedData}
         handleChangePage={handleChangePage}
         action={

@@ -3,7 +3,7 @@
 import { Icon } from '@/components/Icon'
 import { IconType } from '@/components/Icon/iconNames'
 import { getFontValue } from '@/utils'
-import { Pagination, Paper, Stack, Typography } from '@mui/material'
+import { Pagination, Paper, Stack, Typography, useMediaQuery } from '@mui/material'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -48,6 +48,7 @@ const CustomTable = ({
   totalCount = 10,
   hasTitle = true,
 }: PropType) => {
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
   return (
     <Stack
       sx={{
@@ -73,8 +74,8 @@ const CustomTable = ({
           borderBottom={'2px solid #262C53'}
         >
           <Stack direction={'row'} spacing={3}>
-            {!!leftIcon && <Icon name={leftIcon} size={24} />}
-            <Typography sx={{ ...getFontValue(19, 500), color: '#6B72FF' }}>{title}</Typography>
+            {!!leftIcon && <Icon name={leftIcon} size={isMobile ? 16 : 24} />}
+            <Typography sx={{ ...getFontValue({ xs: 12, md: 19 }, 500), color: '#6B72FF' }}>{title}</Typography>
           </Stack>
 
           {action && action}

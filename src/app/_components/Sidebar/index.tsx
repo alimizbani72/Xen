@@ -3,29 +3,17 @@ import { Icon } from '@/components/Icon'
 import { IconType } from '@/components/Icon/iconNames'
 import { useApiQuery } from '@/hooks'
 import { getFontValue } from '@/utils'
-import {
-  Avatar,
-  Box,
-  Divider,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-  useMediaQuery,
-} from '@mui/material'
-import { Session, User } from 'next-auth'
+import { Avatar, Box, Divider, Drawer, Stack, useMediaQuery } from '@mui/material'
+import { Session } from 'next-auth'
 import { signOut } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const menus = [
   { label: 'Home', icon: 'home', href: '/dashboard' },
-  { label: 'Wallet', icon: 'wallet', href: 'wallet' },
+  { label: 'Wallet', icon: 'wallet', href: '/dashboard/wallet' },
   { label: 'Buy Subscription', icon: 'subscription', href: '/dashboard/subscription' },
   { label: 'Referral & Resell', icon: 'refferal', href: '/dashboard/referral-resell' },
   { label: 'Settings', icon: 'setting', href: '/dashboard/settings' },

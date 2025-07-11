@@ -1,10 +1,10 @@
 import { Box, Stack } from '@mui/material'
+import Image from 'next/image'
 import FaqSection from './faq'
 import Features from './Features'
 import Locations from './Locations'
 import Moon from './Moon'
 import PhoneSection from './PhoneSection'
-import Image from 'next/image'
 
 const HomeSection = () => {
   return (
