@@ -41,7 +41,7 @@ export default function Table() {
   }
   const paginatedData = purchaseHistory.slice((page - 1) * itemsPerPage, page * itemsPerPage)
   return (
-    <Box sx={{ p: 4 }}>
+    <Box>
       <CustomTable
         leftIcon="history"
         totalCount={totalCount}

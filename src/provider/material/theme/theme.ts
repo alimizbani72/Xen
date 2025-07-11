@@ -9,6 +9,6 @@ export const themeOptions: ThemeOptions = {
   breakpoints,
   components: overrides,
   typography: {
-    fontFamily: `poppins`,
+    fontFamily: `poppins , sans-serif`,
   },
 }

@@ -1,6 +1,6 @@
-import Sidebar from '@/app/_components/Sidebar'
 import { Stack } from '@mui/material'
 import { PropsWithChildren } from 'react'
+import Sidebar from '../_components/Sidebar'
 
 export default async function DashboardLayout({ children }: PropsWithChildren) {
   return (
