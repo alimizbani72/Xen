@@ -1,4 +1,9 @@
 import { BreakpointsOptions } from '@mui/material'
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xxl: true
+  }
+}
 
 const breakpoints: BreakpointsOptions = {
   values: {
@@ -7,6 +12,7 @@ const breakpoints: BreakpointsOptions = {
     md: 768,
     lg: 1280,
     xl: 1600,
+    xxl: 1920,
   },
 }
 
