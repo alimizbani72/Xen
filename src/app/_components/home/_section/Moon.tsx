@@ -7,7 +7,7 @@ const Moon = () => {
 
   return (
     <Stack justifyContent={'center'} position="relative" width="100%" height="100%">
-      <GridBackgroundAbsolute zIndex={-1} />
+      <GridBackgroundAbsolute zIndex={0} />
       <Box position="relative" maxWidth={1660} width="100%" height="100%" m="0 auto" zIndex={-1}>
         <Image
           src="/assets/png/123.png"
