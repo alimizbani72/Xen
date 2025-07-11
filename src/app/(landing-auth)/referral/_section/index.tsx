@@ -1,3 +1,4 @@
+import { RiveFooter } from '@/app/_components/RiveFooter'
 import { Stack } from '@mui/material'
 import Affiliate from './Affiliate'
 import MethodSection from './MethodSection'
@@ -5,12 +6,20 @@ import Resell from './Resell'
 
 const ReferralSection = () => {
   return (
-    <Stack>
-      <Stack sx={{ height: { xs: 'unset', md: '900px' } }}>
+    <Stack position="relative" top={{ md: -124 }}>
+      <Stack sx={{ height: { xs: '400px', md: '900px' } }}>
         <Affiliate />
       </Stack>
-      <MethodSection />
-      <Resell />
+      <Stack
+        sx={{
+          background: '#040015',
+          zIndex: 1,
+        }}
+      >
+        <MethodSection />
+        <Resell />
+        <RiveFooter />
+      </Stack>
     </Stack>
   )
 }

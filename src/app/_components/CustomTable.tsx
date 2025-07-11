@@ -185,7 +185,6 @@ const CustomTable = ({
               },
               '& .MuiPaginationItem-previousNext': {
                 backgroundColor: '#31315C',
-                px: '30px',
                 borderRadius: '1000px',
                 color: 'white',
                 '&:hover': {

@@ -6,10 +6,11 @@ import { plans } from '@/Mock'
 import { getFontValue } from '@/utils'
 import { Box, Stack, Typography } from '@mui/material'
 import PlanCard from './PlanCard'
+import { RiveFooter } from '@/app/_components/RiveFooter'
 
 const PricingSection = () => {
   return (
-    <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2}>
+    <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2} overflow="hidden">
       <DustBackground numParticles={60} />
       <GridBackgroundAbsolute />
       <Stack
@@ -21,6 +22,7 @@ const PricingSection = () => {
         justifyContent={'center'}
         alignItems={'center'}
         position={'relative'}
+        zIndex={1}
       >
         <Stack spacing={3} justifyContent={'center'} alignItems={'center'}>
           <Badge>Price List</Badge>
@@ -49,6 +51,7 @@ const PricingSection = () => {
           </Typography>
         </Stack>
       </Stack>
+      <RiveFooter />
     </Box>
   )
 }

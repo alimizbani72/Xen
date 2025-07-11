@@ -6,5 +6,6 @@ export const getFontValue = (
     fontSize,
     fontWeight,
     fontStyle: 'normal',
+    lineHeight: 'normal',
   }
 }

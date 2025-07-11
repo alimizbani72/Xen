@@ -1,11 +1,8 @@
 import FooterSection from '@/app/_components/Footer'
 import Header from '@/app/_components/Header'
-import { MaterialProvider } from '@/provider/material/MaterialProvider'
-import { Box, Stack } from '@mui/material'
+import { Box } from '@mui/material'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import { headers } from 'next/headers'
-import { UAParser } from 'ua-parser-js'
 import '../../../public/assets/global.css'
 
 const poppins = Poppins({
@@ -25,10 +22,10 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <>
+    <Box position="relative">
       <Header />
       {children}
       <FooterSection />
-    </>
+    </Box>
   )
 }

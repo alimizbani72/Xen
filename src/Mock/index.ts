@@ -78,7 +78,7 @@ export const resell = [
     description: 'Select how many VPN accounts you need and save more.',
   },
   {
-    image: '/assets/png/percent.png',
+    image: '/assets/png/percent2.png',
     title: '2. Get an Exclusive Bulk Discount',
     description: 'Enjoy up to 20% off on Resell purchases.',
   },

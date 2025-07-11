@@ -34,5 +34,6 @@ export const iconNames = [
   'logo',
   'menu',
   'google',
+  'statistics',
 ] as const
 export type IconType = (typeof iconNames)[number]

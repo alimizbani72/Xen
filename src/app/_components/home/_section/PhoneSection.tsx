@@ -30,6 +30,7 @@ const PhoneSection = () => {
       px={{ xs: 4, md: 10, lg: 'unset' }}
       alignItems={'center'}
       spacing={{ lg: 9 }}
+      zIndex={1}
     >
       <Stack maxWidth={{ lg: 316 }}>
         <Stack direction={{ xs: 'row', md: 'column' }} spacing={2}>
@@ -72,6 +73,7 @@ const PhoneSection = () => {
           alt="earth"
           width={{ xs: '100%', md: '728px' }}
           height={{ xs: '400px', md: '728px' }}
+          sx={{ objectFit: 'contain' }}
         />
       </Stack>
     </Stack>

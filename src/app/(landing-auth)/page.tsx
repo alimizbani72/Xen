@@ -1,5 +1,6 @@
 'use client'
 import HomeSection from '@/app/_components/home/_section'
+import { RiveFooter } from '@/app/_components/RiveFooter'
 import DustBackground from '@/components/DustBackground'
 import { Box } from '@mui/material'
 
@@ -8,6 +9,7 @@ export default function Home() {
     <Box position={'relative'}>
       <DustBackground numParticles={200} />
       <HomeSection />
+      <RiveFooter />
     </Box>
   )
 }

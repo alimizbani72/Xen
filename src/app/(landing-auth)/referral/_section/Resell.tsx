@@ -17,6 +17,7 @@ const Resell = () => {
       direction={'column'}
       alignItems={'center'}
       position={'relative'}
+      zIndex={1}
     >
       <DustBackground numParticles={70} />
       <Badge>2nd Method</Badge>
