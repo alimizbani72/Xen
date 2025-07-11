@@ -6,6 +6,7 @@ import DaysRemainingProgress from './DaysRemainingProgress'
 
 const SubscriptionSection = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
+  const hasSubscription = true
   return (
     <Stack
       width={'100%'}
@@ -25,7 +26,7 @@ const SubscriptionSection = () => {
       <Stack px={9} py={4} direction={{ xs: 'column', md: 'row' }} justifyContent={'space-between'}>
         <Box
           component={'img'}
-          src="/assets/png/subscriptionexist.png"
+          src={hasSubscription ? '/assets/png/subscriptionexist.png' : '/assets/png/nosub.png'}
           sx={{
             ml: isMobile ? 5 : 'unset',
             // width: 204,
@@ -37,40 +38,46 @@ const SubscriptionSection = () => {
 
         <Stack spacing={6}>
           <Stack>
-            <Typography
-              sx={{
-                ...getFontValue({ xs: 20, md: 36 }, 600),
-                display: 'flex',
-                gap: '4px',
-              }}
-            >
-              <Box
-                component="span"
+            {hasSubscription ? (
+              <Typography
                 sx={{
-                  background:
-                    'linear-gradient(0deg, var(--Primary-400, #6B72FF), var(--Primary-400, #6B72FF)), linear-gradient(90deg, #4750FF 0%, #B9BDFF 100%);',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  ...getFontValue({ xs: 20, md: 36 }, 600),
+                  display: 'flex',
+                  gap: '4px',
                 }}
               >
-                Premium
-              </Box>
-              <Box
-                component="span"
-                sx={{
-                  background: '#B9BDFF',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                User
-              </Box>
-            </Typography>
+                <Box
+                  component="span"
+                  sx={{
+                    background:
+                      'linear-gradient(0deg, var(--Primary-400, #6B72FF), var(--Primary-400, #6B72FF)), linear-gradient(90deg, #4750FF 0%, #B9BDFF 100%);',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  Premium
+                </Box>
+                <Box
+                  component="span"
+                  sx={{
+                    background: '#B9BDFF',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  User
+                </Box>
+              </Typography>
+            ) : (
+              <Typography sx={{ ...getFontValue({ xs: 20, md: 36 }, 600), color: '#8F8F8F' }}>
+                No Subscription
+              </Typography>
+            )}
             <Typography sx={{ ...getFontValue({ xs: 9, md: 15 }, 400), color: '#B9BDFF' }}>
-              Thanks For Choosing us!
+              {hasSubscription ? 'Thanks For Choosing us!' : 'Join Us And Enjoy!'}
             </Typography>
           </Stack>
-          <DaysRemainingProgress current={10} total={22} />
+          {hasSubscription && <DaysRemainingProgress current={10} total={22} />}
           <Button color="secondary" size={isMobile ? 'small' : 'medium'}>
             Renew Subscription
           </Button>
