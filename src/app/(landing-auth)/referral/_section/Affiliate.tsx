@@ -3,6 +3,7 @@ import GridBackgroundAbsolute from '@/components/GridBackground'
 import RiveComp from '@/components/RiveLoader'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack, Typography, useMediaQuery } from '@mui/material'
+import { Alignment } from '@rive-app/react-canvas'
 
 const Affiliate = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
@@ -14,7 +15,7 @@ const Affiliate = () => {
         <Box
           sx={{
             position: 'absolute',
-            top: '50%',
+            top: '60%',
             left: 0,
             right: 0,
             textAlign: 'center',
@@ -32,7 +33,7 @@ const Affiliate = () => {
             >
               Invite & Earn
             </Typography>
-            <Stack spacing={2}>
+            <Stack spacing={5}>
               <Typography
                 color="white"
                 sx={{
@@ -42,7 +43,7 @@ const Affiliate = () => {
               >
                 Share the Freedom!
               </Typography>
-              <Stack spacing={2}>
+              <Stack spacing={9.5}>
                 <Button
                   size="small"
                   color="secondary"
@@ -71,7 +72,9 @@ const Affiliate = () => {
   }
   return (
     <Box position="relative" height={'100%'} width={'100%'}>
-      <RiveComp src="assets/rive/affiliate_page_animation.riv" />
+      <Stack width="100%" height={'100%'} position="absolute" bottom={0} zIndex={0}>
+        <RiveComp src="assets/rive/affiliate_page_animation.riv" alignment={Alignment.TopCenter} />
+      </Stack>
       <Box position="absolute" top={{ xs: '50%', md: '75%' }} left="50%" sx={{ transform: 'translate(-50%, -50%)' }}>
         <Stack spacing={2} alignItems="center">
           <Typography

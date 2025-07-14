@@ -11,9 +11,8 @@ const PricingSection = () => {
   return (
     <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2} overflow="hidden">
       <DustBackground numParticles={220} />
-      {/* <GridBackgroundAbsolute /> */}
       <Stack
-        pt={30}
+        pt={{ xs: 30, md: 50 }}
         spacing={10}
         m={'auto'}
         width={'100%'}

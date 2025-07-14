@@ -1,4 +1,5 @@
 'use client'
+import { Alignment } from '@rive-app/react-canvas'
 import dynamic from 'next/dynamic'
 import type { FC } from 'react'
 
@@ -13,6 +14,7 @@ export type RiveCompProps = {
   stateMachineName?: string
   inputName?: string
   onInputReady?: (input: any) => void
+  alignment?: Alignment
 }
 
 const RiveComp: FC<RiveCompProps> = ({
@@ -22,6 +24,7 @@ const RiveComp: FC<RiveCompProps> = ({
   stateMachineName = 'State Machine 1',
   inputName = '',
   onInputReady,
+  alignment,
 }) => {
   return (
     <RiveLoader
@@ -31,6 +34,7 @@ const RiveComp: FC<RiveCompProps> = ({
       stateMachineName={stateMachineName}
       inputName={inputName}
       onInputReady={onInputReady}
+      alignment={alignment}
     />
   )
 }

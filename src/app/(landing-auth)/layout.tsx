@@ -23,8 +23,10 @@ export default async function RootLayout({
 }>) {
   return (
     <Box position="relative">
-      <Header />
-      {children}
+      <Box position="relative">
+        <Header />
+        {children}
+      </Box>
       <FooterSection />
     </Box>
   )

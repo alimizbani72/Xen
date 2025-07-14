@@ -21,20 +21,18 @@ const Header = () => {
       <Stack
         direction="row"
         sx={{
-          position: 'sticky',
+          position: 'fixed',
           direction: 'row',
           maxWidth: 1110,
-          width: 'calc(100% - 32px)',
+          width: 'calc(100% - 64px)',
           border: '1px solid #80839B',
           borderRadius: 50,
           justifyContent: 'space-between',
           alignItems: 'center',
-          top: 50,
-          left: 'calc(50% - 555px)',
+          left: '50%',
+          transform: 'translate(-50%,50%)',
           p: 3,
           zIndex: 1000,
-          mx: 4,
-          mb: 13,
           background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(60, 54, 153, 1) 50%, rgba(0, 0, 0, 1) 100%)',
         }}
       >

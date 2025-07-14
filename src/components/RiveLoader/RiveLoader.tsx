@@ -12,6 +12,7 @@ type RiveCompProps = {
   stateMachineName?: string
   inputName?: string
   onInputReady?: (input: any) => void
+  alignment?: Alignment
 }
 
 const RiveLoader: FC<RiveCompProps> = ({
@@ -21,6 +22,7 @@ const RiveLoader: FC<RiveCompProps> = ({
   stateMachineName = 'State Machine 1',
   inputName = '',
   onInputReady,
+  alignment = Alignment.BottomCenter,
 }) => {
   const { RiveComponent, rive } = useRive({
     src,
@@ -29,7 +31,7 @@ const RiveLoader: FC<RiveCompProps> = ({
     layout: new Layout({
       fit: Fit.Cover, // Specify Fit.Layout to automatically resize the artboard.
       // layoutScaleFactor: 2, // x2 The Scale Factor
-      alignment: Alignment.BottomCenter,
+      alignment,
     }),
   })
 

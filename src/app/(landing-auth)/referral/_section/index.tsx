@@ -6,8 +6,8 @@ import Resell from './Resell'
 
 const ReferralSection = () => {
   return (
-    <Stack position="relative" top={{ md: -124 }}>
-      <Stack sx={{ height: { xs: '400px', md: '900px' } }}>
+    <Stack position="relative">
+      <Stack sx={{ height: { xs: '450px', md: '1374px' }, position: 'relative' }}>
         <Affiliate />
       </Stack>
       <Stack
