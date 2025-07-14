@@ -8,10 +8,11 @@ interface CardProps {
   title: string
   icon?: IconType
   sx?: SxProps
+  px?: number
 }
 
 const Card = (props: PropsWithChildren<CardProps>) => {
-  const { title, icon, children, sx } = props
+  const { title, icon, children, sx, px } = props
   return (
     <Stack
       sx={{
@@ -30,7 +31,7 @@ const Card = (props: PropsWithChildren<CardProps>) => {
         <Stack sx={{ color: '#6B72FF', ...getFontValue(19, 500) }}>{title}</Stack>
       </Stack>
       <Divider sx={{ bgcolor: '#232246' }} />
-      <Stack px={5} height="100%">
+      <Stack px={px} height="100%">
         {children}
       </Stack>
     </Stack>

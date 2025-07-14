@@ -36,7 +36,7 @@ const WithdrawForm = () => {
           <RHFTextField
             name="amount"
             label="Set Your Deposit Amount"
-            placeholder="Enter Your Deposit Amount"
+            placeholder="Enter Your Amount"
             slotProps={{
               input: {
                 endAdornment: (
@@ -56,7 +56,7 @@ const WithdrawForm = () => {
           <RHFTextField
             name="confirmPassword"
             label="Your USDT-TRC20 Wallet Address"
-            placeholder="Enter Your Wallet Address"
+            placeholder="Enter Your Address"
             type="password"
           />
         </Stack>

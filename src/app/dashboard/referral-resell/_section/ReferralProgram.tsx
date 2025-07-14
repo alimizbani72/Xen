@@ -24,7 +24,7 @@ export const ReferralProgram = () => {
         </Box>
       </Stack>
       <Stack direction="row" flexWrap="wrap" gap={6}>
-        <Card icon="refferal" title="Referral Code" sx={{ flex: 1.2 }}>
+        <Card icon="refferal" title="Referral Code" sx={{ flex: 1.2 }} px={5}>
           <Stack width="100%" alignItems="center" pt={7}>
             <Box sx={{ ...getFontValue(15, 400), color: '#49549C' }}>Your Referral Code</Box>
             <Stack
@@ -43,7 +43,7 @@ export const ReferralProgram = () => {
             </Box>
           </Stack>
         </Card>
-        <Card icon="money" title="Referral Income" sx={{ flex: 1, minWidth: { sm: 318 } }}>
+        <Card icon="money" title="Referral Income" sx={{ flex: 1, minWidth: { sm: 318 } }} px={5}>
           <Stack width="100%" alignItems="flex-start" pt={7}>
             <Stack>
               <Box sx={{ ...getFontValue({ xs: 20, md: 24 }, 600), color: '#FFFFFF' }}>
@@ -67,7 +67,7 @@ export const ReferralProgram = () => {
           </Stack>
         </Card>
 
-        <Card icon="statistics" title="Referral Statistics" sx={{ flex: 1, minWidth: 277 }}>
+        <Card icon="statistics" title="Referral Statistics" sx={{ flex: 1, minWidth: 277 }} px={5}>
           <Stack width="100%" alignItems="flex-start" pt={7}>
             <Stack>
               <Box sx={{ ...getFontValue({ xs: 20, md: 24 }, 600), color: '#FFFFFF' }}>

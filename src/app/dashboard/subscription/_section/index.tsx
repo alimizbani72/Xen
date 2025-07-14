@@ -5,6 +5,7 @@ import { useState } from 'react'
 import ActiveBadges from './ActiveBadges'
 import Contact from './Contact'
 import Plans from './Plans'
+import ReviewPayment from './ReviewPayment'
 
 const SubscriptionSection = () => {
   const [step, setStep] = useState(0)
@@ -18,9 +19,7 @@ const SubscriptionSection = () => {
           <Contact />
         </>
       )}
-      {step === 1 && (
-        <Typography sx={{ ...getFontValue({ xs: 20, md: 40 }, 700), color: 'white' }}>Second Step</Typography>
-      )}
+      {step === 1 && <ReviewPayment />}
     </Stack>
   )
 }

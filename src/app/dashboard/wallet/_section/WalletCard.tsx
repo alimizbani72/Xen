@@ -32,7 +32,9 @@ const WalletCard = () => {
           <Typography sx={{ color: '#B9BDFF', ...getFontValue({ xs: 16, md: 20 }, 400) }}>10$</Typography>
         </Stack>
         <Stack direction={'row'} spacing={3}>
-          <Button size="small">Charge Wallet</Button>
+          <Button size="small" onClick={() => router.push('/dashboard/wallet/charge-wallet')}>
+            Charge Wallet
+          </Button>
           <Button size="small" color="info" onClick={() => router.push('/dashboard/wallet/withdraw')}>
             Withdraw
           </Button>
