@@ -1,3 +1,4 @@
+import { getFontValue } from '@/utils'
 import { InputLabel, Stack } from '@mui/material'
 import type { TextFieldProps } from '@mui/material/TextField'
 import TextField from '@mui/material/TextField'
@@ -21,7 +22,7 @@ export function RHFTextField({ name, id, label, helperText, type, isMoney, ignor
           {label && (
             <InputLabel
               sx={{
-                typography: 'body2-medium',
+                typography: { ...getFontValue(22, 500) },
                 color: 'common.white',
                 mb: 1,
               }}

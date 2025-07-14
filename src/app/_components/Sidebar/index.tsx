@@ -28,6 +28,11 @@ const Sidebar = () => {
   const handleSignout = () => {
     signOut({ redirect: true, callbackUrl: '/' })
   }
+  const subPath = pathname.replace(/^\/dashboard/, '') || '/'
+  const activeMenu = menus.find(menu => {
+    const menuSubPath = menu.href.replace(/^\/dashboard/, '') || '/'
+    return subPath === menuSubPath || subPath.startsWith(`${menuSubPath}/`)
+  })
 
   const renderContent = () => {
     return (
@@ -43,24 +48,27 @@ const Sidebar = () => {
           </Box>
           <Divider sx={{ bgcolor: '#232246' }} />
           <Stack p={{ xs: 3, md: 6 }} spacing={{ xs: 3, md: 6 }}>
-            {menus?.map(menu => (
-              <Stack
-                key={menu.label}
-                component={Link}
-                href={menu.href}
-                direction="row"
-                spacing={4}
-                justifyContent={openDrawer ? 'flex-start' : 'center'}
-                sx={{ cursor: 'pointer' }}
-              >
-                <Icon name={menu.icon as IconType} color={pathname === menu.href ? '#6B72FF' : 'white'} />
-                {openDrawer && (
-                  <Box sx={{ ...getFontValue(19, 500) }} color={pathname === menu.href ? '#6B72FF' : 'white'}>
-                    {menu.label}
-                  </Box>
-                )}
-              </Stack>
-            ))}
+            {menus?.map(menu => {
+              const isActive = menu === activeMenu
+              return (
+                <Stack
+                  key={menu.label}
+                  component={Link}
+                  href={menu.href}
+                  direction="row"
+                  spacing={4}
+                  justifyContent={openDrawer ? 'flex-start' : 'center'}
+                  sx={{ cursor: 'pointer' }}
+                >
+                  <Icon name={menu.icon as IconType} color={isActive ? '#6B72FF' : 'white'} />
+                  {openDrawer && (
+                    <Box sx={{ ...getFontValue(19, 500) }} color={isActive ? '#6B72FF' : 'white'}>
+                      {menu.label}
+                    </Box>
+                  )}
+                </Stack>
+              )
+            })}
           </Stack>
         </Box>
         <Box>

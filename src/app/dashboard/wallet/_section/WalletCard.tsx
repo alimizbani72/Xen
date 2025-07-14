@@ -1,8 +1,11 @@
+'use client'
 import { Icon } from '@/components/Icon'
 import { getFontValue } from '@/utils'
 import { Button, Stack, Typography } from '@mui/material'
+import { useRouter } from 'next/navigation'
 
 const WalletCard = () => {
+  const router = useRouter()
   return (
     <Stack
       sx={{
@@ -30,7 +33,7 @@ const WalletCard = () => {
         </Stack>
         <Stack direction={'row'} spacing={3}>
           <Button size="small">Charge Wallet</Button>
-          <Button size="small" color="info">
+          <Button size="small" color="info" onClick={() => router.push('/dashboard/wallet/withdraw')}>
             Withdraw
           </Button>
         </Stack>

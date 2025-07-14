@@ -10,7 +10,7 @@ export default function DaysRemainingProgress({ current, total }: ProgressProps)
   const progress = (current / total) * 100
 
   return (
-    <Box sx={{ width: { xs: '100%', lg: '303px' } }}>
+    <Box sx={{ width: { xs: '100%' } }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1, alignItems: 'baseline' }} gap={1}>
         <Typography sx={{ ...getFontValue({ xs: 12, md: 16 }, 500), color: 'white' }}>Days Remaining</Typography>
         <Typography sx={{ ...getFontValue({ xs: 7, md: 11 }, 300), color: 'white' }}>
