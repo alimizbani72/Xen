@@ -142,7 +142,7 @@ const Sidebar = () => {
 
   return (
     <Stack
-      height={{ xs: 'calc(100dvh - 80px)', xxl: 'calc(100dvh - 184px)' }}
+      height={{ xs: 'calc(100dvh - 80px)' }}
       border="1px solid #80839B"
       borderRadius={5}
       minWidth={openDrawer ? 280 : 90}
@@ -151,7 +151,7 @@ const Sidebar = () => {
       width={openDrawer ? 'clamp(200px, 25vw, 360px)' : ''}
       flex="0 0 auto"
       position="sticky"
-      top={{ xs: 40, xxl: 92 }}
+      top={{ xs: 40 }}
     >
       {renderContent()}
     </Stack>

@@ -13,13 +13,20 @@ import TableRow from '@mui/material/TableRow'
 import type React from 'react'
 import type { ReactNode } from 'react'
 
+export type ColumnType = {
+  title: string | ((item: any) => ReactNode)
+  modify: (item: any) => ReactNode
+  minWidth?: number
+}
+
 type PropType = {
   totalCount?: number
   page?: number
   title?: React.ReactNode
-  columns: { title: string | ((item: any) => ReactNode); modify: (item: any) => ReactNode }[]
+  columns: ColumnType[]
   data: any[]
   width?: any
+  height?: any
   minWidthCell?: any
   action?: ReactNode
   leftIcon?: IconType
@@ -29,6 +36,7 @@ type PropType = {
   onTableClick?: (id: string) => void
   handleChangePage?: (_event: React.ChangeEvent<unknown>, newPage: number) => void
   hasTitle?: boolean
+  itemPerPage?: number
 }
 
 const CustomTable = ({
@@ -38,6 +46,7 @@ const CustomTable = ({
   columns,
   data,
   width,
+  height,
   minWidthCell,
   leftIcon,
   action,
@@ -46,9 +55,11 @@ const CustomTable = ({
   emptyTitle,
   emptySubtitle,
   totalCount = 10,
+  itemPerPage = 10,
   hasTitle = true,
 }: PropType) => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
+  console.log('totalCount', totalCount, Math.ceil(totalCount / itemPerPage))
   return (
     <Stack
       sx={{
@@ -59,7 +70,7 @@ const CustomTable = ({
           'linear-gradient(0deg, #130F30, #130F30), radial-gradient(64.87% 78.7% at 90.6% -18.1%, #1D1558 0%, #130F30 100%);',
         width: width ?? '100%',
         overflow: 'hidden',
-        height: totalCount > 5 ? '461px' : 'unset',
+        height: height || (totalCount > 5 ? '461px' : 'unset'),
       }}
     >
       {hasTitle && (
@@ -158,7 +169,11 @@ const CustomTable = ({
                         }}
                       >
                         {columns.map((item, index) => (
-                          <TableCell align="left" key={index}>
+                          <TableCell
+                            align="left"
+                            key={index}
+                            sx={{ minWidth: item?.minWidth ? `${item?.minWidth}px !important` : '' }}
+                          >
                             {item.modify(rowItem)}
                           </TableCell>
                         ))}
@@ -171,7 +186,7 @@ const CustomTable = ({
         )}
       </TableContainer>
 
-      {totalCount > 5 && (
+      {totalCount > itemPerPage && (
         <Stack direction={'row'} justifyContent={'center'} py={1.5}>
           <Pagination
             sx={{
@@ -195,7 +210,7 @@ const CustomTable = ({
                 },
               },
             }}
-            count={Math.ceil(totalCount / 5)}
+            count={Math.ceil(totalCount / itemPerPage)}
             defaultPage={1}
             page={page}
             onChange={handleChangePage}

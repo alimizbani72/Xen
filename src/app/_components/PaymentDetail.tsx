@@ -8,7 +8,7 @@ type Props = {
 }
 const PaymentDetail = ({ onClick, title }: Props) => {
   return (
-    <Card title="Payment Details" icon="payment" sx={{ width: '100%' }}>
+    <Card title="Payment Details" icon="payment" sx={{ width: '100%', height: 'max-content' }}>
       <Stack py={6} spacing={4} px={5}>
         <Stack direction={'row'} justifyContent={'space-between'}>
           <Typography sx={{ color: '#49549C', ...getFontValue(20, 500) }}>{title}</Typography>

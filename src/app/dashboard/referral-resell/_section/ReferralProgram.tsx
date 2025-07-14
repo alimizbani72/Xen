@@ -4,6 +4,7 @@ import Card from '@/app/_components/Card'
 import { Icon } from '@/components/Icon'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack, useMediaQuery } from '@mui/material'
+import Link from 'next/link'
 
 export const ReferralProgram = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
@@ -11,17 +12,19 @@ export const ReferralProgram = () => {
     <Stack spacing={3} mt={7} mb={11}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Box sx={{ ...getFontValue({ xs: 16, md: 24 }, 600), color: '#FFFFFF' }}>Referral Program</Box>
-        <Box
-          sx={{
-            ...getFontValue({ xs: 14, md: 16 }, 500),
-            color: '#6B72FF',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1,
-          }}
-        >
-          Learn About It <Icon name="arrow-right" color="#6B72FF" size={isMobile ? 12 : 24} />{' '}
-        </Box>
+        <Link href="referral-resell/resell-program">
+          <Box
+            sx={{
+              ...getFontValue({ xs: 14, md: 16 }, 500),
+              color: '#6B72FF',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+            }}
+          >
+            Learn About It <Icon name="arrow-right" color="#6B72FF" size={isMobile ? 12 : 24} />{' '}
+          </Box>
+        </Link>
       </Stack>
       <Stack direction="row" flexWrap="wrap" gap={6}>
         <Card icon="refferal" title="Referral Code" sx={{ flex: 1.2 }} px={5}>
@@ -60,9 +63,11 @@ export const ReferralProgram = () => {
             </Stack>
             <Stack direction="row" spacing={3} mt={7}>
               <Button size="small">Withdraw</Button>
-              <Button size="small" color="info">
-                Withdraw History
-              </Button>
+              <Link href="referral-resell/withdraw-history">
+                <Button size="small" color="info">
+                  Withdraw History
+                </Button>
+              </Link>
             </Stack>
           </Stack>
         </Card>
@@ -82,9 +87,11 @@ export const ReferralProgram = () => {
               <Box sx={{ ...getFontValue({ xs: 20, md: 24 }, 600), color: '#FFFFFF' }}>Today Invites</Box>
               <Box sx={{ ...getFontValue(20, 400), color: '#B9BDFF' }}>3 Person</Box>
             </Stack>
-            <Button sx={{ mt: 7 }} size="small" color="info">
-              Details
-            </Button>
+            <Link href="referral-resell/invite-history">
+              <Button sx={{ mt: 7 }} size="small" color="info">
+                Details
+              </Button>
+            </Link>
           </Stack>
         </Card>
       </Stack>

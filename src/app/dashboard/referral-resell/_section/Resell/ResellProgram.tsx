@@ -5,6 +5,7 @@ import { AccountPlanForm } from '@/app/dashboard/referral-resell/_section/Resell
 import { Icon } from '@/components/Icon'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack, useMediaQuery } from '@mui/material'
+import Link from 'next/link'
 
 export const ResellProgram = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
@@ -12,9 +13,11 @@ export const ResellProgram = () => {
     <Stack spacing={3} mt={7} mb={11}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Box sx={{ ...getFontValue(24, 600), color: '#FFFFFF' }}>Resell</Box>
-        <Stack direction="row" alignItems="center" sx={{ ...getFontValue(16, 500), color: '#6B72FF', gap: 1 }}>
-          Learn About It <Icon name="arrow-right" color="#6B72FF" size={isMobile ? 12 : 24} />{' '}
-        </Stack>
+        <Link href="referral-resell/resell">
+          <Stack direction="row" alignItems="center" sx={{ ...getFontValue(16, 500), color: '#6B72FF', gap: 1 }}>
+            Learn About It <Icon name="arrow-right" color="#6B72FF" size={isMobile ? 12 : 24} />{' '}
+          </Stack>
+        </Link>
       </Stack>
       <Stack direction={{ xs: 'column', lg: 'row' }} flexWrap="wrap" gap={6}>
         <Card icon="statistics" title="Resell Statistics" sx={{ flex: 1, minWidth: { sm: 318 }, width: '100%' }} px={5}>
@@ -29,9 +32,11 @@ export const ResellProgram = () => {
             </Stack>
             <Stack direction="row" spacing={3} mt={7}>
               <Button size="small">Withdraw</Button>
-              <Button size="small" color="info">
-                Withdraw History
-              </Button>
+              <Link href="referral-resell/withdraw-history">
+                <Button size="small" color="info">
+                  Withdraw History
+                </Button>
+              </Link>
             </Stack>
           </Stack>
         </Card>

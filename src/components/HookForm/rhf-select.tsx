@@ -1,14 +1,15 @@
 'use client'
 
 import { Icon } from '@/components/Icon'
-import { InputLabel, MenuItem, Select, Stack } from '@mui/material'
+import { InputLabel, MenuItem, Select, Stack, SxProps } from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 interface RHFSelectProps {
   name: string
   label?: string
+  sx?: SxProps
 }
 
-export const RHFSelect = ({ name, label }: RHFSelectProps) => {
+export const RHFSelect = ({ name, label, sx }: RHFSelectProps) => {
   const { control } = useFormContext()
 
   return (
@@ -36,6 +37,7 @@ export const RHFSelect = ({ name, label }: RHFSelectProps) => {
             IconComponent={() => (
               <Icon name="chevron-left" sx={{ transform: 'rotate(270deg)', mr: 4 }} color="#E8E8E8" />
             )}
+            sx={sx}
           >
             <MenuItem value="">
               <em>None</em>
