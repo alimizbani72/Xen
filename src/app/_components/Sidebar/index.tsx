@@ -22,7 +22,7 @@ const menus = [
 const Sidebar = () => {
   const pathname = usePathname()
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('lg'))
-  const [openDrawer, setOpenDrawer] = useState(isMobile ? false : true)
+  const [openDrawer, setOpenDrawer] = useState(false)
   const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
 
   const handleSignout = () => {
@@ -44,7 +44,7 @@ const Sidebar = () => {
           }}
         >
           <Box p={{ xs: 3, md: 6 }} onClick={() => setOpenDrawer(!openDrawer)} sx={{ cursor: 'pointer' }}>
-            <Image src={'/assets/svg/logo.svg'} width={openDrawer ? 90 : 40} height={45} alt="Xen" />
+            <Image src={'/assets/svg/logo.svg'} width={90} height={45} alt="Xen" />
           </Box>
           <Divider sx={{ bgcolor: '#232246' }} />
           <Stack p={{ xs: 3, md: 6 }} spacing={{ xs: 3, md: 6 }}>
@@ -57,15 +57,14 @@ const Sidebar = () => {
                   href={menu.href}
                   direction="row"
                   spacing={4}
-                  justifyContent={openDrawer ? 'flex-start' : 'center'}
+                  justifyContent={'flex-start'}
                   sx={{ cursor: 'pointer' }}
                 >
                   <Icon name={menu.icon as IconType} color={isActive ? '#6B72FF' : 'white'} />
-                  {openDrawer && (
-                    <Box sx={{ ...getFontValue(19, 500) }} color={isActive ? '#6B72FF' : 'white'}>
-                      {menu.label}
-                    </Box>
-                  )}
+
+                  <Box sx={{ ...getFontValue(19, 500) }} color={isActive ? '#6B72FF' : 'white'}>
+                    {menu.label}
+                  </Box>
                 </Stack>
               )
             })}
@@ -73,28 +72,21 @@ const Sidebar = () => {
         </Box>
         <Box>
           <Divider sx={{ bgcolor: '#232246' }} />
-          <Stack
-            direction={openDrawer ? 'row' : 'column'}
-            justifyContent={openDrawer ? 'space-between' : 'center'}
-            alignItems="center"
-            p={4}
-            spacing={2}
-          >
+          <Stack direction={'row'} justifyContent={'space-between'} alignItems="center" p={4} spacing={2}>
             <Stack direction="row" spacing={3}>
               <Avatar sx={{ width: 50, height: 50, bgcolor: '#31315C', color: 'white' }}>
                 {data?.username?.charAt(0).toUpperCase()}
               </Avatar>
-              {openDrawer && (
-                <Stack>
-                  <Box sx={{ ...getFontValue(19, 500), color: '#fff' }}>{data?.username || 'Username'} </Box>
-                  <Box sx={{ ...getFontValue(12, 400), color: '#555555' }}>
-                    Balance:{' '}
-                    <Box component="span" color="#fff">
-                      {data?.walletAmount || 0}$
-                    </Box>
+
+              <Stack>
+                <Box sx={{ ...getFontValue(19, 500), color: '#fff' }}>{data?.username || 'Username'} </Box>
+                <Box sx={{ ...getFontValue(12, 400), color: '#555555' }}>
+                  Balance:{' '}
+                  <Box component="span" color="#fff">
+                    {data?.walletAmount || 0}$
                   </Box>
-                </Stack>
-              )}
+                </Box>
+              </Stack>
             </Stack>
 
             <Box sx={{ cursor: 'pointer' }} onClick={handleSignout}>
@@ -145,7 +137,7 @@ const Sidebar = () => {
       height={{ xs: 'calc(100dvh - 80px)' }}
       border="1px solid #80839B"
       borderRadius={5}
-      minWidth={openDrawer ? 280 : 90}
+      minWidth={280}
       maxWidth={360}
       justifyContent="space-between"
       width={openDrawer ? 'clamp(200px, 25vw, 360px)' : ''}

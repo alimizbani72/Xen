@@ -5,12 +5,13 @@ import { AccountPlanForm } from '@/app/dashboard/referral-resell/_section/Resell
 import { Icon } from '@/components/Icon'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack, useMediaQuery } from '@mui/material'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const ResellProgram = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
   return (
-    <Stack spacing={3} mt={7} mb={11}>
+    <Stack spacing={3} mt={7} mb={11} pb={5}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Box sx={{ ...getFontValue(24, 600), color: '#FFFFFF' }}>Resell</Box>
         <Link href="referral-resell/resell">
@@ -19,48 +20,77 @@ export const ResellProgram = () => {
           </Stack>
         </Link>
       </Stack>
-      <Stack direction={{ xs: 'column', lg: 'row' }} flexWrap="wrap" gap={6}>
-        <Card icon="statistics" title="Resell Statistics" sx={{ flex: 1, minWidth: { sm: 318 }, width: '100%' }} px={5}>
+      <Stack direction={{ xs: 'column', md: 'row' }} flexWrap="wrap" gap={6}>
+        <Card
+          icon="statistics"
+          title="Resell Statistics"
+          sx={{ flex: 1.2, minWidth: { sm: 318 }, width: '100%' }}
+          px={5}
+        >
           <Stack width="100%" alignItems="flex-start" pt={7}>
             <Stack>
-              <Box sx={{ ...getFontValue({ xs: 20, md: 24 }, 600), color: '#FFFFFF' }}>Remain Subscriptions</Box>
+              <Box sx={{ ...getFontValue({ xs: 20, md: 24 }, 600), color: '#FFFFFF' }}>Unassigned Accounts</Box>
               <Box sx={{ ...getFontValue(20, 400), color: '#B9BDFF' }}>250 Month</Box>
             </Stack>
             <Stack mt={7.5}>
-              <Box sx={{ ...getFontValue({ xs: 20, md: 24 }, 600), color: '#FFFFFF' }}>Total Purchases</Box>
+              <Box sx={{ ...getFontValue({ xs: 20, md: 24 }, 600), color: '#FFFFFF' }}>Total Accounts</Box>
               <Box sx={{ ...getFontValue(20, 400), color: '#B9BDFF' }}>100 Accounts</Box>
             </Stack>
             <Stack direction="row" spacing={3} mt={7}>
-              <Button size="small">Withdraw</Button>
-              <Link href="referral-resell/withdraw-history">
+              <Button size="small">Buy</Button>
+              <Link href="referral-resell/account-list">
                 <Button size="small" color="info">
-                  Withdraw History
+                  Account List
                 </Button>
               </Link>
             </Stack>
           </Stack>
         </Card>
-        <Card icon="calculator" title="Referral Calculator" sx={{ flex: 2.3, width: '100%' }} px={5}>
+        <Card icon="calculator" title="Referral Calculator" sx={{ flex: 2, width: '100%' }} px={5}>
           <Stack direction={{ xs: 'column', md: 'row' }} width="100%" height="100%" spacing={5} pt={7} minHeight={193}>
             <AccountPlanForm />
-            <Stack
-              justifyContent="center"
-              alignItems="center"
-              height="100%"
-              flex={1}
-              borderLeft={{ md: '1px solid #232246' }}
-              pl={2}
-            >
-              <Box sx={{ ...getFontValue(24.8, 400), color: '#49549C', mb: 3, textDecoration: 'line-through' }}>
-                180 USD
-              </Box>
-              <Box sx={{ ...getFontValue(39, 700), color: '#ffffff', mb: 4 }}>1116 USD</Box>
-              <Box sx={{ ...getFontValue(12, 600), color: '#4750FF', textAlign: 'center' }}>
-                You Get 20% Discount On This Deal
-              </Box>
-            </Stack>
           </Stack>
         </Card>
+        <Link href="referral-resell/plans">
+          <Card
+            title=""
+            sx={{
+              flex: { xs: 2, md: 1 },
+              maxHeight: 374,
+              minWidth: 250,
+              width: '100%',
+              height: '100%',
+              background: 'linear-gradient(51.9deg, #130F30 0.46%, #594DBA 96.33%)',
+              border: '2px solid #6B72FF',
+              justifyContent: 'center',
+              alignItems: 'center',
+              cursor: 'pointer',
+            }}
+            px={5}
+          >
+            <Stack
+              width="100%"
+              height="100%"
+              spacing={5}
+              pt={7}
+              minHeight={193}
+              maxWidth={143}
+              sx={{ justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}
+            >
+              <Image src={'/assets/svg/box.svg'} width={98} height={98} alt="box" />
+              <Stack
+                direction="row"
+                alignItems="center"
+                sx={{ ...getFontValue(23.5, 500), color: '#ffffff', gap: 1, textAlign: 'center' }}
+              >
+                Buy Reseller Package
+              </Stack>
+              <Stack direction="row" alignItems="center" sx={{ ...getFontValue(11, 500), color: '#6B72FF', gap: 1 }}>
+                Start from 50USDT
+              </Stack>
+            </Stack>
+          </Card>
+        </Link>
       </Stack>
     </Stack>
   )

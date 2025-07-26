@@ -1,7 +1,6 @@
 // utils/axiosInstance.ts
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios'
-import { getSession, signOut } from 'next-auth/react'
-import { redirect, RedirectType } from 'next/navigation'
+import { getSession } from 'next-auth/react'
 
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,

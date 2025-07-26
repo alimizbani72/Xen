@@ -59,7 +59,7 @@ const CustomTable = ({
   hasTitle = true,
 }: PropType) => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
-  console.log('totalCount', totalCount, Math.ceil(totalCount / itemPerPage))
+
   return (
     <Stack
       sx={{

@@ -24,22 +24,20 @@ export const AccountPlanForm = () => {
       <Stack justifyContent="space-between" sx={{ height: '100%', maxWidth: { xl: 490 } }}>
         <Stack spacing={3.5}>
           <Stack direction={{ xs: 'column', xl: 'row' }} spacing={7}>
+            <RHFSelect name="plan" label="Unassigned Accounts" />
             <Stack spacing={1}>
-              <Box sx={{ ...getFontValue(16, 500), color: '#ffffff' }}>Account Count</Box>
+              <Box sx={{ ...getFontValue(16, 500), color: '#ffffff' }}>Customer E-mail</Box>
               <RHFTextField name="accountCount" label="" placeholder="3" size="small" sx={{ minWidth: 200 }} />
             </Stack>
-            <RHFSelect name="plan" label="Plan" />
           </Stack>
-          <Box sx={{ ...getFontValue(13.5, 400), color: '#FF3B30' }}>Minimum Amount Should Be 30 Accounts!</Box>
         </Stack>
         <Stack direction="row" spacing={3} mt={7}>
           <Link href="referral-resell/resell">
-            {' '}
-            <Button size="small">Buy</Button>
+            <Button size="small">Assign</Button>
           </Link>
           <Link href="referral-resell/resell">
             <Button size="small" color="info">
-              Calculate
+              Manage Account
             </Button>
           </Link>
         </Stack>

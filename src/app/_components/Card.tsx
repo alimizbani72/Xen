@@ -26,11 +26,15 @@ const Card = (props: PropsWithChildren<CardProps>) => {
       pb={7.5}
       width="max-content"
     >
-      <Stack spacing={2.5} px={5} direction="row" mb={3} alignItems="center">
-        <Icon name={icon as IconType} size={28} />
-        <Stack sx={{ color: '#6B72FF', ...getFontValue(19, 500) }}>{title}</Stack>
-      </Stack>
-      <Divider sx={{ bgcolor: '#232246' }} />
+      {(!!icon || !!title) && (
+        <>
+          <Stack spacing={2.5} px={5} direction="row" mb={3} alignItems="center">
+            <Icon name={icon as IconType} size={28} />
+            <Stack sx={{ color: '#6B72FF', ...getFontValue(19, 500) }}>{title}</Stack>
+          </Stack>
+          <Divider sx={{ bgcolor: '#232246' }} />
+        </>
+      )}
       <Stack px={px} height="100%">
         {children}
       </Stack>
