@@ -62,7 +62,9 @@ export const ReferralProgram = () => {
               <Box sx={{ ...getFontValue(20, 400), color: '#B9BDFF' }}>10$</Box>
             </Stack>
             <Stack direction="row" spacing={3} mt={7}>
-              <Button size="small">Withdraw</Button>
+              <Link href="wallet/withdraw">
+                <Button size="small">Withdraw</Button>
+              </Link>
               <Link href="referral-resell/withdraw-history">
                 <Button size="small" color="info">
                   Withdraw History

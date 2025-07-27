@@ -3,16 +3,30 @@ import { Button, Divider, Stack, Typography } from '@mui/material'
 import FeatureLineItem from './FeatureLineItem'
 
 type Props = {
-  title: string
+  name: string
   duration: string
   price: string
   total: string
   isHighlighted?: boolean
   btnText?: string
   onClick?: VoidFunction
+  minimumCount?: number
+  trafficBytes?: number
 }
 
-const PlanCard = ({ title, duration, price, total, onClick, btnText = 'Purchase', isHighlighted = false }: Props) => {
+const PlanCard = ({
+  name,
+  duration,
+  price,
+  total,
+  onClick,
+  btnText = 'Purchase',
+  isHighlighted = false,
+  minimumCount,
+  trafficBytes,
+}: Props) => {
+  const bytesInGiB = Math.pow(1024, 3)
+  const gibTraffic = ((trafficBytes || 0) / bytesInGiB).toFixed(2)
   return (
     <Stack
       position={'relative'}
@@ -34,19 +48,19 @@ const PlanCard = ({ title, duration, price, total, onClick, btnText = 'Purchase'
         <Typography
           sx={{ ...getFontValue(isHighlighted ? 16 : 14, 400), color: isHighlighted ? '#ffffff' : '#8F8F8F' }}
         >
-          {title}
+          {name}
         </Typography>
         <Typography sx={{ ...getFontValue(isHighlighted ? 54 : 47.4, 700), color: 'white' }}>{duration}</Typography>
       </Stack>
       <Stack px={7} spacing={isHighlighted ? 5 : 2}>
         <Stack spacing={2}>
-          <FeatureLineItem icon="user" label="Unlimited User" />
-          <FeatureLineItem icon="dwonload" label="Unlimited Traffic" />
+          <FeatureLineItem icon="user" label={`${minimumCount} User`} />
+          <FeatureLineItem icon="dwonload" label={`${gibTraffic}GB`} />
         </Stack>
         <Divider sx={{ bgcolor: '#232246' }} orientation="horizontal" />
         <Stack>
           <Typography sx={{ ...getFontValue(12, 400), color: '#8F8F8F', textAlign: 'center' }}>Price</Typography>
-          <Stack direction={'row'} alignItems={'baseline'}>
+          <Stack direction={'row'} alignItems={'baseline'} justifyContent="center">
             <Typography sx={{ ...getFontValue(isHighlighted ? { xs: 50, sm: 54 } : 47.4, 700), color: 'white' }}>
               {price}
             </Typography>

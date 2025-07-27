@@ -1,6 +1,10 @@
 import { signINCredential } from '@/app/api/auth/[...nextauth]/_configs/authCredentials'
+import { tokenExpirationStatus } from '@/utils'
+import axios from 'axios'
 import { NextAuthOptions, Session } from 'next-auth'
 import { JWT } from 'next-auth/jwt'
+
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
 export type AuthToken = {
   access_token: string
@@ -23,6 +27,18 @@ const nextAuthDefaultOptions = (): NextAuthOptions => {
           return { ...user, ...token }
         }
 
+        if (token?.refresh_token && Date.now() >= +token.expires_in) {
+          const response = await axios.post(baseUrl + '/auth/refresh', {
+            access_token: token?.token,
+            refresh: token?.refresh_token,
+          })
+
+          token.token = response?.data?.token
+          token.refresh_token = response?.data?.refresh
+          token.expires_in = Date.now() + 2 * 60 * 1000
+
+          return { ...user, ...token }
+        }
         if (token.iat && !token.token) {
           throw Error('unauthenticated user')
         }

@@ -1,6 +1,6 @@
 // utils/axiosInstance.ts
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios'
-import { getSession } from 'next-auth/react'
+import { getSession, signIn, signOut } from 'next-auth/react'
 
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
@@ -22,11 +22,14 @@ axiosInstance.interceptors.request.use(
 )
 
 axiosInstance.interceptors.response.use(
-  response => response,
-  (error: AxiosError) => {
-    console.log(error, typeof window !== 'undefined' && error.response?.status === 401)
+  async response => response,
+  async (error: AxiosError) => {
     if (typeof window !== 'undefined' && error.response?.status === 401) {
-      // signOut({ callbackUrl: '/auth/login' })
+      try {
+        await getSession()
+      } catch {
+        signOut()
+      }
     }
     return Promise.reject(error)
   },

@@ -7,7 +7,7 @@ const breadCrumbsItems = [
 ]
 const WithdrawPage = () => {
   return (
-    <Stack px={8} pb={4} height={'100%'}>
+    <Stack px={{ md: 8 }} pb={4} height={'100%'}>
       <BreadCrumbs items={breadCrumbsItems} />
       <WithDrawSection />
     </Stack>

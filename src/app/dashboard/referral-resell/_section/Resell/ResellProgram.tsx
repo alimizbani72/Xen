@@ -37,7 +37,9 @@ export const ResellProgram = () => {
               <Box sx={{ ...getFontValue(20, 400), color: '#B9BDFF' }}>100 Accounts</Box>
             </Stack>
             <Stack direction="row" spacing={3} mt={7}>
-              <Button size="small">Buy</Button>
+              <Link href="referral-resell/plans">
+                <Button size="small">Buy</Button>
+              </Link>
               <Link href="referral-resell/account-list">
                 <Button size="small" color="info">
                   Account List

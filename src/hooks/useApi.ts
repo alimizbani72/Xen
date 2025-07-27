@@ -36,7 +36,7 @@ export function useApiMutation<TPayload = any, TResponse = any>(
   return useMutation<TResponse, Error, MutationParams<TPayload>>({
     mutationFn: async ({ url, method = 'POST', data, config }) => {
       const response = await axiosInstance.request<TResponse>({
-        url: baseUrl + url,
+        url: url,
         method,
         data,
         ...config,

@@ -32,15 +32,7 @@ export default async function RootLayout({
     <html lang="en" className={`${(poppins.className, syncopate.className)}`}>
       <body>
         <MaterialProvider deviceType={UAParser(headersList.get('user-agent') || '')?.device.type || 'desktop'}>
-          <Box
-            sx={{
-              minHeight: '100dvh',
-              background:
-                'linear-gradient(180deg, #010226 0%, #010315 100%),linear-gradient(180deg, #000946 0%, #040015 23.93%)',
-            }}
-          >
-            {children}
-          </Box>
+          {children}
         </MaterialProvider>
       </body>
     </html>

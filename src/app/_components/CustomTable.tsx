@@ -138,50 +138,47 @@ const CustomTable = ({
         }}
       >
         {isPending ? (
-          <Typography color="white">isLoading...</Typography>
+          <Typography color="white" width="100%" textAlign="center">
+            isLoading...
+          </Typography>
         ) : (
           <>
-            {!data?.length ? (
-              //   <Empty title={emptyTitle} subtitle={emptySubtitle} />
-              <Typography color="white">isLoading...</Typography>
-            ) : (
-              <Table aria-label="customized table" sx={{ px: '0 !important' }}>
-                <TableHead>
-                  <TableRow>
-                    {columns.map((head, index) => (
-                      <TableCell align="left" key={index} sx={{ color: '#262C53', ...getFontValue(16, 400) }}>
-                        {typeof head.title === 'string' ? head.title : head.title(data)}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {data?.length > 0 &&
-                    !isPending &&
-                    data?.map(rowItem => (
-                      <TableRow
-                        key={rowItem.id}
-                        onClick={() => onTableClick && onTableClick(rowItem.id)}
-                        sx={{
-                          cursor: onTableClick ? 'pointer' : 'default',
-                          px: '30px !important',
-                          ':hover': { bgcolor: 'dark.3' },
-                        }}
-                      >
-                        {columns.map((item, index) => (
-                          <TableCell
-                            align="left"
-                            key={index}
-                            sx={{ minWidth: item?.minWidth ? `${item?.minWidth}px !important` : '' }}
-                          >
-                            {item.modify(rowItem)}
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    ))}
-                </TableBody>
-              </Table>
-            )}
+            <Table aria-label="customized table" sx={{ px: '0 !important' }}>
+              <TableHead>
+                <TableRow>
+                  {columns.map((head, index) => (
+                    <TableCell align="left" key={index} sx={{ color: '#262C53', ...getFontValue(16, 400) }}>
+                      {typeof head.title === 'string' ? head.title : head.title(data)}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {data?.length > 0 &&
+                  !isPending &&
+                  data?.map(rowItem => (
+                    <TableRow
+                      key={rowItem.id}
+                      onClick={() => onTableClick && onTableClick(rowItem.id)}
+                      sx={{
+                        cursor: onTableClick ? 'pointer' : 'default',
+                        px: '30px !important',
+                        ':hover': { bgcolor: 'dark.3' },
+                      }}
+                    >
+                      {columns.map((item, index) => (
+                        <TableCell
+                          align="left"
+                          key={index}
+                          sx={{ minWidth: item?.minWidth ? `${item?.minWidth}px !important` : '' }}
+                        >
+                          {item.modify(rowItem)}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
           </>
         )}
       </TableContainer>

@@ -1,6 +1,7 @@
 'use client'
 import { RHFTextField } from '@/components/HookForm'
 import FormProvider from '@/components/HookForm/form-provider'
+import { useApiMutation } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Button, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
@@ -8,6 +9,7 @@ import { useForm } from 'react-hook-form'
 
 const WithdrawForm = () => {
   const router = useRouter()
+  const { mutateAsync: withdrawMutate } = useApiMutation()
   const methods = useForm({
     mode: 'onSubmit',
   })
@@ -19,14 +21,18 @@ const WithdrawForm = () => {
     watch,
   } = methods
   const amount = watch('amount')
-  const confirmPassword = watch('confirmPassword')
+  const address = watch('address')
 
-  const isDisabled = !amount || !confirmPassword
+  const isDisabled = !amount || !address
   const onSubmit = handleSubmit(async data => {
-    // simulate API delay
-    await new Promise(res => setTimeout(res, 1000))
-    // Redirect to success page after submission
-    router.push('/dashboard/wallet/withdraw/success')
+    withdrawMutate({
+      url: 'wallet/withdraw',
+      method: 'POST',
+      data: {
+        wallet_address: data.address,
+        amount: data.amount,
+      },
+    }).then(response => router.push('/dashboard/wallet/withdraw/success'))
   })
 
   return (
@@ -53,12 +59,7 @@ const WithdrawForm = () => {
           />
         </Stack>
         <Stack width="100%">
-          <RHFTextField
-            name="confirmPassword"
-            label="Your USDT-TRC20 Wallet Address"
-            placeholder="Enter Your Address"
-            type="password"
-          />
+          <RHFTextField name="address" label="Your USDT-TRC20 Wallet Address" placeholder="Enter Your Address" />
         </Stack>
       </Stack>
       <Button type="submit" sx={{ mt: 2 }} disabled={isDisabled} loading={isSubmitting}>
