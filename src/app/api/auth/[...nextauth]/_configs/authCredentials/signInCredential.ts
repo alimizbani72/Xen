@@ -36,7 +36,7 @@ export const signINCredential = Credentials({
         user: {
           email: userData?.data?.email,
           username: userData?.data?.username,
-          walletAmount: userData?.data?.wallet_amount,
+          wallet_amount: userData?.data?.wallet_amount,
           referralCode: userData?.data?.referal_code,
           used_referral_code: userData?.data?.used_referal_code,
         },

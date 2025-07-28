@@ -11,7 +11,7 @@ declare module 'next-auth' {
     user: {
       username: string
       email: string
-      walletAmount: number
+      wallet_amount: number
       referralCode: string
       used_referral_code: string
     }
