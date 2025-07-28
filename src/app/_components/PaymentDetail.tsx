@@ -5,14 +5,15 @@ import { Button, Divider, Stack, TextField, Typography } from '@mui/material'
 type Props = {
   onClick?: VoidFunction
   title: string
+  amount?: string
 }
-const PaymentDetail = ({ onClick, title }: Props) => {
+const PaymentDetail = ({ onClick, title, amount }: Props) => {
   return (
     <Card title="Payment Details" icon="payment" sx={{ width: '100%', height: 'max-content' }}>
       <Stack py={6} spacing={4} px={5}>
         <Stack direction={'row'} justifyContent={'space-between'}>
           <Typography sx={{ color: '#49549C', ...getFontValue(20, 500) }}>{title}</Typography>
-          <Typography sx={{ color: 'white', ...getFontValue(20, 500) }}>10 USDT</Typography>
+          <Typography sx={{ color: 'white', ...getFontValue(20, 500) }}>{amount} USDT</Typography>
         </Stack>
         <Stack direction={'row'} justifyContent={'space-between'}>
           <Typography sx={{ color: '#49549C', ...getFontValue(20, 500) }}>VAT (0%)</Typography>
@@ -20,7 +21,7 @@ const PaymentDetail = ({ onClick, title }: Props) => {
         </Stack>
         <Stack direction={'row'} justifyContent={'space-between'} pt={2}>
           <Typography sx={{ color: 'white', ...getFontValue(28, 500) }}>Total</Typography>
-          <Typography sx={{ color: 'white', ...getFontValue(28, 500) }}>10 USDT</Typography>
+          <Typography sx={{ color: 'white', ...getFontValue(28, 500) }}>{amount} USDT</Typography>
         </Stack>
       </Stack>
       <Divider sx={{ bgcolor: '#232246' }} />

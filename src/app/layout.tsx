@@ -1,5 +1,5 @@
+import ProgressBar from '@/components/progress-bar'
 import { MaterialProvider } from '@/provider/material/MaterialProvider'
-import { Box } from '@mui/material'
 import type { Metadata } from 'next'
 import { Poppins, Syncopate } from 'next/font/google'
 import { headers } from 'next/headers'
@@ -32,6 +32,7 @@ export default async function RootLayout({
     <html lang="en" className={`${(poppins.className, syncopate.className)}`}>
       <body>
         <MaterialProvider deviceType={UAParser(headersList.get('user-agent') || '')?.device.type || 'desktop'}>
+          <ProgressBar />
           {children}
         </MaterialProvider>
       </body>

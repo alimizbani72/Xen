@@ -1,11 +1,8 @@
-import { GoogleSignin } from '@/app/(landing-auth)/auth/_components/GoogleSignin'
 import { RHFTextField } from '@/components/HookForm'
 import FormProvider from '@/components/HookForm/form-provider'
-import { Icon } from '@/components/Icon'
 import { useApiMutation, useYupValidationResolver } from '@/hooks'
-import { axiosInstance, getFontValue } from '@/utils'
+import { getFontValue } from '@/utils'
 import { Box, Button, Stack } from '@mui/material'
-import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
@@ -61,8 +58,8 @@ const RegisterForm = () => {
 
   return (
     <Stack maxWidth={468} width={'100%'}>
-      <GoogleSignin />
-      <Box
+      {/* <GoogleSignin /> */}
+      {/* <Box
         sx={{
           '&::before': {
             content: '""',
@@ -90,7 +87,7 @@ const RegisterForm = () => {
         }}
       >
         Or
-      </Box>
+      </Box> */}
 
       <FormProvider methods={methods} onSubmit={onSubmit} sx={{ gap: 5 }}>
         <Stack spacing={3.5}>

@@ -1,8 +1,9 @@
 import BreadCrumbs from '@/app/_components/Breadcrumb'
 import { Stack } from '@mui/material'
 import WithDrawSection from './_section'
+
 const breadCrumbsItems = [
-  { href: '#', label: 'Wallet' },
+  { href: '/dashboard/wallet/', label: 'Wallet' },
   { href: '#', label: 'withdraw' },
 ]
 const WithdrawPage = () => {

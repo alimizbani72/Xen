@@ -15,3 +15,15 @@
 a {
   text-decoration: none;
 }
+.custom-scrollbar .os-scrollbar-vertical {
+  background-color: #4750ff;
+  cursor: pointer;
+}
+
+.custom-scrollbar .os-scrollbar-horizontal:hover {
+  background-color: #4750ff;
+}
+.os-scrollbar-handle {
+  background-color: #4750ff !important;
+  border-radius: 4px;
+}
