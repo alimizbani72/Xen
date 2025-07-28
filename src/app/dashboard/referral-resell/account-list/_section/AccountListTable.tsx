@@ -3,7 +3,7 @@
 import CustomTable, { ColumnType } from '@/app/_components/CustomTable'
 import { Icon } from '@/components/Icon'
 import { useApiMutation, useApiQuery } from '@/hooks'
-import { accountList, inviteHistory } from '@/Mock'
+import { getDaysRemaining } from '@/utils/getDaysRemaining'
 import { Button, Stack } from '@mui/material'
 import { useSession } from 'next-auth/react'
 import { ChangeEvent, useState } from 'react'
@@ -40,6 +40,10 @@ export const AccountListTable = () => {
     {
       title: 'Plan',
       modify: (row: any) => row.plan || '-',
+    },
+    {
+      title: 'Remain',
+      modify: (row: any) => getDaysRemaining(row.deadline),
     },
     {
       title: 'Assigned',

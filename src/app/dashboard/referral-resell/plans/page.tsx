@@ -4,7 +4,9 @@ import BreadCrumbs from '@/app/_components/Breadcrumb'
 import { useApiMutation, useApiQuery } from '@/hooks'
 import { v4 as uuidv4 } from 'uuid'
 
-import { Stack } from '@mui/material'
+import Scrollbar from '@/components/Scrollbar'
+import { getFontValue } from '@/utils'
+import { Stack, Typography } from '@mui/material'
 
 const breadCrumbsItems = [
   { href: '/dashboard/referral-resell/', label: 'Referral & Resell' },
@@ -32,20 +34,32 @@ const Page = () => {
   return (
     <Stack px={8} spacing={7} height="100%">
       <BreadCrumbs items={breadCrumbsItems} />
-      <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={6} px={{ xxl: 30, xl: 10 }}>
-        {data?.items?.map((plan, idx) => (
-          <PlanCard
-            key={idx}
-            {...plan}
-            price={`${plan.plisio.amount} ${plan.plisio.currency}`}
-            duration="1 Month"
-            total="3.5 USDT Total"
-            btnText="Purchase"
-            isHighlighted={false}
-            onClick={() => handlePurchase(plan.id, plan.minimumCount)}
-          />
-        ))}
-      </Stack>
+      <Typography sx={{ color: 'white', ...getFontValue(40, 700) }} textAlign={'center'}>
+        Select Your Plan
+      </Typography>
+      <Scrollbar options={{ scrollbars: { clickScroll: true, autoHide: 'never' } }}>
+        <Stack
+          className="custom-scrollbar"
+          direction="row"
+          flexWrap="wrap"
+          justifyContent="center"
+          gap={6}
+          px={{ xxl: 30, xl: 10 }}
+        >
+          {data?.items?.map((plan, idx) => (
+            <PlanCard
+              key={idx}
+              {...plan}
+              price={`${plan.plisio.amount} ${plan.plisio.currency}`}
+              duration="1 Month"
+              total="3.5 USDT Total"
+              btnText="Purchase"
+              isHighlighted={false}
+              onClick={() => handlePurchase(plan.id, plan.minimumCount)}
+            />
+          ))}
+        </Stack>
+      </Scrollbar>
     </Stack>
   )
 }

@@ -2,6 +2,7 @@
 
 import { Icon } from '@/components/Icon'
 import { IconType } from '@/components/Icon/iconNames'
+import Scrollbar from '@/components/Scrollbar'
 import { getFontValue } from '@/utils'
 import { Pagination, Paper, Stack, Typography, useMediaQuery } from '@mui/material'
 import Table from '@mui/material/Table'
@@ -138,11 +139,13 @@ const CustomTable = ({
         }}
       >
         {isPending ? (
-          <Typography color="white" width="100%" textAlign="center">
-            isLoading...
-          </Typography>
+          <Stack sx={{ height: '400px', width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            <Typography color="white" width="100%" textAlign="center">
+              isLoading...
+            </Typography>
+          </Stack>
         ) : (
-          <>
+          <Scrollbar options={{ scrollbars: { autoHide: 'leave' } }}>
             <Table aria-label="customized table" sx={{ px: '0 !important' }}>
               <TableHead>
                 <TableRow>
@@ -179,7 +182,7 @@ const CustomTable = ({
                   ))}
               </TableBody>
             </Table>
-          </>
+          </Scrollbar>
         )}
       </TableContainer>
 

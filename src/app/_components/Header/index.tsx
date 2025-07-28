@@ -33,6 +33,7 @@ const Header = () => {
           transform: 'translate(-50%,50%)',
           p: 3,
           zIndex: 1000000,
+          backdropFilter: 'blur(10px)',
           // background: 'linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(60, 54, 153, 1) 50%, rgba(0, 0, 0, 1) 100%)',
           background:
             'linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, rgba(60, 54, 153, 0.2) 50%, rgba(0, 0, 0, 0.2) 100%);',
