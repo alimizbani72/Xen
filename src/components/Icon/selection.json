@@ -1733,6 +1733,64 @@
       "setIdx": 0,
       "setId": 6,
       "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M520.009 939.921c225.396 0 408.113-182.717 408.113-408.113 0-225.398-182.717-408.117-408.113-408.117-225.398 0-408.118 182.719-408.118 408.117 0 225.396 182.72 408.113 408.118 408.113z",
+          "M622.035 429.777l-204.057 204.056M417.978 429.777l204.057 204.056"
+        ],
+        "attrs": [
+          {
+            "fill": "none",
+            "stroke": "rgb(147, 152, 255)",
+            "strokeLinejoin": "miter",
+            "strokeLinecap": "butt",
+            "strokeMiterlimit": "4",
+            "strokeWidth": 61.21739130434783
+          },
+          {
+            "fill": "none",
+            "stroke": "rgb(147, 152, 255)",
+            "strokeLinejoin": "miter",
+            "strokeLinecap": "round",
+            "strokeMiterlimit": "4",
+            "strokeWidth": 61.21739130434783
+          }
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": ["close-circle"]
+      },
+      "attrs": [
+        {
+          "fill": "none",
+          "stroke": "currentColor",
+          "strokeLinejoin": "miter",
+          "strokeLinecap": "butt",
+          "strokeMiterlimit": "4",
+          "strokeWidth": 61.21739130434783
+        },
+        {
+          "fill": "none",
+          "stroke": "currentColor",
+          "strokeLinejoin": "miter",
+          "strokeLinecap": "round",
+          "strokeMiterlimit": "4",
+          "strokeWidth": 61.21739130434783
+        }
+      ],
+      "properties": {
+        "order": 4,
+        "id": 0,
+        "name": "close-circle",
+        "prevSize": 32,
+        "code": 59648
+      },
+      "setIdx": 0,
+      "setId": 3,
+      "iconIdx": 0
     }
   ],
   "height": 1024,

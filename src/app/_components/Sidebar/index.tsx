@@ -73,13 +73,22 @@ const Sidebar = () => {
         <Box>
           <Divider sx={{ bgcolor: '#232246' }} />
           <Stack direction={'row'} justifyContent={'space-between'} alignItems="center" p={4} spacing={2}>
-            <Stack direction="row" spacing={3}>
+            <Stack direction="row" spacing={3} width={'calc(100% - 34px)'}>
               <Avatar sx={{ width: 50, height: 50, bgcolor: '#31315C', color: 'white' }}>
                 {data?.username?.charAt(0).toUpperCase()}
               </Avatar>
 
-              <Stack>
-                <Box sx={{ ...getFontValue(19, 500), color: '#fff' }}>{data?.username || 'Username'} </Box>
+              <Stack sx={{ width: 'calc(100% - 62px)' }}>
+                <Box
+                  sx={{
+                    ...getFontValue(19, 500),
+                    color: '#fff',
+                    textOverflow: 'ellipsis',
+                    overflow: 'hidden',
+                  }}
+                >
+                  {data?.username || 'Username'}{' '}
+                </Box>
                 <Box sx={{ ...getFontValue(12, 400), color: '#555555' }}>
                   Balance:{' '}
                   <Box component="span" color="#fff">

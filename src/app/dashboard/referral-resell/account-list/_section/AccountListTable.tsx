@@ -9,14 +9,14 @@ import { useSession } from 'next-auth/react'
 import { ChangeEvent, useState } from 'react'
 
 export const AccountListTable = () => {
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const session = useSession()
   const itemsPerPage = 12
   const { mutateAsync: assignTicketMutate } = useApiMutation()
   const { data, isPending } = useApiQuery({
-    url: `my/agency-tickets?skip=${page * itemsPerPage}&limit=${itemsPerPage}`,
+    url: `my/agency-tickets?skip=${(page - 1) * itemsPerPage}&limit=${itemsPerPage}`,
   })
-  const totalCount = accountList.length
+  const totalCount = data?.totalItems
   const handleChangePage = (_event: ChangeEvent<unknown>, newPage: number) => {
     setPage(newPage)
   }
@@ -35,23 +35,23 @@ export const AccountListTable = () => {
   const columns: ColumnType[] = [
     {
       title: 'Account ID',
-      modify: (row: any) => row.accountId,
+      modify: (row: any) => row.packId,
     },
     {
       title: 'Plan',
-      modify: (row: any) => row.plan,
+      modify: (row: any) => row.plan || '-',
     },
     {
       title: 'Assigned',
-      modify: (row: any) => <Icon name="tick" color="#6B72FF" />,
+      modify: (row: any) => <Icon name={row?.isAgency ? 'tick' : 'close-circle'} color="#6B72FF" />,
     },
     {
       title: 'Assigned To',
-      modify: (row: any) => row.assignedTo,
+      modify: (row: any) => row.assignedTo || '-',
     },
     {
       title: 'Assign Date',
-      modify: (row: any) => row.assignDate,
+      modify: (row: any) => (row.createdAt ? new Date(row.createdAt).toLocaleDateString() : '-'),
     },
     {
       title: '',
