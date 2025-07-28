@@ -6,6 +6,7 @@ import { getFontValue } from '@/utils'
 import { Button, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import toast from 'react-hot-toast'
 
 const WithdrawForm = () => {
   const router = useRouter()
@@ -30,9 +31,14 @@ const WithdrawForm = () => {
       method: 'POST',
       data: {
         wallet_address: data.address,
-        amount: data.amount,
+        amount: +data.amount,
       },
-    }).then(response => router.push('/dashboard/wallet/withdraw/success'))
+    }).then(response => {
+      if (response?.withdrawal_id) {
+        toast.success(response?.message)
+        router.push('/dashboard/wallet/withdraw/success')
+      }
+    })
   })
 
   return (
