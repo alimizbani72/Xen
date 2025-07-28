@@ -1,6 +1,4 @@
 'use client'
-import { GoogleSignin } from '@/app/(landing-auth)/auth/_components/GoogleSignin'
-import { OrDivider } from '@/app/(landing-auth)/auth/_components/OrDivider'
 import { RHFTextField } from '@/components/HookForm'
 import FormProvider from '@/components/HookForm/form-provider'
 import { useYupValidationResolver } from '@/hooks'
@@ -46,8 +44,8 @@ const LoginForm = () => {
 
   return (
     <Stack maxWidth={468} width={'100%'}>
-      <GoogleSignin />
-      <OrDivider />
+      {/* <GoogleSignin />
+      <OrDivider /> */}
 
       <FormProvider methods={methods} onSubmit={onSubmit} sx={{ gap: 5 }}>
         <Stack gap={4}>

@@ -1,8 +1,15 @@
+'use client'
 import { Icon } from '@/components/Icon'
+import { useApiQuery } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Stack, TextField, Typography } from '@mui/material'
-
-const Payment = () => {
+import { Session } from 'next-auth'
+type Props = {
+  amount: string
+  setAmount: (value: string) => void
+}
+const Payment = ({ amount, setAmount }: Props) => {
+  const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
   return (
     <Stack spacing={6} width={'100%'}>
       <Typography sx={{ color: 'white', ...getFontValue({ xs: 20, md: 40 }, 700), pb: 4 }}>Charge Wallet</Typography>
@@ -10,6 +17,8 @@ const Payment = () => {
         <Typography sx={{ color: 'white', ...getFontValue(22, 500), pr: 5 }}>Set Your Deposit Amount</Typography>
         <TextField
           name="amount"
+          value={amount}
+          onChange={e => setAmount(e.target.value)}
           slotProps={{
             input: {
               endAdornment: <Typography sx={{ color: '#262C53', ...getFontValue(16.5, 400), pr: 5 }}>USDT</Typography>,
@@ -45,7 +54,9 @@ const Payment = () => {
           pl: 7,
         }}
       >
-        <Typography sx={{ color: '#49549C', ...getFontValue(18, 500), pr: 5 }}>Your Wallet: 10$</Typography>
+        <Typography sx={{ color: '#49549C', ...getFontValue(18, 500), pr: 5 }}>
+          Your Wallet: {(data as any)?.wallet_amount}$
+        </Typography>
       </Stack>
     </Stack>
   )

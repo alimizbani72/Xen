@@ -1,10 +1,13 @@
 'use client'
 import { RHFSelect } from '@/components/HookForm/rhf-select'
 import { Icon } from '@/components/Icon'
+import { useApiQuery } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Stack, TextField, Typography } from '@mui/material'
+import { Session } from 'next-auth'
 
 const Payment = () => {
+  const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
   return (
     <Stack spacing={6} width={'100%'}>
       <Typography sx={{ color: 'white', ...getFontValue({ xs: 20, md: 40 }, 700), pb: 4 }}>WholeSale</Typography>
@@ -44,7 +47,9 @@ const Payment = () => {
           pl: 7,
         }}
       >
-        <Typography sx={{ color: '#49549C', ...getFontValue(18, 500), pr: 5 }}>Your Wallet: 10$</Typography>
+        <Typography sx={{ color: '#49549C', ...getFontValue(18, 500), pr: 5 }}>
+          Your Wallet: {(data as any)?.wallet_amount}$
+        </Typography>
       </Stack>
     </Stack>
   )

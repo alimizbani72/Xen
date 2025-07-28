@@ -7,11 +7,10 @@ import { Box, Button, Drawer, List, ListItem, ListItemButton, Stack, useMediaQue
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const Header = () => {
-  const router = useRouter()
   const session = useSession()
   const pathname = usePathname()
   const [openDrawer, setOpenDrawer] = useState(false)
@@ -46,17 +45,17 @@ const Header = () => {
               component={Link}
               href={link.href}
               key={link.label}
-              sx={{ ...getFontValue(), color: pathname === link.href ? 'white' : '#626585', textDecoration: 'none' }}
+              sx={{
+                ...getFontValue(20, 500),
+                color: pathname === link.href ? 'white' : '#626585',
+                textDecoration: 'none',
+              }}
             >
               {link.label}
             </Box>
           ))}
         </Stack>
-        <Button
-          size="small"
-          sx={{ py: 3 }}
-          onClick={() => router?.push(session?.data?.token ? '/dashboard' : '/auth/login')}
-        >
+        <Button size="small" sx={{ py: 3 }} href={session?.data?.token ? '/dashboard' : '/auth/login'}>
           {session?.data?.token ? 'Dashboard' : 'Login'}
         </Button>
       </Stack>
@@ -104,7 +103,7 @@ const Header = () => {
             ))}
           </List>
 
-          <Button sx={{ mx: 4 }} onClick={() => router?.push(session?.data?.token ? '/dashboard' : '/auth/login')}>
+          <Button sx={{ mx: 4 }} href={session?.data?.token ? '/dashboard' : '/auth/login'}>
             {session?.data?.token ? 'Dashboard' : 'Login'}
           </Button>
         </Stack>
