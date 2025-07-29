@@ -1,5 +1,5 @@
-import NextAuth, { DefaultSession } from 'next-auth'
-import { JWT } from 'next-auth/jwt'
+import { DefaultSession } from 'next-auth'
+import 'next-auth/jwt'
 
 declare module 'next-auth' {
   /**
@@ -11,8 +11,8 @@ declare module 'next-auth' {
     user: {
       username: string
       email: string
-      walletAmount: number
-      referralCode: string
+      wallet_amount: number
+      referal_code: string
       used_referral_code: string
     }
   } & Omit<DefaultSession, 'user' | 'id'>

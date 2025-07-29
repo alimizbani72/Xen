@@ -92,7 +92,7 @@ const Sidebar = () => {
                 <Box sx={{ ...getFontValue(12, 400), color: '#555555' }}>
                   Balance:{' '}
                   <Box component="span" color="#fff">
-                    {data?.walletAmount || 0}$
+                    {data?.wallet_amount || 0}$
                   </Box>
                 </Box>
               </Stack>
