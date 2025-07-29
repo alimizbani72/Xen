@@ -21,9 +21,8 @@ const Plans = ({ onClick }: Props) => {
               isHighlighted={idx === 1}
               btnText="Next"
               onClick={onClick}
-              duration="3 Month"
-              price={`${plan.plisio.amount} ${plan.plisio.currency}`}
-              total="3.5 USDT Total"
+              currency={plan.plisio.currency}
+              amount={plan.plisio.amount}
             />
           ))}
     </Stack>

@@ -15,6 +15,8 @@ const breadCrumbsItems = [
 
 const Page = () => {
   const { data, isLoading } = useApiQuery<{ items: any[] }>({ url: 'agency-pack/list?skip=0&limit=20' })
+  console.log(data)
+
   const { mutateAsync, isPending } = useApiMutation<any, { invoice_url: string }>()
 
   const handlePurchase = (id: number, count: number) => {
@@ -54,9 +56,8 @@ const Page = () => {
                 <PlanCard
                   key={idx}
                   {...plan}
-                  price={`${plan.plisio.amount} ${plan.plisio.currency}`}
-                  duration="1 Month"
-                  total="3.5 USDT Total"
+                  currency={plan.plisio.currency}
+                  amount={plan.plisio.amount}
                   btnText="Purchase"
                   onClick={() => handlePurchase(plan.id, plan.minimumCount)}
                   isLoading={isPending}

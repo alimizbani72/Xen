@@ -6,27 +6,34 @@ type Props = {
   name: string
   duration: string
   price: string
-  total: string
   isHighlighted?: boolean
   btnText?: string
   onClick?: VoidFunction
   downloadLimit?: number
   trafficBytes?: number
+  ttlSeconds: number
+  amount: string
+  currency: string
 }
 
 const PlanCard = ({
   name,
-  duration,
   price,
-  total,
   onClick,
   btnText = 'Purchase',
   isHighlighted = false,
   trafficBytes,
   downloadLimit,
+  ttlSeconds,
+  amount,
+  currency,
 }: Props) => {
   const bytesInGiB = Math.pow(1024, 3)
   const gibTraffic = ((trafficBytes || 0) / bytesInGiB).toFixed(0)
+  const secondsInMonth = 30 * 24 * 60 * 60 // 30 days as 1 month = 2592000 seconds
+  const months = Math.floor(ttlSeconds / secondsInMonth)
+  const duration = `${months} month`
+  const total = +amount * months
   return (
     <Stack
       position={'relative'}
@@ -62,11 +69,15 @@ const PlanCard = ({
           <Typography sx={{ ...getFontValue(12, 400), color: '#8F8F8F', textAlign: 'center' }}>Price</Typography>
           <Stack direction={'row'} alignItems={'baseline'}>
             <Typography sx={{ ...getFontValue(isHighlighted ? { xs: 50, sm: 54 } : 47.4, 700), color: 'white' }}>
-              {price}
+              {amount}
+              {'  '}
+              {currency}
             </Typography>
             <Typography sx={{ ...getFontValue(16, 400), color: 'white' }}>/Month</Typography>
           </Stack>
-          <Typography sx={{ ...getFontValue(14, 400), color: 'white', textAlign: 'center' }}>{total}</Typography>
+          <Typography sx={{ ...getFontValue(14, 400), color: 'white', textAlign: 'center' }}>
+            {`${total} ${currency}`} Total
+          </Typography>
         </Stack>
         <Button size="small" onClick={onClick}>
           {btnText}

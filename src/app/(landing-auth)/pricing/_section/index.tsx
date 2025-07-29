@@ -14,6 +14,7 @@ const PricingSection = () => {
   const { data, isLoading } = useApiQuery<{ items?: any[] }>({
     url: 'pack/list?skip=0&limit=3',
   })
+
   return (
     <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2} overflow="hidden">
       <DustBackground numParticles={220} />
@@ -50,10 +51,9 @@ const PricingSection = () => {
                 <PlanCard
                   key={idx}
                   {...plan}
-                  duration="3 Month"
-                  price={`${plan.plisio.amount} ${plan.plisio.currency}`}
+                  currency={plan.plisio.currency}
+                  amount={plan.plisio.amount}
                   isHighlighted={idx === 1}
-                  total="3.5 USDT Total"
                   btnText="Purchase"
                   onClick={() => router.push('dashboard/subscription')}
                 />
