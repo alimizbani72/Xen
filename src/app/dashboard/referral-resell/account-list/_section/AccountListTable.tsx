@@ -21,7 +21,7 @@ export const AccountListTable = () => {
     setPage(newPage)
   }
 
-  const handleAssign = (id: number) => {
+  const handleAssign = (id: string) => {
     assignTicketMutate({
       url: '/ticket/agency-sell',
       method: 'POST',
