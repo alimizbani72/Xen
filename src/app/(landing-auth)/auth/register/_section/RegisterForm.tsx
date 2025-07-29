@@ -37,7 +37,7 @@ const RegisterForm = () => {
   const onSubmit = handleSubmit(async data => {
     try {
       const response = await mutateAsync({
-        url: '/auth/register',
+        url: 'auth/register',
         method: 'POST',
         data: {
           username: data.username,
