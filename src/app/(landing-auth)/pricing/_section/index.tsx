@@ -3,16 +3,15 @@ import Badge from '@/app/_components/Badge'
 import { RiveFooter } from '@/app/_components/RiveFooter'
 import DustBackground from '@/components/DustBackground'
 import { Icon } from '@/components/Icon'
-import { plans } from '@/Mock'
+import { useApiQuery } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Box, Stack, Typography } from '@mui/material'
-import PlanCard from './PlanCard'
-import { useApiQuery } from '@/hooks'
 import { useRouter } from 'next/navigation'
+import PlanCard from './PlanCard'
 
 const PricingSection = () => {
   const router = useRouter()
-  const { data } = useApiQuery<{ items?: any[] }>({
+  const { data, isLoading } = useApiQuery<{ items?: any[] }>({
     url: 'pack/list?skip=0&limit=3',
   })
   return (
@@ -43,17 +42,22 @@ const PricingSection = () => {
           </Typography>
         </Stack>
         <Stack direction={{ xs: 'column', lg: 'row' }} alignItems={'center'} spacing={7}>
-          {data?.items?.map((plan, idx) => (
-            <PlanCard
-              key={idx}
-              {...plan}
-              duration="3 Month"
-              price={`${plan.plisio.amount} ${plan.plisio.currency}`}
-              total="3.5 USDT Total"
-              btnText="Purchase"
-              onClick={() => router.push('dashboard/subscription')}
-            />
-          ))}
+          {isLoading
+            ? Array.from({ length: 3 }).map((_, index) => (
+                <Stack key={index} className="loading-skeleton" sx={{ width: '328px', height: '369px' }} />
+              ))
+            : data?.items?.map((plan, idx) => (
+                <PlanCard
+                  key={idx}
+                  {...plan}
+                  duration="3 Month"
+                  price={`${plan.plisio.amount} ${plan.plisio.currency}`}
+                  isHighlighted={idx === 1}
+                  total="3.5 USDT Total"
+                  btnText="Purchase"
+                  onClick={() => router.push('dashboard/subscription')}
+                />
+              ))}
         </Stack>
         <Stack direction={'row'} spacing={2}>
           <Icon name="headphone" size={25} color="#8F8F8F" />

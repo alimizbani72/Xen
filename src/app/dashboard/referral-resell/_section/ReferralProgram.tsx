@@ -2,12 +2,17 @@
 
 import Card from '@/app/_components/Card'
 import { Icon } from '@/components/Icon'
+import { useApiQuery } from '@/hooks'
+import { useCopyToClipboard } from '@/hooks/use-copy'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack, useMediaQuery } from '@mui/material'
+import { Session } from 'next-auth'
 import Link from 'next/link'
 
 export const ReferralProgram = () => {
+  const { copy } = useCopyToClipboard()
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
+  const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
   return (
     <Stack spacing={3} mt={7} mb={11}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
@@ -35,10 +40,10 @@ export const ReferralProgram = () => {
               alignItems="center"
               sx={{ ...getFontValue(48, 400), color: '#FFFFFF', height: 34, mt: 4, mb: 7 }}
             >
-              E8123NAS{' '}
-              <Box ml={3}>
+              {data?.referal_code}
+              <Stack ml={3} onClick={() => copy(data?.referal_code!)}>
                 <Icon name="copy" color="#ffffff" size={32} />
-              </Box>
+              </Stack>
             </Stack>
             <Button size="small">Share The Link</Button>
             <Box sx={{ ...getFontValue(15, 400), color: '#49549C', maxWidth: 260, textAlign: 'center', mt: 7 }}>

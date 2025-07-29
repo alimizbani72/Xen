@@ -14,8 +14,8 @@ const breadCrumbsItems = [
 ]
 
 const Page = () => {
-  const { data } = useApiQuery<{ items: any[] }>({ url: 'agency-pack/list?skip=0&limit=20' })
-  const { mutateAsync } = useApiMutation<any, { invoice_url: string }>()
+  const { data, isLoading } = useApiQuery<{ items: any[] }>({ url: 'agency-pack/list?skip=0&limit=20' })
+  const { mutateAsync, isPending } = useApiMutation<any, { invoice_url: string }>()
 
   const handlePurchase = (id: number, count: number) => {
     mutateAsync({
@@ -46,17 +46,22 @@ const Page = () => {
           gap={6}
           px={{ xxl: 30, xl: 10 }}
         >
-          {data?.items?.map((plan, idx) => (
-            <PlanCard
-              key={idx}
-              {...plan}
-              price={`${plan.plisio.amount} ${plan.plisio.currency}`}
-              duration="1 Month"
-              total="3.5 USDT Total"
-              btnText="Purchase"
-              onClick={() => handlePurchase(plan.id, plan.minimumCount)}
-            />
-          ))}
+          {isLoading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <Stack key={index} className="loading-skeleton" sx={{ width: '258px', height: '315px' }} />
+              ))
+            : data?.items?.map((plan, idx) => (
+                <PlanCard
+                  key={idx}
+                  {...plan}
+                  price={`${plan.plisio.amount} ${plan.plisio.currency}`}
+                  duration="1 Month"
+                  total="3.5 USDT Total"
+                  btnText="Purchase"
+                  onClick={() => handlePurchase(plan.id, plan.minimumCount)}
+                  isLoading={isPending}
+                />
+              ))}
         </Stack>
       </Scrollbar>
     </Stack>

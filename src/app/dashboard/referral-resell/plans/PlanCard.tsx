@@ -11,6 +11,7 @@ type Props = {
   onClick?: VoidFunction
   minimumCount?: number
   trafficBytes?: number
+  isLoading?: boolean
 }
 
 const PlanCard = ({
@@ -22,6 +23,7 @@ const PlanCard = ({
   btnText = 'Purchase',
   minimumCount,
   trafficBytes,
+  isLoading,
 }: Props) => {
   const bytesInGiB = Math.pow(1024, 3)
   const gibTraffic = ((trafficBytes || 0) / bytesInGiB).toFixed(2)
@@ -56,7 +58,7 @@ const PlanCard = ({
           </Stack>
           <Typography sx={{ ...getFontValue(14, 400), color: 'white', textAlign: 'center' }}>{total}</Typography>
         </Stack>
-        <Button size="small" onClick={onClick}>
+        <Button size="small" onClick={onClick} loading={isLoading}>
           {btnText}
         </Button>
       </Stack>
