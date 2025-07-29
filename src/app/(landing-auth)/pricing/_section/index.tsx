@@ -1,3 +1,4 @@
+'use client'
 import Badge from '@/app/_components/Badge'
 import { RiveFooter } from '@/app/_components/RiveFooter'
 import DustBackground from '@/components/DustBackground'
@@ -6,8 +7,14 @@ import { plans } from '@/Mock'
 import { getFontValue } from '@/utils'
 import { Box, Stack, Typography } from '@mui/material'
 import PlanCard from './PlanCard'
+import { useApiQuery } from '@/hooks'
+import { useRouter } from 'next/navigation'
 
 const PricingSection = () => {
+  const router = useRouter()
+  const { data } = useApiQuery<{ items?: any[] }>({
+    url: 'pack/list?skip=0&limit=3',
+  })
   return (
     <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2} overflow="hidden">
       <DustBackground numParticles={220} />
@@ -36,8 +43,16 @@ const PricingSection = () => {
           </Typography>
         </Stack>
         <Stack direction={{ xs: 'column', lg: 'row' }} alignItems={'center'} spacing={7}>
-          {plans.map((plan, idx) => (
-            <PlanCard key={idx} {...plan} />
+          {data?.items?.map((plan, idx) => (
+            <PlanCard
+              key={idx}
+              {...plan}
+              duration="3 Month"
+              price={`${plan.plisio.amount} ${plan.plisio.currency}`}
+              total="3.5 USDT Total"
+              btnText="Purchase"
+              onClick={() => router.push('dashboard/subscription')}
+            />
           ))}
         </Stack>
         <Stack direction={'row'} spacing={2}>
