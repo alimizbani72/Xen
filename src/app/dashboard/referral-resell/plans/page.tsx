@@ -1,5 +1,4 @@
 'use client'
-import PlanCard from '@/app/(landing-auth)/pricing/_section/PlanCard'
 import BreadCrumbs from '@/app/_components/Breadcrumb'
 import { useApiMutation, useApiQuery } from '@/hooks'
 import { v4 as uuidv4 } from 'uuid'
@@ -7,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Scrollbar from '@/components/Scrollbar'
 import { getFontValue } from '@/utils'
 import { Stack, Typography } from '@mui/material'
+import PlanCard from './PlanCard'
 
 const breadCrumbsItems = [
   { href: '/dashboard/referral-resell/', label: 'Referral & Resell' },
@@ -54,7 +54,6 @@ const Page = () => {
               duration="1 Month"
               total="3.5 USDT Total"
               btnText="Purchase"
-              isHighlighted={false}
               onClick={() => handlePurchase(plan.id, plan.minimumCount)}
             />
           ))}

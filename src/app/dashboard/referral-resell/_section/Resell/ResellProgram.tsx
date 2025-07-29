@@ -59,7 +59,7 @@ export const ResellProgram = () => {
             sx={{
               flex: { xs: 2, md: 1 },
               maxHeight: 374,
-              minWidth: 250,
+              minWidth: 305,
               width: '100%',
               height: '100%',
               background: 'linear-gradient(51.9deg, #130F30 0.46%, #594DBA 96.33%)',
