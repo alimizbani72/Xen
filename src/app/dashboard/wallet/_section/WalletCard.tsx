@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation'
 const WalletCard = () => {
   const router = useRouter()
   const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
-  console.log(data)
 
   return (
     <Stack
@@ -31,13 +30,13 @@ const WalletCard = () => {
         <Stack>
           <Typography sx={{ color: 'white', ...getFontValue({ xs: 19, md: 24 }, 600) }}>Your Balance</Typography>
           <Typography sx={{ color: '#B9BDFF', ...getFontValue({ xs: 16, md: 20 }, 400) }}>
-            ${(data as any)?.wallet_amount}
+            ${data?.wallet_amount}
           </Typography>
         </Stack>
         <Stack>
           <Typography sx={{ color: 'white', ...getFontValue({ xs: 19, md: 24 }, 600) }}>Withdrawable </Typography>
           <Typography sx={{ color: '#B9BDFF', ...getFontValue({ xs: 16, md: 20 }, 400) }}>
-            ${(data as any)?.wallet_amount}
+            ${data?.wallet_amount}
           </Typography>
         </Stack>
         <Stack direction={'row'} spacing={3}>

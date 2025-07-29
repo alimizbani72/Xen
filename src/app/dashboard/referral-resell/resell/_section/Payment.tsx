@@ -48,7 +48,7 @@ const Payment = () => {
         }}
       >
         <Typography sx={{ color: '#49549C', ...getFontValue(18, 500), pr: 5 }}>
-          Your Wallet: {(data as any)?.wallet_amount}$
+          Your Wallet: {data?.wallet_amount}$
         </Typography>
       </Stack>
     </Stack>
