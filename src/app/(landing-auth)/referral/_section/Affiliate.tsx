@@ -9,8 +9,14 @@ const Affiliate = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('md'))
   if (isMobile) {
     return (
-      <Stack position={'relative'} justifyContent={'center'} alignItems={'center'} height={'100%'} width={'100%'}>
-        {' '}
+      <Stack
+        position={'relative'}
+        justifyContent={'center'}
+        alignItems={'center'}
+        height={'100%'}
+        width={{ xs: '100%', xl: '80%' }}
+        m={{ xl: '0 auto' }}
+      >
         <RiveComp src="assets/rive/affiliate_page_animation.riv" />
         <Box
           sx={{
@@ -72,10 +78,10 @@ const Affiliate = () => {
   }
   return (
     <Box position="relative" height={'100%'} width={'100%'}>
-      <Stack width="100%" height={'100%'} position="absolute" bottom={0} zIndex={0}>
+      <Stack width={'100%'} height={'100%'} position="absolute" bottom={{ xs: 0, md: 160 }} zIndex={0}>
         <RiveComp src="assets/rive/affiliate_page_animation.riv" alignment={Alignment.TopCenter} />
       </Stack>
-      <Box position="absolute" top={{ xs: '50%', md: '75%' }} left="50%" sx={{ transform: 'translate(-50%, -50%)' }}>
+      <Box position="absolute" top={{ xs: '50%', md: '63%' }} left="50%" sx={{ transform: 'translate(-50%, -50%)' }}>
         <Stack spacing={2} alignItems="center">
           <Typography
             sx={{

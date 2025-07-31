@@ -120,7 +120,7 @@ const Sidebar = () => {
           }}
           onClick={() => setOpenDrawer(true)}
         >
-          <Icon name="menu" size={35} />
+          <Image src={'assets/svg/menu.svg'} width={55} height={55} alt="menu" />
         </Box>
         <Drawer anchor={'left'} open={openDrawer} onClose={() => setOpenDrawer(false)}>
           <Stack
