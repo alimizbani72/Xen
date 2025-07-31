@@ -21,52 +21,20 @@ const DownloadButton = () => (
 const PhoneSection = () => {
   return (
     <Stack
-      pt={33}
-      width={'100%'}
-      maxWidth={'1262px'}
-      m={'auto'}
+      pt={{ xs: 'unset', md: 33 }}
+      pb={{ xs: 20, md: 'unset' }}
+      width="100%"
+      maxWidth="1262px"
+      m="auto"
       direction={{ xs: 'column', lg: 'row' }}
-      justifyContent={'flex-end'}
+      justifyContent="flex-end"
       px={{ xs: 4, md: 10, lg: 'unset' }}
-      alignItems={'center'}
+      alignItems="center"
       spacing={{ lg: 9 }}
       zIndex={1}
     >
-      <Stack maxWidth={{ lg: 316 }}>
-        <Stack direction={{ xs: 'row', md: 'column' }} spacing={2}>
-          <Typography
-            sx={{ ...getFontValue({ xs: 20, md: 64 }, 300), color: 'white', textAlign: { xs: 'center', lg: 'left' } }}
-          >
-            Go{' '}
-            <Box component="span" sx={{ fontWeight: 700 }}>
-              Fast.
-            </Box>
-          </Typography>
-          <Typography
-            sx={{ ...getFontValue({ xs: 20, md: 64 }, 300), color: 'white', textAlign: { xs: 'center', lg: 'left' } }}
-          >
-            Stay{' '}
-            <Box component="span" sx={{ fontWeight: 700 }}>
-              Safe.
-            </Box>
-          </Typography>
-          <Typography
-            sx={{ ...getFontValue({ xs: 20, md: 64 }, 300), color: 'white', textAlign: { xs: 'center', lg: 'left' } }}
-          >
-            Stay{' '}
-            <Box component="span" sx={{ fontWeight: 700 }}>
-              Xen.
-            </Box>
-          </Typography>
-        </Stack>
-        <Box display={{ xs: 'none', lg: 'block' }} mt={12}>
-          <DownloadButton />
-        </Box>
-      </Stack>
-      <Stack>
-        <Box display={{ xs: 'block', lg: 'none' }} mt={8}>
-          <DownloadButton />
-        </Box>
+      {/* Phone Image */}
+      <Stack order={{ xs: 1, lg: 2 }}>
         <Box
           component="img"
           src="/assets/png/phones.png"
@@ -75,6 +43,51 @@ const PhoneSection = () => {
           height={{ xs: '400px', md: '728px' }}
           sx={{ objectFit: 'contain' }}
         />
+      </Stack>
+
+      {/* Text + Button */}
+      <Stack order={{ xs: 2, lg: 1 }} maxWidth={{ lg: 316 }}>
+        <Stack direction={{ xs: 'row', md: 'column' }} spacing={2}>
+          <Typography
+            sx={{
+              ...getFontValue({ xs: 20, md: 64 }, 300),
+              color: 'white',
+              textAlign: { xs: 'center', lg: 'left' },
+            }}
+          >
+            Go{' '}
+            <Box component="span" sx={{ fontWeight: 700 }}>
+              Fast.
+            </Box>
+          </Typography>
+          <Typography
+            sx={{
+              ...getFontValue({ xs: 20, md: 64 }, 300),
+              color: 'white',
+              textAlign: { xs: 'center', lg: 'left' },
+            }}
+          >
+            Stay{' '}
+            <Box component="span" sx={{ fontWeight: 700 }}>
+              Safe.
+            </Box>
+          </Typography>
+          <Typography
+            sx={{
+              ...getFontValue({ xs: 20, md: 64 }, 300),
+              color: 'white',
+              textAlign: { xs: 'center', lg: 'left' },
+            }}
+          >
+            Stay{' '}
+            <Box component="span" sx={{ fontWeight: 700 }}>
+              Xen.
+            </Box>
+          </Typography>
+        </Stack>
+        <Box mt={{ xs: 12, md: 8 }}>
+          <DownloadButton />
+        </Box>
       </Stack>
     </Stack>
   )

@@ -2,8 +2,12 @@
 import type { BoxProps } from '@mui/material/Box'
 
 import Box from '@mui/material/Box'
-import ApexChart from 'react-apexcharts'
+import dynamic from 'next/dynamic'
 import { ChartProps } from './types'
+
+const ApexChart = dynamic(() => import('react-apexcharts').then(mod => mod.default), {
+  ssr: false,
+})
 
 export function Chart({
   sx,
