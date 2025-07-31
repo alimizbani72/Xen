@@ -13,6 +13,7 @@ type RiveCompProps = {
   inputName?: string
   onInputReady?: (input: any) => void
   alignment?: Alignment
+  fit?: Fit
 }
 
 const RiveLoader: FC<RiveCompProps> = ({
@@ -23,14 +24,14 @@ const RiveLoader: FC<RiveCompProps> = ({
   inputName = '',
   onInputReady,
   alignment = Alignment.BottomCenter,
+  fit = Fit.Cover,
 }) => {
   const { RiveComponent, rive } = useRive({
     src,
     stateMachines: stateMachineName,
     autoplay: true,
     layout: new Layout({
-      fit: Fit.Cover, // Specify Fit.Layout to automatically resize the artboard.
-      // layoutScaleFactor: 2, // x2 The Scale Factor
+      fit,
       alignment,
     }),
   })

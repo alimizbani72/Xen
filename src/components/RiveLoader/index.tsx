@@ -1,5 +1,5 @@
 'use client'
-import { Alignment } from '@rive-app/react-canvas'
+import { Alignment, Fit } from '@rive-app/react-canvas'
 import dynamic from 'next/dynamic'
 import type { FC } from 'react'
 
@@ -15,6 +15,7 @@ export type RiveCompProps = {
   inputName?: string
   onInputReady?: (input: any) => void
   alignment?: Alignment
+  fit?: Fit
 }
 
 const RiveComp: FC<RiveCompProps> = ({
