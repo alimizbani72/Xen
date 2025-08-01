@@ -20,7 +20,7 @@ const Moon = () => {
           src="/assets/png/123.png"
           alt="Planet"
           fill
-          loading="lazy"
+          loading="eager"
           style={{
             objectFit: 'cover',
             objectPosition: 'top center',

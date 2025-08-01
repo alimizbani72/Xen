@@ -30,7 +30,7 @@ const HomeSection = () => {
           position: 'relative',
         }}
       >
-        <Image fill src="/assets/png/beyond.png" alt="beyond" />
+        <Image fill src="/assets/png/beyond.png" alt="beyond" loading="eager" />
       </Box>
       <Features />
       <Locations />
