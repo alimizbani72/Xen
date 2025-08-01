@@ -21,6 +21,7 @@ const DownloadButton = () => (
 const PhoneSection = () => {
   return (
     <Stack
+      id="download"
       pt={{ xs: 'unset', md: 33 }}
       pb={{ xs: 20, md: 'unset' }}
       width="100%"

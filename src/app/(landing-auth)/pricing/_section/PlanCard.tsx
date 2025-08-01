@@ -53,7 +53,16 @@ const PlanCard = ({
     >
       <Stack pt={isHighlighted ? 7 : 4} pb={isHighlighted ? 0 : 4} textAlign={'center'}>
         <Typography
-          sx={{ ...getFontValue(isHighlighted ? 16 : 14, 400), color: isHighlighted ? '#ffffff' : '#8F8F8F' }}
+          sx={{
+            ...getFontValue(isHighlighted ? 16 : 14, 400),
+            color: isHighlighted ? '#ffffff' : '#8F8F8F',
+            width: 'calc(100% - 56px)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            textWrap: 'nowrap',
+            margin: '0 auto',
+            direction: 'rtl',
+          }}
         >
           {name}
         </Typography>

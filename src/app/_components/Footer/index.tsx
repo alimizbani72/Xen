@@ -10,7 +10,7 @@ import RoutesSection from './RoutesSection'
 const FooterSection = () => {
   return (
     <>
-      <Box id="download">
+      <Box>
         <Stack bgcolor={'#040015'} width={'100%'}>
           <Stack
             py={22.5}

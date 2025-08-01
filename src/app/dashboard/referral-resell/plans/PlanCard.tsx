@@ -48,7 +48,20 @@ const PlanCard = ({
       }}
     >
       <Stack pt={2} pb={4} textAlign={'center'}>
-        <Typography sx={{ ...getFontValue(14, 400), color: '#8F8F8F' }}>{name}</Typography>
+        <Typography
+          sx={{
+            ...getFontValue(14, 400),
+            color: '#8F8F8F',
+            width: 'calc(100% - 56px)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            textWrap: 'nowrap',
+            margin: '0 auto',
+            direction: 'rtl',
+          }}
+        >
+          {name}
+        </Typography>
         <Typography sx={{ ...getFontValue(37, 700), color: 'white' }}>{duration}</Typography>
       </Stack>
       <Stack px={5} spacing={2}>
