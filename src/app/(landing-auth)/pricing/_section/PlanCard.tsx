@@ -76,7 +76,7 @@ const PlanCard = ({
         <Divider sx={{ bgcolor: '#232246' }} orientation="horizontal" />
         <Stack>
           <Typography sx={{ ...getFontValue(12, 400), color: '#8F8F8F', textAlign: 'center' }}>Price</Typography>
-          <Stack direction={'row'} alignItems={'baseline'}>
+          <Stack direction={'row'} justifyContent={'center'} alignItems={'baseline'}>
             <Typography sx={{ ...getFontValue(isHighlighted ? { xs: 50, sm: 54 } : 47.4, 700), color: 'white' }}>
               {amount}
               {'  '}
