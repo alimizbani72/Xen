@@ -8,7 +8,7 @@ interface AuthProviderProps {
   accessToken?: string
 }
 
-const publicRoutes = ['/pricing', '/download', '/referral']
+const publicRoutes = ['/pricing', '/download', '/referral', '/dashboard']
 
 export default function AuthProvider({ children }: AuthProviderProps) {
   const pathname = usePathname()
@@ -16,12 +16,14 @@ export default function AuthProvider({ children }: AuthProviderProps) {
 
   const token = session?.data?.token
   useEffect(() => {
-    if (pathname !== '/' && !publicRoutes.includes(pathname) && session?.status !== 'loading') {
-      if (!token && pathname?.startsWith('/dashboard')) {
+    if (pathname !== '/' && !publicRoutes.includes(pathname)) {
+      //  && session?.status !== 'loading'
+      if (pathname?.startsWith('/finance')) {
+        // && token
         redirect('/auth/login', RedirectType.replace)
       }
 
-      if (token && pathname?.startsWith('/auth')) {
+      if (!token && pathname?.startsWith('/auth')) {
         redirect('/dashboard', RedirectType.replace)
       }
     }

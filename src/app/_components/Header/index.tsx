@@ -1,6 +1,5 @@
 'use client'
 
-import { Icon } from '@/components/Icon'
 import { mainRoutes } from '@/constants/mainRoutes'
 import { getFontValue } from '@/utils'
 import { Box, Button, Drawer, List, ListItem, ListItemButton, Stack, useMediaQuery } from '@mui/material'
@@ -55,8 +54,8 @@ const Header = () => {
             </Box>
           ))}
         </Stack>
-        <Button size="small" sx={{ py: 3 }} href={session?.data?.token ? '/dashboard' : '/auth/login'}>
-          {session?.data?.token ? 'Dashboard' : 'Login'}
+        <Button size="small" sx={{ py: 3 }} href={!session?.data?.token ? '/dashboard' : '/auth/login'}>
+          {!session?.data?.token ? 'Dashboard' : 'Login'}
         </Button>
       </Stack>
     )
