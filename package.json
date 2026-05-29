@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write .",
-    "prepare": "husky || true",
+    "prepare": "husky",
     "icongen": "node ./src/tools/icon-generator.js"
   },
   "lint-staged": {
