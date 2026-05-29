@@ -72,7 +72,7 @@ const Header = () => {
         }}
         onClick={() => setOpenDrawer(true)}
       >
-        <Image src={'assets/svg/menu.svg'} width={55} height={55} alt="menu" />
+        {pathname !== '/auth/login' && <Image src={'assets/svg/menu.svg'} width={32} height={32} alt="menu" />}
       </Box>
       <Drawer anchor={'left'} open={openDrawer} onClose={() => setOpenDrawer(false)}>
         <Stack
