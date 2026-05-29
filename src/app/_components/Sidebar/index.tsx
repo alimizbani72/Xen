@@ -1,14 +1,14 @@
 'use client'
+import { signOut } from '@/app/(landing-auth)/auth/login/_Section/signinout'
 import { Icon } from '@/components/Icon'
 import { IconType } from '@/components/Icon/iconNames'
 import { useApiQuery } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Avatar, Box, Divider, Drawer, Stack, useMediaQuery } from '@mui/material'
 import { Session } from 'next-auth'
-import { signOut } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 const menus = [
@@ -24,9 +24,10 @@ const Sidebar = () => {
   const isMobile = useMediaQuery(theme => theme.breakpoints.down('lg'))
   const [openDrawer, setOpenDrawer] = useState(false)
   const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
+  const router = useRouter()
 
   const handleSignout = () => {
-    signOut({ redirect: true, callbackUrl: '/' })
+    signOut(router)
   }
   const subPath = pathname.replace(/^\/dashboard/, '') || '/'
   const activeMenu = menus.find(menu => {

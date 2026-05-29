@@ -1,16 +1,16 @@
 'use client'
 
 import { mainRoutes } from '@/constants/mainRoutes'
+import { useAuth } from '@/hooks/useAuth'
 import { getFontValue } from '@/utils'
 import { Box, Button, Drawer, List, ListItem, ListItemButton, Stack, useMediaQuery } from '@mui/material'
-import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 const Header = () => {
-  const session = useSession()
+  const { isLoggedIn } = useAuth()
   const pathname = usePathname()
   const [openDrawer, setOpenDrawer] = useState(false)
   const isTabletOrWeb = useMediaQuery(theme => theme.breakpoints.up('md'))
@@ -54,8 +54,8 @@ const Header = () => {
             </Box>
           ))}
         </Stack>
-        <Button size="small" sx={{ py: 3 }} href={!session?.data?.token ? '/dashboard' : '/auth/login'}>
-          {!session?.data?.token ? 'Dashboard' : 'Login'}
+        <Button size="small" sx={{ py: 3 }} href={isLoggedIn ? '/dashboard' : '/auth/login'}>
+          {isLoggedIn ? 'Dashboard' : 'Login'}
         </Button>
       </Stack>
     )
@@ -102,8 +102,8 @@ const Header = () => {
             ))}
           </List>
 
-          <Button sx={{ mx: 4 }} href={session?.data?.token ? '/dashboard' : '/auth/login'}>
-            {session?.data?.token ? 'Dashboard' : 'Login'}
+          <Button sx={{ mx: 4 }} href={isLoggedIn ? '/dashboard' : '/auth/login'}>
+            {isLoggedIn ? 'Dashboard' : 'Login'}
           </Button>
         </Stack>
       </Drawer>

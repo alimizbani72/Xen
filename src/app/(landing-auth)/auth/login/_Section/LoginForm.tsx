@@ -4,12 +4,13 @@ import FormProvider from '@/components/HookForm/form-provider'
 import { useYupValidationResolver } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Box, Button, Stack } from '@mui/material'
-import { signIn } from 'next-auth/react'
+// import { signIn } from 'next-auth/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import * as yup from 'yup'
+import { signIn } from './signinout'
 
 let userSchema = yup.object({
   email: yup.string().email().required(),
@@ -28,20 +29,31 @@ const LoginForm = () => {
     handleSubmit,
     formState: { isSubmitting },
   } = methods
-  const onSubmit = handleSubmit(async data => {
-    const response = await signIn('SIGN_IN', {
-      email: data?.email,
-      password: data?.password,
-      redirect: false,
-    })
+  // const onSubmit = handleSubmit(async data => {
+  //   const response = await signIn('SIGN_IN', {
+  //     email: data?.email,
+  //     password: data?.password,
+  //     redirect: false,
+  //   })
 
-    if (response?.ok) {
-      router.push('/dashboard')
-    } else {
+  //   if (response?.ok) {
+  //     router.push('/dashboard')
+  //   } else {
+  //     toast.error('The Email or Password is incorrect.')
+  //   }
+  // })
+  const onSubmit = handleSubmit(async data => {
+    try {
+      await signIn({
+        password: data.password,
+        email: data.email?.toLowerCase(),
+        router,
+        // callback: () => twoFaCallback(data?.email, data?.password),
+      })
+    } catch {
       toast.error('The Email or Password is incorrect.')
     }
   })
-
   return (
     <Stack maxWidth={468} width={'100%'}>
       {/* <GoogleSignin />

@@ -1,33 +1,38 @@
 'use client'
-import { useSession } from 'next-auth/react'
-import { RedirectType, redirect, usePathname } from 'next/navigation'
-import { useEffect, type ReactNode } from 'react'
+import { getToken } from '@/utils/localstorage'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect, useState, type ReactNode } from 'react'
 
-interface AuthProviderProps {
-  children: ReactNode
-  accessToken?: string
-}
+const publicRoutes = ['/', '/pricing', '/download', '/referral']
 
-const publicRoutes = ['/pricing', '/download', '/referral', '/dashboard']
-
-export default function AuthProvider({ children }: AuthProviderProps) {
+export default function AuthProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname()
-  const session = useSession()
+  const router = useRouter()
 
-  const token = session?.data?.token
+  const [hydrated, setHydrated] = useState(false)
+  const [token, setToken] = useState<string | null>(null)
+
   useEffect(() => {
-    if (pathname !== '/' && !publicRoutes.includes(pathname)) {
-      //  && session?.status !== 'loading'
-      if (pathname?.startsWith('/finance')) {
-        // && token
-        redirect('/auth/login', RedirectType.replace)
-      }
+    setToken(getToken())
+    setHydrated(true)
+  }, [])
 
-      if (!token && pathname?.startsWith('/auth')) {
-        redirect('/dashboard', RedirectType.replace)
-      }
+  useEffect(() => {
+    if (!hydrated) return
+
+    const isPublic = publicRoutes.includes(pathname)
+
+    // ❌ not logged in → block private pages
+    if (!token && !isPublic) {
+      router.replace('/auth/login')
     }
-  }, [pathname, session?.status, token])
+
+    // ❌ logged in → block auth pages
+    if (token && (pathname === '/auth/login' || pathname === '/auth/register')) {
+      router.replace('/dashboard')
+    }
+  }, [token, pathname, hydrated])
+  if (!hydrated) return null
 
   return <>{children}</>
 }
