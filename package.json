@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write .",
-    "prepare": "husky",
+    "prepare": "husky || true",
     "icongen": "node ./src/tools/icon-generator.js"
   },
   "lint-staged": {
@@ -23,7 +23,7 @@
     "axios": "^1.10.0",
     "css-mediaquery": "^0.1.2",
     "next": "15.3.5",
-    "next-auth": "^4.24.11",
+    "next-auth": "^4.24.14",
     "nprogress": "^0.2.0",
     "overlayscrollbars": "^2.11.4",
     "overlayscrollbars-react": "^0.5.6",
