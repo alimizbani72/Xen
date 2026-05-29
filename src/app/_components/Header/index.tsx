@@ -92,7 +92,7 @@ const Header = () => {
             {mainRoutes.map(link => (
               <ListItem key={link.label}>
                 <ListItemButton
-                  LinkComponent={Link}
+                  component={Link}
                   href={link.href}
                   sx={{ ...getFontValue(16), color: '#fff', textDecoration: 'none' }}
                 >

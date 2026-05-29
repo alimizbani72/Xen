@@ -1,9 +1,9 @@
 'use client'
 import Badge from '@/app/_components/Badge'
 import { RiveFooter } from '@/app/_components/RiveFooter'
+import { mockPlans } from '@/app/dashboard/subscription/_section/Plans'
 import DustBackground from '@/components/DustBackground'
 import { Icon } from '@/components/Icon'
-import { useApiQuery } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Box, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
@@ -11,9 +11,6 @@ import PlanCard from './PlanCard'
 
 const PricingSection = () => {
   const router = useRouter()
-  const { data, isLoading } = useApiQuery<{ items?: any[] }>({
-    url: 'pack/list?skip=0&limit=3',
-  })
 
   return (
     <Box position={'relative'} pb={{ xs: 10, md: 40 }} px={2} overflow="hidden">
@@ -43,21 +40,17 @@ const PricingSection = () => {
           </Typography>
         </Stack>
         <Stack direction={{ xs: 'column', lg: 'row' }} alignItems={'center'} spacing={7}>
-          {isLoading
-            ? Array.from({ length: 3 }).map((_, index) => (
-                <Stack key={index} className="loading-skeleton" sx={{ width: '328px', height: '369px' }} />
-              ))
-            : data?.items?.map((plan, idx) => (
-                <PlanCard
-                  key={idx}
-                  {...plan}
-                  currency={plan.plisio.currency}
-                  amount={plan.plisio.amount}
-                  isHighlighted={idx === 1}
-                  btnText="Purchase"
-                  onClick={() => router.push('dashboard/subscription')}
-                />
-              ))}
+          {mockPlans?.items?.map((plan, idx) => (
+            <PlanCard
+              key={idx}
+              {...plan}
+              currency={plan.plisio.currency}
+              amount={plan.plisio.amount}
+              isHighlighted={idx === 1}
+              btnText="Purchase"
+              onClick={() => router.push('dashboard/subscription')}
+            />
+          ))}
         </Stack>
         <Stack direction={'row'} spacing={2}>
           <Icon name="headphone" size={25} color="#8F8F8F" />

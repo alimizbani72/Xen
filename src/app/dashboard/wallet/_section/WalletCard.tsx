@@ -1,14 +1,12 @@
 'use client'
 import { Icon } from '@/components/Icon'
-import { useApiQuery } from '@/hooks'
 import { getFontValue } from '@/utils'
 import { Button, Stack, Typography } from '@mui/material'
-import { Session } from 'next-auth'
 import { useRouter } from 'next/navigation'
 
 const WalletCard = () => {
   const router = useRouter()
-  const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
+  // const { data } = useApiQuery<Session['user']>({ url: '/my/info' })
 
   return (
     <Stack
@@ -29,15 +27,11 @@ const WalletCard = () => {
       <Stack px={8} py={7.5} spacing={7}>
         <Stack>
           <Typography sx={{ color: 'white', ...getFontValue({ xs: 19, md: 24 }, 600) }}>Your Balance</Typography>
-          <Typography sx={{ color: '#B9BDFF', ...getFontValue({ xs: 16, md: 20 }, 400) }}>
-            ${data?.wallet_amount}
-          </Typography>
+          <Typography sx={{ color: '#B9BDFF', ...getFontValue({ xs: 16, md: 20 }, 400) }}>$100</Typography>
         </Stack>
         <Stack>
           <Typography sx={{ color: 'white', ...getFontValue({ xs: 19, md: 24 }, 600) }}>Withdrawable </Typography>
-          <Typography sx={{ color: '#B9BDFF', ...getFontValue({ xs: 16, md: 20 }, 400) }}>
-            ${data?.wallet_amount}
-          </Typography>
+          <Typography sx={{ color: '#B9BDFF', ...getFontValue({ xs: 16, md: 20 }, 400) }}>$100</Typography>
         </Stack>
         <Stack direction={'row'} spacing={3}>
           <Button size="small" onClick={() => router.push('/dashboard/wallet/charge-wallet')}>
